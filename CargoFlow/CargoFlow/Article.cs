@@ -17,5 +17,24 @@ namespace CargoFlow
         private float price;
         private int id;
         private string category;
+
+        public string ManufacturerCode
+        {
+            get { return manufacturerCode; }
+            set { manufacturerCode = value; }
+        }
+
+        public int BarCode
+        {
+            get { return barCode; }
+            set { barCode = value; }
+        }
+
+        public string Brand
+        {
+            get { return brand; }
+            set { brand = value; }
+        }
+
     }
 }

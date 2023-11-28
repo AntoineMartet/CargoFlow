@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CargoFlow
+namespace CargoFlowMgmt
 {
     public class Warehouse
     {
+        private int id;
         private string name;
         private string street;
-        private string streetNb;
-        private int id;
     }
 }

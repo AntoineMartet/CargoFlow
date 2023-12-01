@@ -10,16 +10,65 @@
   <Class Name="CargoFlowMgmt.Article">
     <Position X="4.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEBAAAAAAAAAAQAQEAAAAAAAAAAAAAgAAAAAAAIAgE=</HashCode>
+      <HashCode>AAEBAQAAAAAAAAQAQEAAAAAAAAAAAAAgAAAAAAAIAgA=</HashCode>
       <FileName>Article.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CargoFlowMgmt.Warehouse">
     <Position X="6.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAAAAAAAAgA=</HashCode>
+      <HashCode>AAgAAAAAAAAAAAAAAAAACCAAEAAEAgAAAAAAAAAAAgA=</HashCode>
       <FileName>Warehouse.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="CargoFlowMgmt.OpeningHours">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OpeningHours.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CargoFlowMgmt.Delivery">
+    <Position X="4.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAgEAQAAAAAAAAAAACAAAQAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Delivery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CargoFlowMgmt.Address">
+    <Position X="6.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAACCAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CargoFlowMgmt.Transporter">
+    <Position X="2" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Transporter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CargoFlowMgmt.Employee">
+    <Position X="8.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAEAAAAAAABAAAAAAAAAAAAAACAAAAgE=</HashCode>
+      <FileName>Employees.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CargoFlowMgmt.Client">
+    <Position X="8.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAgAAAAAAAAAAIAAAAAAAAACAAAAgA=</HashCode>
+      <FileName>Client.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="CargoFlowMgmt.RoleType">
+    <Position X="11" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RoleType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

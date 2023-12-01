@@ -5,15 +5,11 @@ using System.Text;
 
 namespace CargoFlowMgmt
 {
-    public class Warehouse
+    public class Address
     {
-        private int id;
-        private string name;
         private string street;
-        private string streetNB;
+        private string streetNb;
         private string city;
         private string postalCode;
-        private OpeningHours openingHours;
-        private List<Article> articles;
     }
 }

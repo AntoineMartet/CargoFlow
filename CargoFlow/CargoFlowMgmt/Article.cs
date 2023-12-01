@@ -7,7 +7,7 @@ namespace CargoFlowMgmt
 {
     public class Article
     {
-        private int barCode;
+        private int barcode;
         private string model;
         private string brand;
         private float weight;

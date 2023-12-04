@@ -7,7 +7,6 @@ namespace CargoFlowMgmt
 {
     public enum RoleType
     {
-        // À voir comment remplir, cf. ClassDiagram avec name + value dans les champs
-        Dirigeant
+        HeadOfLogistics, WahouseManager, WarehouseWorker
     }
 }

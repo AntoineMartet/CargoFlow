@@ -8,5 +8,10 @@ namespace CargoFlowMgmt
     public class OpeningHours
     {
         string[,] openingHours = new string[7, 3];
+
+        public OpeningHours(string[,] openingHours)
+        {
+            this.openingHours = openingHours;
+        }
     }
 }

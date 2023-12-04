@@ -1,72 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="CargoFlowMgmt.Category">
-    <Position X="2" Y="1.5" Width="1.5" />
+    <Position X="2.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <HashCode>AAACAAAAAAAgAAAAIAAAAAQAAAAEAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Category.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CargoFlowMgmt.Article">
-    <Position X="4.25" Y="1.5" Width="1.5" />
+    <Position X="4" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEBAQAAAAAAAAQAQEAAAAAAAAAAAAAgAAAAAAAIAgA=</HashCode>
+      <HashCode>AAEDAQAABQEAAAQAQEAAAEBAACAAAAAgAAgAAAAJAgA=</HashCode>
       <FileName>Article.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CargoFlowMgmt.Warehouse">
-    <Position X="6.5" Y="1.5" Width="1.5" />
+    <Position X="5.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAAAAAAAAAAAAAACCAAEAAEAgAAAAAAAAAAAgA=</HashCode>
+      <HashCode>AAgCAAAIAAAAAAAIIAgQCCQAEAAEAgAAAAIAAAAAAgA=</HashCode>
       <FileName>Warehouse.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CargoFlowMgmt.OpeningHours">
-    <Position X="8.75" Y="1.5" Width="1.5" />
+    <Position X="14.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>OpeningHours.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CargoFlowMgmt.Delivery">
-    <Position X="4.25" Y="5.25" Width="1.5" />
+    <Position X="12.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAgEAQAAAAAAAAAAACAAAQAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <HashCode>QAgGAQAIBAEAAAAAACAAAQAgAAAAAAAAAAAAAEAAAgA=</HashCode>
       <FileName>Delivery.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CargoFlowMgmt.Address">
-    <Position X="6.5" Y="5.25" Width="1.5" />
+    <Position X="7.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAACAAAAAACCAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAACAIIAAACCAAAAAAAgAAAAIAAAAAIAA=</HashCode>
       <FileName>Address.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CargoFlowMgmt.Transporter">
-    <Position X="2" Y="5.25" Width="1.5" />
+    <Position X="0.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAQAAAAUAAAAEAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Transporter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CargoFlowMgmt.Employee">
-    <Position X="8.75" Y="3" Width="1.5" />
+    <Position X="9.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAAEAAAAAAABAAAAAAAAAAAAAACAAAAgE=</HashCode>
+      <HashCode>AAACAEAAQABAAEAAEAAAABAAAAAAAAAAAAAACQAAAgk=</HashCode>
       <FileName>Employees.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CargoFlowMgmt.Client">
-    <Position X="8.75" Y="5.5" Width="1.5" />
+    <Position X="11" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAAAAgAAAAAAAAAAIAAAAAAAAACAAAAgA=</HashCode>
+      <HashCode>AAACAEAAACBAAAAgAAAAAAAAAAIAAAACAAAACAAAAgg=</HashCode>
       <FileName>Client.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="CargoFlowMgmt.RoleType">
-    <Position X="11" Y="3" Width="1.5" />
+    <Position X="14.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAQAAIAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>RoleType.cs</FileName>
     </TypeIdentifier>
   </Enum>

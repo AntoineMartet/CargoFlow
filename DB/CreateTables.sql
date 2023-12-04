@@ -8,21 +8,21 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema cargoflow
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema cargoflow
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `cargoflow` DEFAULT CHARACTER SET utf8 ;
+USE `cargoflow` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`categories`
+-- Table `cargoflow`.`categories`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`categories` ;
+DROP TABLE IF EXISTS `cargoflow`.`categories` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`categories` (
+CREATE TABLE IF NOT EXISTS `cargoflow`.`categories` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `description` TEXT(500) NULL,
@@ -31,11 +31,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`articles`
+-- Table `cargoflow`.`articles`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`articles` ;
+DROP TABLE IF EXISTS `cargoflow`.`articles` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`articles` (
+CREATE TABLE IF NOT EXISTS `cargoflow`.`articles` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `barcode` INT NOT NULL,
   `model` VARCHAR(45) NOT NULL,
@@ -51,18 +51,18 @@ CREATE TABLE IF NOT EXISTS `mydb`.`articles` (
   INDEX `fk_Articles_Categories_idx` (`category_id` ASC) VISIBLE,
   CONSTRAINT `fk_Articles_Categories`
     FOREIGN KEY (`category_id`)
-    REFERENCES `mydb`.`categories` (`id`)
+    REFERENCES `cargoflow`.`categories` (`id`)
     ON DELETE NO ACTION
     ON UPDATE RESTRICT)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`carriers`
+-- Table `cargoflow`.`carriers`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`carriers` ;
+DROP TABLE IF EXISTS `cargoflow`.`carriers` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`carriers` (
+CREATE TABLE IF NOT EXISTS `cargoflow`.`carriers` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `companyName` VARCHAR(45) NOT NULL,
   `loadCapacity` INT NULL,
@@ -71,11 +71,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`warehouses`
+-- Table `cargoflow`.`warehouses`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`warehouses` ;
+DROP TABLE IF EXISTS `cargoflow`.`warehouses` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`warehouses` (
+CREATE TABLE IF NOT EXISTS `cargoflow`.`warehouses` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `street` VARCHAR(45) NOT NULL,
@@ -88,11 +88,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`employees`
+-- Table `cargoflow`.`employees`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`employees` ;
+DROP TABLE IF EXISTS `cargoflow`.`employees` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`employees` (
+CREATE TABLE IF NOT EXISTS `cargoflow`.`employees` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `lastName` VARCHAR(45) NOT NULL,
   `firstName` VARCHAR(45) NOT NULL,
@@ -106,11 +106,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`clients`
+-- Table `cargoflow`.`clients`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`clients` ;
+DROP TABLE IF EXISTS `cargoflow`.`clients` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`clients` (
+CREATE TABLE IF NOT EXISTS `cargoflow`.`clients` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `lastName` VARCHAR(45) NOT NULL,
   `firstName` VARCHAR(45) NOT NULL,
@@ -125,11 +125,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`deliveries`
+-- Table `cargoflow`.`deliveries`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`deliveries` ;
+DROP TABLE IF EXISTS `cargoflow`.`deliveries` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`deliveries` (
+CREATE TABLE IF NOT EXISTS `cargoflow`.`deliveries` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `barcode` INT NOT NULL,
   `startDate` DATE NOT NULL,
@@ -153,28 +153,28 @@ CREATE TABLE IF NOT EXISTS `mydb`.`deliveries` (
   INDEX `fk_Deliveries_Warehouses1_idx` (`warehouse_id` ASC) VISIBLE,
   CONSTRAINT `fk_Delivery_Carriers1`
     FOREIGN KEY (`carrier_id`)
-    REFERENCES `mydb`.`carriers` (`id`)
+    REFERENCES `cargoflow`.`carriers` (`id`)
     ON DELETE SET NULL
     ON UPDATE RESTRICT,
   CONSTRAINT `fk_Deliveries_Customers1`
     FOREIGN KEY (`client_id`)
-    REFERENCES `mydb`.`clients` (`id`)
+    REFERENCES `cargoflow`.`clients` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Deliveries_Warehouses1`
     FOREIGN KEY (`warehouse_id`)
-    REFERENCES `mydb`.`warehouses` (`id`)
+    REFERENCES `cargoflow`.`warehouses` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`deliveries_have_articles`
+-- Table `cargoflow`.`deliveries_have_articles`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`deliveries_have_articles` ;
+DROP TABLE IF EXISTS `cargoflow`.`deliveries_have_articles` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`deliveries_have_articles` (
+CREATE TABLE IF NOT EXISTS `cargoflow`.`deliveries_have_articles` (
   `delivery_id` INT NULL,
   `article_id` INT NULL,
   `quantity` INT NOT NULL,
@@ -182,23 +182,23 @@ CREATE TABLE IF NOT EXISTS `mydb`.`deliveries_have_articles` (
   INDEX `fk_Deliveries_has_Articles_Deliveries1_idx` (`delivery_id` ASC) VISIBLE,
   CONSTRAINT `fk_Deliveries_has_Articles_Deliveries1`
     FOREIGN KEY (`delivery_id`)
-    REFERENCES `mydb`.`deliveries` (`id`)
+    REFERENCES `cargoflow`.`deliveries` (`id`)
     ON DELETE SET NULL
     ON UPDATE RESTRICT,
   CONSTRAINT `fk_Deliveries_has_Articles_Articles1`
     FOREIGN KEY (`article_id`)
-    REFERENCES `mydb`.`articles` (`id`)
+    REFERENCES `cargoflow`.`articles` (`id`)
     ON DELETE SET NULL
     ON UPDATE RESTRICT)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`warehouses_have_articles`
+-- Table `cargoflow`.`warehouses_have_articles`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`warehouses_have_articles` ;
+DROP TABLE IF EXISTS `cargoflow`.`warehouses_have_articles` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`warehouses_have_articles` (
+CREATE TABLE IF NOT EXISTS `cargoflow`.`warehouses_have_articles` (
   `article_id` INT NULL,
   `warehouse_id` INT NULL,
   `quantity` INT NOT NULL,
@@ -206,46 +206,46 @@ CREATE TABLE IF NOT EXISTS `mydb`.`warehouses_have_articles` (
   INDEX `fk_Articles_has_Warehouses_Articles1_idx` (`article_id` ASC) VISIBLE,
   CONSTRAINT `fk_Articles_has_Warehouses_Articles1`
     FOREIGN KEY (`article_id`)
-    REFERENCES `mydb`.`articles` (`id`)
+    REFERENCES `cargoflow`.`articles` (`id`)
     ON DELETE SET NULL
     ON UPDATE RESTRICT,
   CONSTRAINT `fk_Articles_has_Warehouses_Warehouses1`
     FOREIGN KEY (`warehouse_id`)
-    REFERENCES `mydb`.`warehouses` (`id`)
+    REFERENCES `cargoflow`.`warehouses` (`id`)
     ON DELETE SET NULL
     ON UPDATE RESTRICT)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`warehouses_have_employees`
+-- Table `cargoflow`.`warehouses_have_employees`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`warehouses_have_employees` ;
+DROP TABLE IF EXISTS `cargoflow`.`warehouses_have_employees` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`warehouses_have_employees` (
+CREATE TABLE IF NOT EXISTS `cargoflow`.`warehouses_have_employees` (
   `warehouse_id` INT NULL,
   `employee_id` INT NULL,
   INDEX `fk_Warehouses_has_Staffs_Staffs1_idx` (`employee_id` ASC) VISIBLE,
   INDEX `fk_Warehouses_has_Staffs_Warehouses1_idx` (`warehouse_id` ASC) VISIBLE,
   CONSTRAINT `fk_Warehouses_has_Staffs_Warehouses1`
     FOREIGN KEY (`warehouse_id`)
-    REFERENCES `mydb`.`warehouses` (`id`)
+    REFERENCES `cargoflow`.`warehouses` (`id`)
     ON DELETE SET NULL
     ON UPDATE RESTRICT,
   CONSTRAINT `fk_Warehouses_has_Staffs_Staffs1`
     FOREIGN KEY (`employee_id`)
-    REFERENCES `mydb`.`employees` (`id`)
+    REFERENCES `cargoflow`.`employees` (`id`)
     ON DELETE SET NULL
     ON UPDATE RESTRICT)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`days`
+-- Table `cargoflow`.`days`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`days` ;
+DROP TABLE IF EXISTS `cargoflow`.`days` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`days` (
+CREATE TABLE IF NOT EXISTS `cargoflow`.`days` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
@@ -254,23 +254,23 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`warehouses_have_days`
+-- Table `cargoflow`.`warehouses_have_days`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`warehouses_have_days` ;
+DROP TABLE IF EXISTS `cargoflow`.`warehouses_have_days` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`warehouses_have_days` (
+CREATE TABLE IF NOT EXISTS `cargoflow`.`warehouses_have_days` (
   `warehouse_id` INT NULL,
   `day_id` INT NULL,
   INDEX `fk_Warehouses_has_Days_Days1_idx` (`day_id` ASC) VISIBLE,
   INDEX `fk_Warehouses_has_Days_Warehouses1_idx` (`warehouse_id` ASC) VISIBLE,
   CONSTRAINT `fk_Warehouses_has_Days_Warehouses1`
     FOREIGN KEY (`warehouse_id`)
-    REFERENCES `mydb`.`warehouses` (`id`)
+    REFERENCES `cargoflow`.`warehouses` (`id`)
     ON DELETE SET NULL
     ON UPDATE RESTRICT,
   CONSTRAINT `fk_Warehouses_has_Days_Days1`
     FOREIGN KEY (`day_id`)
-    REFERENCES `mydb`.`days` (`id`)
+    REFERENCES `cargoflow`.`days` (`id`)
     ON DELETE SET NULL
     ON UPDATE RESTRICT)
 ENGINE = InnoDB;

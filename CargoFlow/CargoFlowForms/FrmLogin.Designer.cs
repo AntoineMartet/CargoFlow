@@ -1,6 +1,6 @@
 ﻿namespace CargoFlowForms
 {
-    partial class FrmLogin
+    public partial class FrmLogin : Form
     {
         /// <summary>
         ///  Required designer variable.

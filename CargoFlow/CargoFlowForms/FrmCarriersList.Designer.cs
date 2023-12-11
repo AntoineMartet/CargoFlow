@@ -1,6 +1,6 @@
 ﻿namespace CargoFlowForms
 {
-    partial class FrmHome : Form
+    public partial class FrmCarriersList : Form
     {
         /// <summary>
         /// Required designer variable.
@@ -36,7 +36,9 @@
             btnEmployees = new Button();
             btnCategories = new Button();
             btnArticles = new Button();
+            dgvCarriers = new DataGridView();
             flpTabs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCarriers).BeginInit();
             SuspendLayout();
             // 
             // flpTabs
@@ -50,8 +52,8 @@
             flpTabs.Controls.Add(btnArticles);
             flpTabs.Location = new Point(1, 1);
             flpTabs.Name = "flpTabs";
-            flpTabs.Size = new Size(797, 57);
-            flpTabs.TabIndex = 0;
+            flpTabs.Size = new Size(796, 57);
+            flpTabs.TabIndex = 1;
             // 
             // btnStock
             // 
@@ -130,16 +132,31 @@
             btnArticles.Text = "Articles";
             btnArticles.UseVisualStyleBackColor = true;
             // 
-            // FrmHome
+            // dgvCarriers
+            // 
+            dgvCarriers.AllowUserToOrderColumns = true;
+            dgvCarriers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCarriers.Location = new Point(47, 95);
+            dgvCarriers.MultiSelect = false;
+            dgvCarriers.Name = "dgvCarriers";
+            dgvCarriers.RowTemplate.Height = 25;
+            dgvCarriers.Size = new Size(529, 268);
+            dgvCarriers.TabIndex = 2;
+            dgvCarriers.ColumnHeaderMouseClick += dgvCarriers_ColumnHeaderMouseClick;
+            // 
+            // FrmCarriersList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(dgvCarriers);
             Controls.Add(flpTabs);
-            Name = "FrmHome";
-            Text = "FrmHome";
+            Name = "FrmCarriersList";
+            Text = "FrmCarriersList";
+            Load += FrmCarriersList_Load;
             flpTabs.ResumeLayout(false);
             flpTabs.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCarriers).EndInit();
             ResumeLayout(false);
         }
 
@@ -153,5 +170,9 @@
         private Button btnEmployees;
         private Button btnCategories;
         private Button btnArticles;
+        private DataGridView dgvCarriers;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn loadCapacityDataGridViewTextBoxColumn;
     }
 }

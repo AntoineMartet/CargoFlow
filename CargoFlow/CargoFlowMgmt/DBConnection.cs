@@ -51,6 +51,7 @@ namespace CargoFlowMgmt
 
             // Execute the SQL command and put its result in a DbDataReader object
             DbDataReader reader = cmd.ExecuteReader();
+            reader.Read();
 
             // If reader has rows, check if it matches the password, else return false
             if (reader.HasRows)
@@ -72,7 +73,7 @@ namespace CargoFlowMgmt
             }
             else
             {
-                Console.WriteLine("Mail isn't in database");
+                Console.WriteLine("Informations rentrées incorrectes");
                 reader.Close();
                 return false;
             }
@@ -91,7 +92,7 @@ namespace CargoFlowMgmt
 
             // Execute the SQL command and put its result in a DbDataReader object
             DbDataReader reader = cmd.ExecuteReader();
-
+            reader.Read();
             string role =  reader.GetString(0);
             return role;
         }

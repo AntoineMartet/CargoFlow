@@ -12,9 +12,10 @@ namespace CargoFlowForms
 {
     public partial class FrmHome : Form
     {
-        public FrmHome()
+        public FrmHome(string email, string role)
         {
             InitializeComponent();
+
         }
 
     }

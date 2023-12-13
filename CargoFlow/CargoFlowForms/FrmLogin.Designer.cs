@@ -88,6 +88,7 @@
             btnLogin.TabIndex = 5;
             btnLogin.Text = "Se connecter";
             btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
             // 
             // FrmLogin
             // 

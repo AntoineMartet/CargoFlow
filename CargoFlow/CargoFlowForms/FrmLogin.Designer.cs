@@ -76,7 +76,7 @@
             // 
             txtPassword.Location = new Point(262, 215);
             txtPassword.Name = "txtPassword";
-            txtPassword.PasswordChar = '-';
+            txtPassword.PasswordChar = '●';
             txtPassword.Size = new Size(155, 23);
             txtPassword.TabIndex = 4;
             // 

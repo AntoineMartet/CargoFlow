@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
@@ -33,9 +34,7 @@ namespace CargoFlowMgmt
         /// </summary>
         public void OpenConnection()
         {
-
             connection.Open();
-
         }
 
         public bool CheckPassword(string email, string password)
@@ -94,9 +93,46 @@ namespace CargoFlowMgmt
             DbDataReader reader = cmd.ExecuteReader();
             reader.Read();
             string role =  reader.GetString(0);
+            reader.Close();
             return role;
         }
 
+        public BindingList<Carrier> GetAllCarriers()
+        {
+            BindingList<Carrier> carriers = new BindingList<Carrier>();
+
+            // Create a SQL command object
+            MySqlCommand cmd = connection.CreateCommand();
+
+            // SQL request
+            cmd.CommandText = "SELECT id, companyName, loadCapacity FROM carriers";
+
+            // Execute the SQL command and put its result in a DbDataReader object
+            DbDataReader reader = cmd.ExecuteReader();
+
+            // Read the result line by line, creating a Carrier object for each line
+            while (reader.Read())
+            {
+                // Preparing the parameters for the Carrier constructor
+                int id = reader.GetInt32(0);
+                string name = reader.GetString(1);
+                int capacity = reader.GetInt32(2);
+                // Create the Carrier object
+                Carrier carrier = new Carrier(id, name, capacity);
+                // Add the Carrier object to the list
+                carriers.Add(carrier);
+            }
+
+            reader.Close();
+            return carriers;
+            
+            /*
+            reader.Read();
+            string role = reader.GetString(0);
+            reader.Close();
+            return role;
+            */
+        }
 
         /// <summary>
         /// Close connection to the database

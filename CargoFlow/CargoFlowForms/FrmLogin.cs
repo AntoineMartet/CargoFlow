@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 // Reference to CargoFlowMgmt
 using CargoFlowMgmt;
+using CargoFlowForms;
 
 namespace CargoFlowForms
 {
@@ -35,11 +36,12 @@ namespace CargoFlowForms
                 // Open frmHome and close frmLogin
                 FrmHome frmHome = new FrmHome(email, role);
                 frmHome.Show();
-                this.Close();
+                // Hide the login form. Closing it would close the whole application.
+                this.Hide();
             }
             else
             {
-                MessageBox.Show("Mot de passe incorrect");
+                MessageBox.Show("Identifiants incorrect");
             }
         }
     }

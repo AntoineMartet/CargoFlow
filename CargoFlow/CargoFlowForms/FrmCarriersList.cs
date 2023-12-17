@@ -15,6 +15,7 @@ namespace CargoFlowForms
     public partial class FrmCarriersList : Form
     {
         private BindingList<Carrier> carriers = new BindingList<Carrier>();
+        private DBConnection dbConn;
 
         public FrmCarriersList()
         {
@@ -26,22 +27,23 @@ namespace CargoFlowForms
         private BindingList<Carrier> GetCarriers()
         {
             BindingList<Carrier> list = new BindingList<Carrier>();
+            /*
             list.Add(new Carrier(1, "La Poste CH", 1000));
             list.Add(new Carrier(2, "DHL", 1200));
             list.Add(new Carrier(3, "DPD", 950));
+            */
+            dbConn = new DBConnection();
+            dbConn.OpenConnection();
+            list = dbConn.GetAllCarriers();
             return list;
         }
 
         private void FrmCarriersList_Load(object sender, EventArgs e)
         {
-            BindingList<Carrier> list = this.carriers;
-            dgvCarriers.DataSource = list;
+            //BindingList<Carrier> list = this.carriers;
+            dgvCarriers.DataSource = carriers;
             dgvCarriers.Columns["Id"].Visible = false;
         }
 
-        private void dgvCarriers_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            dgvCarriers.Sort(dgvCarriers.Columns["Name"], ListSortDirection.Ascending);
-        }
     }
 }

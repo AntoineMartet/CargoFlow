@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace CargoFlowForms
 {
@@ -15,8 +16,15 @@ namespace CargoFlowForms
         public FrmHome(string email, string role)
         {
             InitializeComponent();
-
         }
 
+        private void btnCarriers_Click(object sender, EventArgs e)
+        {
+            // Open frmHome and close frmLogin
+            FrmCarriersList frmCarriersList = new FrmCarriersList();
+            frmCarriersList.Show();
+            // Close the login form
+            this.Close();
+        }
     }
 }

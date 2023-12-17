@@ -85,6 +85,7 @@
             btnCarriers.TabIndex = 2;
             btnCarriers.Text = "Transporteurs";
             btnCarriers.UseVisualStyleBackColor = true;
+            btnCarriers.Click += btnCarriers_Click;
             // 
             // btnClients
             // 

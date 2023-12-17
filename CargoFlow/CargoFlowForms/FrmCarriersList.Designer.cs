@@ -142,7 +142,6 @@
             dgvCarriers.RowTemplate.Height = 25;
             dgvCarriers.Size = new Size(529, 268);
             dgvCarriers.TabIndex = 2;
-            dgvCarriers.ColumnHeaderMouseClick += dgvCarriers_ColumnHeaderMouseClick;
             // 
             // FrmCarriersList
             // 

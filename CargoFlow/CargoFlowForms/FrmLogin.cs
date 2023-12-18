@@ -41,7 +41,7 @@ namespace CargoFlowForms
             }
             else
             {
-                MessageBox.Show("Identifiants incorrect");
+                MessageBox.Show("Identifiants incorrects");
             }
         }
     }

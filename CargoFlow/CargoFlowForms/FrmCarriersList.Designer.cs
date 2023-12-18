@@ -37,6 +37,9 @@
             btnCategories = new Button();
             btnArticles = new Button();
             dgvCarriers = new DataGridView();
+            btnAdd = new Button();
+            btnUpdate = new Button();
+            btnDelete = new Button();
             flpTabs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCarriers).BeginInit();
             SuspendLayout();
@@ -81,29 +84,33 @@
             // 
             btnCarriers.AutoSize = true;
             btnCarriers.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnCarriers.BackColor = Color.YellowGreen;
+            btnCarriers.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnCarriers.Location = new Point(130, 3);
             btnCarriers.Name = "btnCarriers";
-            btnCarriers.Size = new Size(88, 25);
+            btnCarriers.Size = new Size(94, 25);
             btnCarriers.TabIndex = 2;
             btnCarriers.Text = "Transporteurs";
-            btnCarriers.UseVisualStyleBackColor = true;
+            btnCarriers.UseVisualStyleBackColor = false;
             // 
             // btnClients
             // 
             btnClients.AutoSize = true;
             btnClients.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnClients.Location = new Point(224, 3);
+            btnClients.BackColor = SystemColors.ControlLight;
+            btnClients.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnClients.Location = new Point(230, 3);
             btnClients.Name = "btnClients";
             btnClients.Size = new Size(62, 25);
             btnClients.TabIndex = 3;
             btnClients.Text = "Client.es";
-            btnClients.UseVisualStyleBackColor = true;
+            btnClients.UseVisualStyleBackColor = false;
             // 
             // btnEmployees
             // 
             btnEmployees.AutoSize = true;
             btnEmployees.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnEmployees.Location = new Point(292, 3);
+            btnEmployees.Location = new Point(298, 3);
             btnEmployees.Name = "btnEmployees";
             btnEmployees.Size = new Size(77, 25);
             btnEmployees.TabIndex = 4;
@@ -114,7 +121,7 @@
             // 
             btnCategories.AutoSize = true;
             btnCategories.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnCategories.Location = new Point(375, 3);
+            btnCategories.Location = new Point(381, 3);
             btnCategories.Name = "btnCategories";
             btnCategories.Size = new Size(73, 25);
             btnCategories.TabIndex = 5;
@@ -125,7 +132,7 @@
             // 
             btnArticles.AutoSize = true;
             btnArticles.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnArticles.Location = new Point(454, 3);
+            btnArticles.Location = new Point(460, 3);
             btnArticles.Name = "btnArticles";
             btnArticles.Size = new Size(56, 25);
             btnArticles.TabIndex = 6;
@@ -143,11 +150,41 @@
             dgvCarriers.Size = new Size(529, 268);
             dgvCarriers.TabIndex = 2;
             // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(631, 95);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(112, 40);
+            btnAdd.TabIndex = 3;
+            btnAdd.Text = "Ajouter";
+            btnAdd.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.Location = new Point(631, 152);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(112, 40);
+            btnUpdate.TabIndex = 4;
+            btnUpdate.Text = "Modifier";
+            btnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(631, 210);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(112, 40);
+            btnDelete.TabIndex = 5;
+            btnDelete.Text = "Supprimer";
+            btnDelete.UseVisualStyleBackColor = true;
+            // 
             // FrmCarriersList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnDelete);
+            Controls.Add(btnUpdate);
+            Controls.Add(btnAdd);
             Controls.Add(dgvCarriers);
             Controls.Add(flpTabs);
             Name = "FrmCarriersList";
@@ -173,5 +210,8 @@
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn loadCapacityDataGridViewTextBoxColumn;
+        private Button btnAdd;
+        private Button btnUpdate;
+        private Button btnDelete;
     }
 }

@@ -41,6 +41,29 @@ namespace CargoFlowForms
             dgvCarriers.Columns["Name"].HeaderText = "Nom";
             dgvCarriers.Columns["LoadCapacity"].HeaderText = "Capacité";
             dgvCarriers.Columns["Id"].Visible = false;
+
+            /*
+            // Add a column for deleting rows
+            DataGridViewButtonColumn deleteColumn = new DataGridViewButtonColumn();
+            deleteColumn.HeaderText = "";
+            deleteColumn.Text = "Supprimer";
+            deleteColumn.UseColumnTextForButtonValue = true;
+            dgvCarriers.Columns.Add(deleteColumn);
+
+            // Add a column for updating rows
+            DataGridViewButtonColumn updateColumn = new DataGridViewButtonColumn();
+            updateColumn.HeaderText = "";
+            updateColumn.Text = "Modifier";
+            updateColumn.UseColumnTextForButtonValue = true;
+            dgvCarriers.Columns.Add(updateColumn);
+            */
+        }
+
+        // Create the event handler method
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            // Your code logic here
+            // This method will be executed when the button is clicked
         }
 
     }

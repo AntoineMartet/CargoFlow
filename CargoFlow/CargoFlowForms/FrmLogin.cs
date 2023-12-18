@@ -32,6 +32,7 @@ namespace CargoFlowForms
             {
                 // Get employee role from database
                 string role = dbConn.GetEmployeeRole(email);
+                dbConn.CloseConnection();
 
                 // Open frmHome and close frmLogin
                 FrmHome frmHome = new FrmHome(email, role);

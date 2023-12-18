@@ -158,6 +158,7 @@
             btnAdd.TabIndex = 3;
             btnAdd.Text = "Ajouter";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnUpdate
             // 
@@ -167,6 +168,7 @@
             btnUpdate.TabIndex = 4;
             btnUpdate.Text = "Modifier";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
@@ -176,6 +178,7 @@
             btnDelete.TabIndex = 5;
             btnDelete.Text = "Supprimer";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // FrmCarriersList
             // 

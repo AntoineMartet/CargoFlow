@@ -37,6 +37,7 @@ namespace CargoFlowMgmt
             connection.Open();
         }
 
+
         public bool CheckPassword(string email, string password)
         {
             // Create a SQL command object
@@ -97,6 +98,23 @@ namespace CargoFlowMgmt
             return role;
         }
 
+        public int DeleteCarrier(int id)
+        {
+            // Create a SQL command object
+            MySqlCommand cmd = connection.CreateCommand();
+
+            // SQL request
+            cmd.CommandText = "DELETE FROM carriers WHERE id = @id";
+
+            // Add parameter to the SQL request
+            cmd.Parameters.AddWithValue("@id", id);
+
+            // Execute the SQL command
+            int nbRowsAffected = cmd.ExecuteNonQuery();
+
+            return nbRowsAffected;
+        }
+
         public BindingList<Carrier> GetAllCarriers()
         {
             BindingList<Carrier> carriers = new BindingList<Carrier>();
@@ -125,13 +143,6 @@ namespace CargoFlowMgmt
 
             reader.Close();
             return carriers;
-            
-            /*
-            reader.Read();
-            string role = reader.GetString(0);
-            reader.Close();
-            return role;
-            */
         }
 
         /// <summary>

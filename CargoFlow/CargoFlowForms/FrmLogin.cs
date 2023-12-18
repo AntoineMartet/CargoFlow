@@ -7,9 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-// Reference to CargoFlowMgmt
+// Reference to CargoFlowMgmt project to access its classes
 using CargoFlowMgmt;
-using CargoFlowForms;
 
 namespace CargoFlowForms
 {
@@ -34,7 +33,7 @@ namespace CargoFlowForms
                 string role = dbConn.GetEmployeeRole(email);
                 dbConn.CloseConnection();
 
-                // Open frmHome and close frmLogin
+                // Create and open frmHome and close frmLogin
                 FrmHome frmHome = new FrmHome(email, role);
                 frmHome.Show();
                 // Hide the login form. Closing it would close the whole application.

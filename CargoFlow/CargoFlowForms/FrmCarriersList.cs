@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-// Reference to CargoFlowMgmt
+// Reference to CargoFlowMgmt project to access its classes
 using CargoFlowMgmt;
 
 namespace CargoFlowForms
@@ -37,16 +37,18 @@ namespace CargoFlowForms
         private void FrmCarriersList_Load(object sender, EventArgs e)
         {
             dgvCarriers.DataSource = carriers;
-            // Renommage des colonnes. Pourquoi en fonction des propriétés de l'objet Carrier ? À voir...
+            // Renommage des colonnes. Pourquoi en fonction des propriétés de l'objet Carrier et non pas de ses attributs ? À voir...
             dgvCarriers.Columns["Id"].HeaderText = "ID";
             dgvCarriers.Columns["Name"].HeaderText = "Nom";
             dgvCarriers.Columns["LoadCapacity"].HeaderText = "Capacité";
+            dgvCarriers.Columns["Email"].HeaderText = "Mail";
+            dgvCarriers.Columns["PhoneNumber"].HeaderText = "Téléphone";
             dgvCarriers.Columns["Id"].Visible = false;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            // Open and create frmAddCarrier and close frmCarriersList
+            // Create and open frmAddCarrier and close frmCarriersList
             FrmAddCarrier frmAddCarrier = new FrmAddCarrier();
             frmAddCarrier.Show();
             this.Close();

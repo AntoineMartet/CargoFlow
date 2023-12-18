@@ -1,13 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+// Reference to CargoFlowMgmt project to access its classes
+using CargoFlowMgmt;
 
 namespace CargoFlowForms
 {
     public class FrmAddCarrier : Form
     {
+        private DBConnection? dbConn;
+
         public FrmAddCarrier()
         {
             InitializeComponent();
@@ -44,27 +52,27 @@ namespace CargoFlowForms
             lblName.AutoSize = true;
             lblName.Location = new Point(147, 117);
             lblName.Name = "lblName";
-            lblName.Size = new Size(111, 15);
+            lblName.Size = new Size(119, 15);
             lblName.TabIndex = 1;
-            lblName.Text = "Nom de l'entreprise";
+            lblName.Text = "Nom de l'entreprise *";
             // 
             // lblTel
             // 
             lblTel.AutoSize = true;
             lblTel.Location = new Point(147, 157);
             lblTel.Name = "lblTel";
-            lblTel.Size = new Size(61, 15);
+            lblTel.Size = new Size(69, 15);
             lblTel.TabIndex = 2;
-            lblTel.Text = "Téléphone";
+            lblTel.Text = "Téléphone *";
             // 
             // lblMail
             // 
             lblMail.AutoSize = true;
             lblMail.Location = new Point(147, 197);
             lblMail.Name = "lblMail";
-            lblMail.Size = new Size(36, 15);
+            lblMail.Size = new Size(44, 15);
             lblMail.TabIndex = 3;
-            lblMail.Text = "Email";
+            lblMail.Text = "Email *";
             // 
             // lblCapacity
             // 
@@ -111,6 +119,7 @@ namespace CargoFlowForms
             btnAdd.TabIndex = 9;
             btnAdd.Text = "Ajouter le transporteur";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnCancel
             // 
@@ -120,6 +129,7 @@ namespace CargoFlowForms
             btnCancel.TabIndex = 10;
             btnCancel.Text = "Annuler";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // FrmAddCarrier
             // 
@@ -151,5 +161,43 @@ namespace CargoFlowForms
         private TextBox txtCapacity;
         private Button btnAdd;
         private Button btnCancel;
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            // Open and create frmHome and close frmAddCarrier
+            FrmCarriersList frmCarriersList = new FrmCarriersList();
+            frmCarriersList.Show();
+            this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (txtName.Text == "" || txtTel.Text == "" || txtMail.Text == "")
+            {
+                MessageBox.Show("Veuillez remplir tous les champs obligatoires");
+            }
+            else
+            {
+                // TODO : Add the carrier to the database
+                dbConn = new DBConnection();
+                dbConn.OpenConnection();
+                int? capacity;
+                if (txtCapacity.Text != "")
+                {
+                    capacity = int.Parse(txtCapacity.Text);
+                } else
+                {
+                    capacity = null;
+                }
+
+                dbConn.AddCarrier(txtName.Text, txtTel.Text, txtMail.Text, capacity);
+
+                MessageBox.Show("Transporteur ajouté");
+                // Create and open frmCarriersList and close frmAddCarrier
+                FrmCarriersList frmCarriersList = new FrmCarriersList();
+                frmCarriersList.Show();
+                this.Close();
+            }
+        }
     }
 }

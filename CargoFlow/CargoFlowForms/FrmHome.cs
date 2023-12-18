@@ -20,7 +20,7 @@ namespace CargoFlowForms
 
         private void btnCarriers_Click(object sender, EventArgs e)
         {
-            // Open and create frmHome and close frmLogin
+            // Create and open frmHome and close frmLogin
             FrmCarriersList frmCarriersList = new FrmCarriersList();
             frmCarriersList.Show();
             this.Close();

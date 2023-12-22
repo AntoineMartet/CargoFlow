@@ -135,9 +135,9 @@ namespace CargoFlowMgmt
             return nbRowsAffected;
         }
 
-        public BindingList<Carrier> GetAllCarriers()
+        public List<Carrier> GetAllCarriers()
         {
-            BindingList<Carrier> carriers = new BindingList<Carrier>();
+            List<Carrier> carriers = new List<Carrier>();
 
             // Create a SQL command object
             MySqlCommand cmd = connection.CreateCommand();

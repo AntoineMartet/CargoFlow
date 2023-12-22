@@ -14,7 +14,7 @@ namespace CargoFlowForms
 {
     public partial class FrmCarriersList : Form
     {
-        private BindingList<Carrier> carriers = new BindingList<Carrier>();
+        private List<Carrier> carriers = new List<Carrier>();
         private DBConnection? dbConn;
 
         public FrmCarriersList()
@@ -24,9 +24,9 @@ namespace CargoFlowForms
         }
 
         ///TODO : Get the carriers from the database
-        private BindingList<Carrier> GetCarriers()
+        private List<Carrier> GetCarriers()
         {
-            BindingList<Carrier> list = new BindingList<Carrier>();
+            List<Carrier> list = new List<Carrier>();
             dbConn = new DBConnection();
             dbConn.OpenConnection();
             list = dbConn.GetAllCarriers();

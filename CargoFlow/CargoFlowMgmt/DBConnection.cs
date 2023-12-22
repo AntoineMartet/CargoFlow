@@ -100,19 +100,28 @@ namespace CargoFlowMgmt
 
         public int DeleteCarrier(int id)
         {
-            // Create a SQL command object
-            MySqlCommand cmd = connection.CreateCommand();
+            try
+            {
+                // Create a SQL command object
+                MySqlCommand cmd = connection.CreateCommand();
 
-            // SQL request
-            cmd.CommandText = "DELETE FROM carriers WHERE id = @id";
+                // SQL request
+                cmd.CommandText = "DELETE FROM carriers WHERE id = @id";
 
-            // Add parameter to the SQL request
-            cmd.Parameters.AddWithValue("@id", id);
+                // Add parameter to the SQL request
+                cmd.Parameters.AddWithValue("@id", id);
 
-            // Execute the SQL command
-            int nbRowsAffected = cmd.ExecuteNonQuery();
+                // Execute the SQL command
+                int nbRowsAffected = cmd.ExecuteNonQuery();
 
-            return nbRowsAffected;
+                return nbRowsAffected;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return 0;
+            }
+
         }
 
         public int AddCarrier(string name, string tel, string email, int? loadCapacity)

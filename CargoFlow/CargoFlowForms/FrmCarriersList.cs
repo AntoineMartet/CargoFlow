@@ -63,19 +63,33 @@ namespace CargoFlowForms
         {
             if (dgvCarriers.SelectedRows.Count == 1)
             {
-                MessageBox.Show("SelectdRows.Count = 1");
-
                 // Get the selected row
                 DataGridViewRow selectedRow = dgvCarriers.SelectedRows[0];
 
-                // Access the data in the selected row
-                int id = (int)selectedRow.Cells["Id"].Value;
-                MessageBox.Show("Id de l'objet de la ligne sélectionnée : " + id);
+                // Get the id in the selected row
+                int carrierId = (int)selectedRow.Cells["Id"].Value;
 
+                // Delete the carrier with the id
                 dbConn = new DBConnection();
                 dbConn.OpenConnection();
-                dbConn.DeleteCarrier(id);
+                int result = dbConn.DeleteCarrier(carrierId);
                 dbConn.CloseConnection();
+
+                // Message box to confirm or not the deletion
+                string carrierName = (string)selectedRow.Cells["Name"].Value;
+                if (result == 1)
+                {
+                    
+                    MessageBox.Show("Le transporteur " + carrierName + " a été supprimé.");
+                }
+                else
+                {
+                    MessageBox.Show("Erreur lors de la suppression du transporteur.\nLe transporteur " + carrierName + " n'a pas pu être supprimé.");
+                }
+
+                // Refresh the list of carriers
+                this.carriers = GetCarriers();
+                dgvCarriers.DataSource = carriers;
             }
         }
     }

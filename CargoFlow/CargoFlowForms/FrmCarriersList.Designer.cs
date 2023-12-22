@@ -97,14 +97,12 @@
             // 
             btnClients.AutoSize = true;
             btnClients.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnClients.BackColor = SystemColors.ControlLight;
-            btnClients.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnClients.Location = new Point(230, 3);
             btnClients.Name = "btnClients";
             btnClients.Size = new Size(62, 25);
             btnClients.TabIndex = 3;
             btnClients.Text = "Client.es";
-            btnClients.UseVisualStyleBackColor = false;
+            btnClients.UseVisualStyleBackColor = true;
             // 
             // btnEmployees
             // 

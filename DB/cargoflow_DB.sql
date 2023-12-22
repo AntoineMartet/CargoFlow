@@ -137,8 +137,8 @@ CREATE TABLE IF NOT EXISTS `deliveries` (
   KEY `fk_deliveries_clients_idx` (`client_id`),
   KEY `fk_deliveries_warehouses_origin_idx` (`warehouse_origin_id`),
   KEY `fk_deliveries_warehouses_destination_idx` (`warehouse_destination_id`),
-  CONSTRAINT `fk_deliveries_carriers` FOREIGN KEY (`carrier_id`) REFERENCES `carriers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `fk_deliveries_clients` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE SET NULL ON UPDATE RESTRICT,
+  CONSTRAINT /*`fk_deliveries_carriers` FOREIGN KEY (`carrier_id`) REFERENCES `carriers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT */`fk_deliveries_clients` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE SET NULL ON UPDATE RESTRICT,
   CONSTRAINT `fk_deliveries_warehouses_destination` FOREIGN KEY (`warehouse_destination_id`) REFERENCES `warehouses` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_deliveries_warehouses_origin` FOREIGN KEY (`warehouse_origin_id`) REFERENCES `warehouses` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

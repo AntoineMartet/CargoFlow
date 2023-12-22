@@ -37,12 +37,11 @@ namespace CargoFlowMgmt
             connection.Open();
         }
 
-
-        public bool CheckPassword(string email, string password)
+        public void CheckPassword(string email, string password)
         {
             // Create a SQL command object
             MySqlCommand cmd = connection.CreateCommand();
-            
+
             // SQL request
             cmd.CommandText = "SELECT password FROM employees WHERE email = @email";
 
@@ -58,24 +57,20 @@ namespace CargoFlowMgmt
             {
                 // If password matches, return true, else return false
                 // password column is the first and only column (index 0)
-                if(reader.GetString(0) == password)
+                if (reader.GetString(0) == password)
                 {
-                    Console.WriteLine("Password is correct");
                     reader.Close();
-                    return true;
                 }
                 else
                 {
-                    Console.WriteLine("Password is incorrect");
                     reader.Close();
-                    return false;
+                    throw new WrongLoginException("Identifiants incorrects.");
                 }
             }
             else
             {
-                Console.WriteLine("Informations rentrées incorrectes");
                 reader.Close();
-                return false;
+                throw new EmailNotInDbException("Identifiants incorrects.");
             }
         }
 
@@ -191,6 +186,16 @@ namespace CargoFlowMgmt
         public void CloseConnection()
         {
             connection.Dispose();
+        }
+
+        public class WrongLoginException : Exception
+        {
+            public WrongLoginException(string message) : base(message) { }
+        }
+
+        public class EmailNotInDbException : Exception
+        {
+            public EmailNotInDbException(string message) : base(message) { }
         }
     }
 }

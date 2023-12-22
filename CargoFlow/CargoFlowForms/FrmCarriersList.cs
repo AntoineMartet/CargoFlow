@@ -23,7 +23,7 @@ namespace CargoFlowForms
             InitializeComponent();
         }
 
-        ///TODO : Get the carriers from the database
+        // Get the carriers from the database
         private List<Carrier> GetCarriers()
         {
             List<Carrier> list = new List<Carrier>();
@@ -79,7 +79,6 @@ namespace CargoFlowForms
                 string carrierName = (string)selectedRow.Cells["Name"].Value;
                 if (result == 1)
                 {
-                    
                     MessageBox.Show("Le transporteur " + carrierName + " a été supprimé.");
                 }
                 else

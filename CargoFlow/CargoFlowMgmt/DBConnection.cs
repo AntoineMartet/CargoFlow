@@ -121,27 +121,34 @@ namespace CargoFlowMgmt
                 Console.WriteLine(e.Message);
                 return 0;
             }
-
         }
 
+        // TODO : manage exceptions
         public int AddCarrier(string name, string tel, string email, int? loadCapacity)
         {
-            // Create a SQL command object
-            MySqlCommand cmd = connection.CreateCommand();
+            try
+            {
+                // Create a SQL command object
+                MySqlCommand cmd = connection.CreateCommand();
 
-            // SQL request
-            cmd.CommandText = "INSERT INTO carriers (companyName, loadCapacity, email, phoneNumber) VALUES (@name, @loadCapacity, @email, @tel)";
+                // SQL request
+                cmd.CommandText = "INSERT INTO carriers (companyName, loadCapacity, email, phoneNumber) VALUES (@name, @loadCapacity, @email, @tel)";
 
-            // Add parameter to the SQL request
-            cmd.Parameters.AddWithValue("@name", name);
-            cmd.Parameters.AddWithValue("@email", email);
-            cmd.Parameters.AddWithValue("@tel", tel);
-            cmd.Parameters.AddWithValue("@loadCapacity", loadCapacity);
+                // Add parameter to the SQL request
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@tel", tel);
+                cmd.Parameters.AddWithValue("@loadCapacity", loadCapacity);
 
-            // Execute the SQL command
-            int nbRowsAffected = cmd.ExecuteNonQuery();
+                // Execute the SQL command
+                int nbRowsAffected = cmd.ExecuteNonQuery();
 
-            return nbRowsAffected;
+                return nbRowsAffected;
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return 0;
+            }
         }
 
         public List<Carrier> GetAllCarriers()

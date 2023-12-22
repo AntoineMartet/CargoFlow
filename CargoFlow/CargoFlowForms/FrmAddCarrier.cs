@@ -174,29 +174,53 @@ namespace CargoFlowForms
         {
             if (txtName.Text == "" || txtTel.Text == "" || txtMail.Text == "")
             {
-                MessageBox.Show("Veuillez remplir tous les champs obligatoires");
+                MessageBox.Show("Veuillez remplir tous les champs obligatoires.\nLes champs obligatoires sont marqués par des astérisques (*).");
             }
             else
             {
-                // TODO : Add the carrier to the database
+                // Add the carrier to the database
                 dbConn = new DBConnection();
                 dbConn.OpenConnection();
                 int? capacity;
+                bool fieldsReady = true;
                 if (txtCapacity.Text != "")
                 {
-                    capacity = int.Parse(txtCapacity.Text);
+                    try
+                    {
+                        capacity = int.Parse(txtCapacity.Text);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Handle the exception here
+                        Console.WriteLine(ex.Message);
+                        MessageBox.Show("La capacité maximum doit être un nombre entier. Vous pouvez aussi laisser le champ vide.");
+                        capacity = null;
+                        fieldsReady = false;
+                    }
                 } else
                 {
                     capacity = null;
                 }
 
-                dbConn.AddCarrier(txtName.Text, txtTel.Text, txtMail.Text, capacity);
+                if (fieldsReady == true)
+                {
+                    int result = dbConn.AddCarrier(txtName.Text, txtTel.Text, txtMail.Text, capacity);
 
-                MessageBox.Show("Transporteur ajouté");
-                // Create and open frmCarriersList and close frmAddCarrier
-                FrmCarriersList frmCarriersList = new FrmCarriersList();
-                frmCarriersList.Show();
-                this.Close();
+                    // Message box to confirm or not the deletion
+                    if (result == 1)
+                    {
+                        MessageBox.Show("Le transporteur " + txtName.Text + " a été ajouté.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erreur lors de l'ajout du transporteur. Le transporteur " + txtName.Text + " n'a pas pu être ajouté.");
+                    }
+
+                    // Create and open frmCarriersList and close frmAddCarrier
+                    FrmCarriersList frmCarriersList = new FrmCarriersList();
+                    frmCarriersList.Show();
+                    this.Close();
+                }
             }
         }
     }

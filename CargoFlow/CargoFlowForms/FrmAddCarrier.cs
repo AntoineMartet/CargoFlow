@@ -178,48 +178,37 @@ namespace CargoFlowForms
             }
             else
             {
-                // Add the carrier to the database
-                dbConn = new DBConnection();
-                dbConn.OpenConnection();
-                int? capacity;
-                bool fieldsReady = true;
-                if (txtCapacity.Text != "")
+                try
                 {
-                    try
+                    // Add the carrier to the database
+                    dbConn = new DBConnection();
+                    dbConn.OpenConnection();
+                    int? capacity = null;
+                    bool fieldsReady = true;
+                    if (txtCapacity.Text != "")
                     {
                         capacity = int.Parse(txtCapacity.Text);
                     }
-                    catch (Exception ex)
-                    {
-                        // Handle the exception here
-                        Console.WriteLine(ex.Message);
-                        MessageBox.Show("La capacité maximum doit être un nombre entier. Vous pouvez aussi laisser le champ vide.");
-                        capacity = null;
-                        fieldsReady = false;
-                    }
-                } else
-                {
-                    capacity = null;
-                }
-
-                if (fieldsReady == true)
-                {
-                    int result = dbConn.AddCarrier(txtName.Text, txtTel.Text, txtMail.Text, capacity);
-
-                    // Message box to confirm or not the deletion
-                    if (result == 1)
-                    {
-                        MessageBox.Show("Le transporteur " + txtName.Text + " a été ajouté.");
-                    }
                     else
                     {
-                        MessageBox.Show("Erreur lors de l'ajout du transporteur. Le transporteur " + txtName.Text + " n'a pas pu être ajouté.");
+                        fieldsReady = false;
+                        throw new Exception("La capacité maximum doit être un nombre entier. Vous pouvez aussi laisser le champ vide.");
                     }
 
-                    // Create and open frmCarriersList and close frmAddCarrier
-                    FrmCarriersList frmCarriersList = new FrmCarriersList();
-                    frmCarriersList.Show();
-                    this.Close();
+                    if (fieldsReady == true)
+                    {
+                        int result = dbConn.AddCarrier(txtName.Text, txtTel.Text, txtMail.Text, capacity);
+                        MessageBox.Show("Le transporteur " + txtName.Text + " a été ajouté.");
+
+                        // Create and open frmCarriersList and close frmAddCarrier
+                        FrmCarriersList frmCarriersList = new FrmCarriersList();
+                        frmCarriersList.Show();
+                        this.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de l'ajout du transporteur. Le transporteur " + txtName.Text + " n'a pas pu être ajouté.\n\nDétail : \n" + ex.Message);
                 }
             }
         }

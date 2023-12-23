@@ -50,7 +50,7 @@ namespace CargoFlowForms
             {
                 MessageBox.Show(ex.Message);
             }
-            catch (EmailNotInDbException ex)
+            catch (EmailNotFoundException ex)
             {
                 MessageBox.Show(ex.Message);
             }

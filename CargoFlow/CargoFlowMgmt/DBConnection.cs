@@ -70,7 +70,7 @@ namespace CargoFlowMgmt
             else
             {
                 reader.Close();
-                throw new EmailNotInDbException("Identifiants incorrects.");
+                throw new EmailNotFoundException("Identifiants incorrects.");
             }
         }
 
@@ -93,29 +93,19 @@ namespace CargoFlowMgmt
             return role;
         }
 
-        public int DeleteCarrier(int id)
+        public void DeleteCarrier(int id)
         {
-            try
-            {
-                // Create a SQL command object
-                MySqlCommand cmd = connection.CreateCommand();
+            // Create a SQL command object
+            MySqlCommand cmd = connection.CreateCommand();
 
-                // SQL request
-                cmd.CommandText = "DELETE FROM carriers WHERE id = @id";
+            // SQL request
+            cmd.CommandText = "DELETE FROM carriers WHERE id = @id";
 
-                // Add parameter to the SQL request
-                cmd.Parameters.AddWithValue("@id", id);
+            // Add parameter to the SQL request
+            cmd.Parameters.AddWithValue("@id", id);
 
-                // Execute the SQL command
-                int nbRowsAffected = cmd.ExecuteNonQuery();
-
-                return nbRowsAffected;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                return 0;
-            }
+            // Execute the SQL command
+            cmd.ExecuteNonQuery();
         }
 
         // TODO : manage exceptions
@@ -139,10 +129,10 @@ namespace CargoFlowMgmt
                 int nbRowsAffected = cmd.ExecuteNonQuery();
 
                 return nbRowsAffected;
-            } catch (Exception e)
+            }
+            catch (Exception ex)
             {
-                Console.WriteLine(e.Message);
-                return 0;
+                throw ex;
             }
         }
 
@@ -192,10 +182,9 @@ namespace CargoFlowMgmt
         {
             public WrongLoginException(string message) : base(message) { }
         }
-
-        public class EmailNotInDbException : Exception
+        public class EmailNotFoundException : Exception
         {
-            public EmailNotInDbException(string message) : base(message) { }
+            public EmailNotFoundException(string message) : base(message) { }
         }
     }
 }

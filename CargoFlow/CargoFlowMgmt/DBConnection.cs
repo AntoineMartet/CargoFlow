@@ -37,12 +37,11 @@ namespace CargoFlowMgmt
             connection.Open();
         }
 
-
-        public bool CheckPassword(string email, string password)
+        public void CheckPassword(string email, string password)
         {
             // Create a SQL command object
             MySqlCommand cmd = connection.CreateCommand();
-            
+
             // SQL request
             cmd.CommandText = "SELECT password FROM employees WHERE email = @email";
 
@@ -58,24 +57,20 @@ namespace CargoFlowMgmt
             {
                 // If password matches, return true, else return false
                 // password column is the first and only column (index 0)
-                if(reader.GetString(0) == password)
+                if (reader.GetString(0) == password)
                 {
-                    Console.WriteLine("Password is correct");
                     reader.Close();
-                    return true;
                 }
                 else
                 {
-                    Console.WriteLine("Password is incorrect");
                     reader.Close();
-                    return false;
+                    throw new WrongLoginException("Identifiants incorrects.");
                 }
             }
             else
             {
-                Console.WriteLine("Informations rentrées incorrectes");
                 reader.Close();
-                return false;
+                throw new EmailNotFoundException("Identifiants incorrects.");
             }
         }
 
@@ -98,7 +93,23 @@ namespace CargoFlowMgmt
             return role;
         }
 
-        public int DeleteCarrier(int id)
+        public void DeleteCarrier(int id)
+        {
+            // Create a SQL command object
+            MySqlCommand cmd = connection.CreateCommand();
+
+            // SQL request
+            cmd.CommandText = "DELETE FROM carriers WHERE id = @id";
+
+            // Add parameter to the SQL request
+            cmd.Parameters.AddWithValue("@id", id);
+
+            // Execute the SQL command
+            cmd.ExecuteNonQuery();
+        }
+
+        // TODO : manage exceptions
+        public int AddCarrier(string name, string tel, string email, int? loadCapacity)
         {
             try
             {
@@ -106,42 +117,23 @@ namespace CargoFlowMgmt
                 MySqlCommand cmd = connection.CreateCommand();
 
                 // SQL request
-                cmd.CommandText = "DELETE FROM carriers WHERE id = @id";
+                cmd.CommandText = "INSERT INTO carriers (companyName, loadCapacity, email, phoneNumber) VALUES (@name, @loadCapacity, @email, @tel)";
 
                 // Add parameter to the SQL request
-                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@tel", tel);
+                cmd.Parameters.AddWithValue("@loadCapacity", loadCapacity);
 
                 // Execute the SQL command
                 int nbRowsAffected = cmd.ExecuteNonQuery();
 
                 return nbRowsAffected;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine(e.Message);
-                return 0;
+                throw ex;
             }
-
-        }
-
-        public int AddCarrier(string name, string tel, string email, int? loadCapacity)
-        {
-            // Create a SQL command object
-            MySqlCommand cmd = connection.CreateCommand();
-
-            // SQL request
-            cmd.CommandText = "INSERT INTO carriers (companyName, loadCapacity, email, phoneNumber) VALUES (@name, @loadCapacity, @email, @tel)";
-
-            // Add parameter to the SQL request
-            cmd.Parameters.AddWithValue("@name", name);
-            cmd.Parameters.AddWithValue("@email", email);
-            cmd.Parameters.AddWithValue("@tel", tel);
-            cmd.Parameters.AddWithValue("@loadCapacity", loadCapacity);
-
-            // Execute the SQL command
-            int nbRowsAffected = cmd.ExecuteNonQuery();
-
-            return nbRowsAffected;
         }
 
         public List<Carrier> GetAllCarriers()
@@ -184,6 +176,15 @@ namespace CargoFlowMgmt
         public void CloseConnection()
         {
             connection.Dispose();
+        }
+
+        public class WrongLoginException : Exception
+        {
+            public WrongLoginException(string message) : base(message) { }
+        }
+        public class EmailNotFoundException : Exception
+        {
+            public EmailNotFoundException(string message) : base(message) { }
         }
     }
 }

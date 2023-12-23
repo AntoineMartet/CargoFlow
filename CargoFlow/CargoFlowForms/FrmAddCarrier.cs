@@ -174,29 +174,42 @@ namespace CargoFlowForms
         {
             if (txtName.Text == "" || txtTel.Text == "" || txtMail.Text == "")
             {
-                MessageBox.Show("Veuillez remplir tous les champs obligatoires");
+                MessageBox.Show("Veuillez remplir tous les champs obligatoires.\nLes champs obligatoires sont marqués par des astérisques (*).");
             }
             else
             {
-                // TODO : Add the carrier to the database
-                dbConn = new DBConnection();
-                dbConn.OpenConnection();
-                int? capacity;
-                if (txtCapacity.Text != "")
+                try
                 {
-                    capacity = int.Parse(txtCapacity.Text);
-                } else
-                {
-                    capacity = null;
+                    // Add the carrier to the database
+                    dbConn = new DBConnection();
+                    dbConn.OpenConnection();
+                    int? capacity = null;
+                    bool fieldsReady = true;
+                    if (txtCapacity.Text != "")
+                    {
+                        capacity = int.Parse(txtCapacity.Text);
+                    }
+                    else
+                    {
+                        fieldsReady = false;
+                        throw new Exception("La capacité maximum doit être un nombre entier. Vous pouvez aussi laisser le champ vide.");
+                    }
+
+                    if (fieldsReady == true)
+                    {
+                        int result = dbConn.AddCarrier(txtName.Text, txtTel.Text, txtMail.Text, capacity);
+                        MessageBox.Show("Le transporteur " + txtName.Text + " a été ajouté.");
+
+                        // Create and open frmCarriersList and close frmAddCarrier
+                        FrmCarriersList frmCarriersList = new FrmCarriersList();
+                        frmCarriersList.Show();
+                        this.Close();
+                    }
                 }
-
-                dbConn.AddCarrier(txtName.Text, txtTel.Text, txtMail.Text, capacity);
-
-                MessageBox.Show("Transporteur ajouté");
-                // Create and open frmCarriersList and close frmAddCarrier
-                FrmCarriersList frmCarriersList = new FrmCarriersList();
-                frmCarriersList.Show();
-                this.Close();
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de l'ajout du transporteur. Le transporteur " + txtName.Text + " n'a pas pu être ajouté.\n\nDétail : \n" + ex.Message);
+                }
             }
         }
     }

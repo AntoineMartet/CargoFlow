@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 // Reference to CargoFlowMgmt project to access its classes
 using CargoFlowMgmt;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using static CargoFlowMgmt.DBConnection;
 
 namespace CargoFlowForms
 {
@@ -19,11 +21,18 @@ namespace CargoFlowForms
 
         public FrmCarriersList()
         {
-            this.carriers = GetCarriers();
+            try
+            {
+                this.carriers = GetCarriers();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors de la récupération des données. Elles pourraient être erronées ou incomplètes.\n\nDétail : \n" + ex.Message);
+            }
             InitializeComponent();
         }
 
-        ///TODO : Get the carriers from the database
+        // Get the carriers from the database
         private List<Carrier> GetCarriers()
         {
             List<Carrier> list = new List<Carrier>();
@@ -36,14 +45,21 @@ namespace CargoFlowForms
 
         private void FrmCarriersList_Load(object sender, EventArgs e)
         {
-            dgvCarriers.DataSource = carriers;
-            // Renommage des colonnes. Pourquoi en fonction des propriétés de l'objet Carrier et non pas de ses attributs ? À voir...
-            dgvCarriers.Columns["Id"].HeaderText = "ID";
-            dgvCarriers.Columns["Name"].HeaderText = "Nom";
-            dgvCarriers.Columns["LoadCapacity"].HeaderText = "Capacité";
-            dgvCarriers.Columns["Email"].HeaderText = "Mail";
-            dgvCarriers.Columns["PhoneNumber"].HeaderText = "Téléphone";
-            dgvCarriers.Columns["Id"].Visible = false;
+            try
+            {
+                dgvCarriers.DataSource = carriers;
+                // Renommage des colonnes. Pourquoi en fonction des propriétés de l'objet Carrier et non pas de ses attributs ? À voir...
+                dgvCarriers.Columns["Id"].HeaderText = "ID";
+                dgvCarriers.Columns["Name"].HeaderText = "Nom";
+                dgvCarriers.Columns["LoadCapacity"].HeaderText = "Capacité";
+                dgvCarriers.Columns["Email"].HeaderText = "Mail";
+                dgvCarriers.Columns["PhoneNumber"].HeaderText = "Téléphone";
+                dgvCarriers.Columns["Id"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors de l'affichage des données. Elles pourraient être erronées ou incomplètes.\n\nDétail : \n" + ex.Message);
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -51,7 +67,14 @@ namespace CargoFlowForms
             // Create and open frmAddCarrier and close frmCarriersList
             FrmAddCarrier frmAddCarrier = new FrmAddCarrier();
             frmAddCarrier.Show();
-            this.Close();
+            try
+            {
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -63,33 +86,37 @@ namespace CargoFlowForms
         {
             if (dgvCarriers.SelectedRows.Count == 1)
             {
-                // Get the selected row
-                DataGridViewRow selectedRow = dgvCarriers.SelectedRows[0];
-
-                // Get the id in the selected row
-                int carrierId = (int)selectedRow.Cells["Id"].Value;
-
-                // Delete the carrier with the id
-                dbConn = new DBConnection();
-                dbConn.OpenConnection();
-                int result = dbConn.DeleteCarrier(carrierId);
-                dbConn.CloseConnection();
-
-                // Message box to confirm or not the deletion
-                string carrierName = (string)selectedRow.Cells["Name"].Value;
-                if (result == 1)
+                try
                 {
-                    
+                    // Get the selected row
+                    DataGridViewRow selectedRow = dgvCarriers.SelectedRows[0];
+
+                    // Get the id in the selected row
+                    int carrierId = (int)selectedRow.Cells["Id"].Value;
+
+                    // Delete the carrier with the id
+                    dbConn = new DBConnection();
+                    dbConn.OpenConnection();
+                    dbConn.DeleteCarrier(carrierId);
+                    dbConn.CloseConnection();
+
+                    // Message box to confirm or not the deletion
+                    string carrierName = (string)selectedRow.Cells["Name"].Value;
                     MessageBox.Show("Le transporteur " + carrierName + " a été supprimé.");
-                }
-                else
-                {
-                    MessageBox.Show("Erreur lors de la suppression du transporteur.\nLe transporteur " + carrierName + " n'a pas pu être supprimé.");
-                }
 
-                // Refresh the list of carriers
-                this.carriers = GetCarriers();
-                dgvCarriers.DataSource = carriers;
+                    // Refresh the list of carriers
+                    this.carriers = GetCarriers();
+                    dgvCarriers.DataSource = carriers;
+                }
+                catch (Exception ex)
+                {
+                    // Get the selected row
+                    DataGridViewRow selectedRow = dgvCarriers.SelectedRows[0];
+
+                    // Get the id in the selected row
+                    string carrierName = (string)selectedRow.Cells["Name"].Value;
+                    MessageBox.Show("Erreur lors de la suppression du transporteur. Le transporteur " + carrierName + " n'a pas pu être supprimé.\n\nDétail : \n" + ex.Message);
+                }
             }
         }
     }

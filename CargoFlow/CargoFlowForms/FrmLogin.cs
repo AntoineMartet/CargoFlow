@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 // Reference to CargoFlowMgmt project to access its classes
 using CargoFlowMgmt;
+using static CargoFlowMgmt.DBConnection;
 
 namespace CargoFlowForms
 {
@@ -23,14 +24,20 @@ namespace CargoFlowForms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            dbConn = new DBConnection();
-            dbConn.OpenConnection();
-            string email = txtMail.Text;
-            string password = txtPassword.Text;
-            if (dbConn.CheckPassword(email, password))
+            try
             {
+                // Create a DBConnection object and open the connection
+                dbConn = new DBConnection();
+                dbConn.OpenConnection();
+
+                // Check the given email and password
+                string email = txtMail.Text;
+                string password = txtPassword.Text;
+                dbConn.CheckPassword(email, password);
+
                 // Get employee role from database
                 string role = dbConn.GetEmployeeRole(email);
+
                 dbConn.CloseConnection();
 
                 // Create and open frmHome and close frmLogin
@@ -39,9 +46,17 @@ namespace CargoFlowForms
                 // Hide the login form. Closing it would close the whole application.
                 this.Hide();
             }
-            else
+            catch (WrongLoginException ex)
             {
-                MessageBox.Show("Identifiants incorrects");
+                MessageBox.Show(ex.Message);
+            }
+            catch (EmailNotFoundException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

@@ -9,22 +9,15 @@ namespace CargoFlowMgmt
     {
         private int id;
         private string name;
-        private string street;
-        private string streetNB;
-        private string city;
-        private string postalCode;
+        private Address address;
         private OpeningHours openingHours;
         private List<Article> articles;
 
-        public Warehouse(int id, string name, string street, string streetNB, string city, string postalCode, OpeningHours openingHours, List<Article> articles)
+        public Warehouse(int id, string name, Address address, OpeningHours openingHours, List<Article> articles)
         {
             this.id = id;
             this.name = name;
-            this.street = street;
-            this.streetNB = streetNB;
-            this.city = city;
-            this.postalCode = postalCode;
-            this.openingHours = openingHours;
+            this.address = address;
             this.openingHours = openingHours;
             this.articles = new List<Article>();
         }
@@ -39,24 +32,9 @@ namespace CargoFlowMgmt
             get { return name; }
         }
 
-        public string Street
+        public Address Address
         {
-            get { return street; }
-        }
-
-        public string StreetNB
-        {
-            get { return streetNB; }
-        }
-
-        public string City
-        {
-            get { return city; }
-        }
-
-        public string PostalCode
-        {
-            get { return postalCode; }
+            get { return address; }
         }
 
         public OpeningHours OpeningHours

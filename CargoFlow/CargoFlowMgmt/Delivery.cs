@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 
 namespace CargoFlowMgmt
@@ -8,22 +9,20 @@ namespace CargoFlowMgmt
     public class Delivery
     {
         private int id;
-        private int barcode;
+        private BigInteger barcode;
         private DateTime startDate;
         private DateTime endDate;
-        private Address originAddress;
-        private Address destinationAddress;
+        private string status;
         private List<Article> articles;
 
         // Constructor
-        public Delivery(int id, int barcode, DateTime startDate, DateTime endDate, Address originAddress, Address destinationAddress, List<Article> articles)
+        public Delivery(int id, BigInteger barcode, DateTime startDate, DateTime endDate, string status, List<Article> articles)
         {
             this.id = id;
             this.barcode = barcode;
             this.startDate = startDate;
             this.endDate = endDate;
-            this.originAddress = originAddress;
-            this.destinationAddress = destinationAddress;
+            this.status = status;
             this.articles = new List<Article>();
         }
 
@@ -33,7 +32,7 @@ namespace CargoFlowMgmt
             get { return id; }
         }
 
-        public int Barcode
+        public BigInteger Barcode
         {
             get { return barcode; }
         }
@@ -48,14 +47,9 @@ namespace CargoFlowMgmt
             get { return endDate; }
         }
 
-        public Address OriginAddress
+        public string Status
         {
-            get { return originAddress; }
-        }
-
-        public Address DestinationAddress
-        {
-            get { return destinationAddress; }
+            get { return status; }
         }
 
         public List<Article> Articles

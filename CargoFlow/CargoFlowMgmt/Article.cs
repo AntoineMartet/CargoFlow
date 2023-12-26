@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 
 namespace CargoFlowMgmt
@@ -8,7 +9,7 @@ namespace CargoFlowMgmt
     public class Article
     {
         private int id;
-        private int barcode;
+        private BigInteger barcode;
         private string model;
         private string brand;
         private float? weight;
@@ -17,7 +18,7 @@ namespace CargoFlowMgmt
         private float? width;
         private float? price;
 
-        public Article(int id, int barcode, string model, string brand, float? weight = null, float? height = null, float? length = null, float? width = null, float? price = null)
+        public Article(int id, BigInteger barcode, string model, string brand, float? weight = null, float? height = null, float? length = null, float? width = null, float? price = null)
         {
             this.id = id;
             this.barcode = barcode;
@@ -35,7 +36,7 @@ namespace CargoFlowMgmt
             get { return id; }
         }
 
-        public int Barcode
+        public BigInteger Barcode
         {
             get { return barcode; }
             set { barcode = value; }

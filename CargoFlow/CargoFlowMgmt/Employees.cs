@@ -10,16 +10,18 @@ namespace CargoFlowMgmt
         private int id;
         private string lastName;
         private string firstName;
-        private string mail;
+        private string email;
+        private string phoneNumber;
         private string role;
-        private int employeeNumber;
+        private string employeeNumber;
 
-        public Employee(int id, string lastName, string firstName, string mail, string role, int employeeNumber)
+        public Employee(int id, string lastName, string firstName, string email, string phoneNumber, string role, string employeeNumber)
         {
             this.id = id;
             this.lastName = lastName;
             this.firstName = firstName;
-            this.mail = mail;
+            this.email = email;
+            this.phoneNumber = phoneNumber;
             this.role = role;
             this.employeeNumber = employeeNumber;
         }
@@ -40,9 +42,14 @@ namespace CargoFlowMgmt
             get { return firstName; }
         }
 
-        public string Mail
+        public string Email
         {
-            get { return mail; }
+            get { return email; }
+        }
+
+        public string PhoneNumber
+        {
+            get { return phoneNumber; }
         }
 
         public string Role
@@ -50,7 +57,7 @@ namespace CargoFlowMgmt
             get { return role; }
         }
 
-        public int EmployeeNumber
+        public string EmployeeNumber
         {
             get { return employeeNumber; }
         }

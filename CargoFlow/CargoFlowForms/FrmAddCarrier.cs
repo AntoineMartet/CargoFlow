@@ -146,6 +146,7 @@ namespace CargoFlowForms
             Controls.Add(lblName);
             Controls.Add(lblTitle);
             Name = "FrmAddCarrier";
+            StartPosition = FormStartPosition.CenterScreen;
             ResumeLayout(false);
             PerformLayout();
         }

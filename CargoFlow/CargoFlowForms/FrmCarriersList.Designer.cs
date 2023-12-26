@@ -192,6 +192,7 @@
             Controls.Add(dgvCarriers);
             Controls.Add(flpTabs);
             Name = "FrmCarriersList";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmCarriersList";
             Load += FrmCarriersList_Load;
             flpTabs.ResumeLayout(false);

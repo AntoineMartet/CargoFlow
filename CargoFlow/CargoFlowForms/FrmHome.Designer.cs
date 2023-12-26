@@ -138,6 +138,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(flpTabs);
             Name = "FrmHome";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmHome";
             flpTabs.ResumeLayout(false);
             flpTabs.PerformLayout();

@@ -103,6 +103,7 @@
             Controls.Add(lblMail);
             Controls.Add(lblLoginMessage);
             Name = "FrmLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CargoFlow";
             ResumeLayout(false);
             PerformLayout();

@@ -163,6 +163,9 @@ namespace CargoFlowForms
         private Button btnAdd;
         private Button btnCancel;
 
+        /// <summary>
+        /// Close the current form and open frmCarriersList
+        /// </summary>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             // Open and create frmHome and close frmAddCarrier
@@ -171,6 +174,9 @@ namespace CargoFlowForms
             this.Close();
         }
 
+        /// <summary>
+        /// Add a carrier to the database
+        /// </summary>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (txtName.Text == "" || txtTel.Text == "" || txtMail.Text == "")
@@ -203,7 +209,7 @@ namespace CargoFlowForms
                     queryData.Add("@phoneNumber", txtTel.Text);
 
                     // Execute the SQL request
-                    dbConn.Add(addQuery, queryData);
+                    dbConn.AddRecord(addQuery, queryData);
                     dbConn.CloseConnection();
 
                     MessageBox.Show("Le transporteur " + txtName.Text + " a été ajouté.");

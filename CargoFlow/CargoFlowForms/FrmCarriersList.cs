@@ -32,7 +32,9 @@ namespace CargoFlowForms
             InitializeComponent();
         }
 
-        // Get the carriers from the database
+        /// <summary>
+        /// Get all the carriers from the database and return them as a list of Carrier objects
+        /// </summary
         private List<Carrier> GetCarriers()
         {
             List<Carrier> list = new List<Carrier>();
@@ -43,6 +45,9 @@ namespace CargoFlowForms
             return list;
         }
 
+        /// <summary>
+        /// Fill the DataGridView with the all the carriers
+        /// </summary>
         private void FrmCarriersList_Load(object sender, EventArgs e)
         {
             try
@@ -62,6 +67,9 @@ namespace CargoFlowForms
             }
         }
 
+        /// <summary>
+        /// Close the current form and open frmAddCarrier
+        /// </summary>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // Create and open frmAddCarrier and close frmCarriersList
@@ -82,6 +90,9 @@ namespace CargoFlowForms
 
         }
 
+        /// <summary>
+        /// Delete  from the database the selected carrier in the DataGridView
+        /// </summary>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgvCarriers.SelectedRows.Count == 1)
@@ -102,7 +113,7 @@ namespace CargoFlowForms
                     string deleteQuery = "DELETE FROM carriers WHERE id = @id";
 
                     // Execute the SQL request
-                    dbConn.Delete(deleteQuery, carrierId);
+                    dbConn.DeleteRecord(deleteQuery, carrierId);
                     dbConn.CloseConnection();
 
                     // Message box to confirm

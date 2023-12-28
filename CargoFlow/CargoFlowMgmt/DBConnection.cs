@@ -45,6 +45,11 @@ namespace CargoFlowMgmt
             connection.Dispose();
         }
 
+        /// <summary>
+        /// Check if the email exists in the database, then check if the password matches
+        /// </summary>
+        /// <param name="email">The email to check</param>
+        /// <param name="password">The password to check</param>
         public void CheckPassword(string email, string password)
         {
             // Create a SQL command object
@@ -82,6 +87,10 @@ namespace CargoFlowMgmt
             }
         }
 
+        /// <summary>
+        /// Get the role of an employee based on his email
+        /// </summary>
+        /// <param name="email">The email of the employee</param>
         public string GetEmployeeRole(string email)
         {
             // Create a SQL command object
@@ -101,7 +110,12 @@ namespace CargoFlowMgmt
             return role;
         }
 
-        public void Delete(string query, int id)
+        /// <summary>
+        /// Delete a record in the database
+        /// </summary>
+        /// <param name="query">The text of the SQL request</param>
+        /// <param name="id">The id of the record to delete</param>
+        public void DeleteRecord(string query, int id)
         {
             // Create a SQL command object
             MySqlCommand cmd = connection.CreateCommand();
@@ -119,7 +133,9 @@ namespace CargoFlowMgmt
         /// <summary>
         /// Add a record in the database
         /// </summary>
-        public int Add(string query, Dictionary<string, string?> data)
+        /// <param name="query">The text of the SQL request</param>
+        /// <param name="data">The values to add to the SQL request, formatted as key-value associations</param>
+        public int AddRecord(string query, Dictionary<string, string?> data)
         {
             try
             {
@@ -145,6 +161,10 @@ namespace CargoFlowMgmt
             }
         }
 
+        /// <summary>
+        /// Get all the carriers from the database and return them as a list of Carrier objects
+        /// </summary>
+        /// <returns></returns>
         public List<Carrier> GetAllCarriers()
         {
             List<Carrier> carriers = new List<Carrier>();
@@ -178,8 +198,6 @@ namespace CargoFlowMgmt
             reader.Close();
             return carriers;
         }
-
-
 
         public class WrongLoginException : Exception
         {

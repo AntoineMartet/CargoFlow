@@ -203,7 +203,8 @@ namespace CargoFlowForms
                     queryData.Add("@phoneNumber", txtTel.Text);
 
                     // Execute the SQL request
-                    int result = dbConn.Add(addQuery, queryData);
+                    dbConn.Add(addQuery, queryData);
+                    dbConn.CloseConnection();
 
                     MessageBox.Show("Le transporteur " + txtName.Text + " a été ajouté.");
 

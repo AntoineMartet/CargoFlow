@@ -94,13 +94,18 @@ namespace CargoFlowForms
                     // Get the id in the selected row
                     int carrierId = (int)selectedRow.Cells["Id"].Value;
 
-                    // Delete the carrier with the id
+                    // Open connection to the database
                     dbConn = new DBConnection();
                     dbConn.OpenConnection();
-                    dbConn.DeleteCarrier(carrierId);
+
+                    // Prepare the SQL request
+                    string deleteQuery = "DELETE FROM carriers WHERE id = @id";
+
+                    // Execute the SQL request
+                    dbConn.Delete(deleteQuery, carrierId);
                     dbConn.CloseConnection();
 
-                    // Message box to confirm or not the deletion
+                    // Message box to confirm
                     string carrierName = (string)selectedRow.Cells["Name"].Value;
                     MessageBox.Show("Le transporteur " + carrierName + " a été supprimé.");
 

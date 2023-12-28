@@ -101,13 +101,13 @@ namespace CargoFlowMgmt
             return role;
         }
 
-        public void DeleteCarrier(int id)
+        public void Delete(string query, int id)
         {
             // Create a SQL command object
             MySqlCommand cmd = connection.CreateCommand();
 
             // SQL request
-            cmd.CommandText = "DELETE FROM carriers WHERE id = @id";
+            cmd.CommandText = query;
 
             // Add parameter to the SQL request
             cmd.Parameters.AddWithValue("@id", id);

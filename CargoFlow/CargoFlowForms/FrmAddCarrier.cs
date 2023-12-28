@@ -181,31 +181,42 @@ namespace CargoFlowForms
             {
                 try
                 {
-                    // Add the carrier to the database
+                    // Open connection to the database
                     dbConn = new DBConnection();
                     dbConn.OpenConnection();
+
+                    // Prepare the capacity value (must be null or integer)
                     int? capacity = null;
-                    bool fieldsReady = true;
                     if (txtCapacity.Text != "")
                     {
                         capacity = int.Parse(txtCapacity.Text);
                     }
-                    else
-                    {
-                        fieldsReady = false;
-                        throw new Exception("La capacité maximum doit être un nombre entier. Vous pouvez aussi laisser le champ vide.");
-                    }
 
-                    if (fieldsReady == true)
-                    {
-                        int result = dbConn.AddCarrier(txtName.Text, txtTel.Text, txtMail.Text, capacity);
-                        MessageBox.Show("Le transporteur " + txtName.Text + " a été ajouté.");
+                    // Prepare the SQL request
+                    string addQuery = "INSERT INTO carriers (companyName, loadCapacity, email, phoneNumber) VALUES (@companyName, @loadCapacity, @email, @phoneNumber)";
 
-                        // Create and open frmCarriersList and close frmAddCarrier
-                        FrmCarriersList frmCarriersList = new FrmCarriersList();
-                        frmCarriersList.Show();
-                        this.Close();
-                    }
+                    // Prepare the data for the SQL request
+                    Dictionary<string, string?> queryData = new Dictionary<string, string?>();
+                    queryData.Add("@companyName", txtName.Text);
+                    queryData.Add("@loadCapacity", capacity.HasValue ? capacity.ToString() : null);
+                    queryData.Add("@email", txtMail.Text);
+                    queryData.Add("@phoneNumber", txtTel.Text);
+
+                    // Execute the SQL request
+                    int result = dbConn.Add(addQuery, queryData);
+
+                    MessageBox.Show("Le transporteur " + txtName.Text + " a été ajouté.");
+
+                    // Create and open frmCarriersList and close frmAddCarrier
+                    FrmCarriersList frmCarriersList = new FrmCarriersList();
+                    frmCarriersList.Show();
+                    this.Close();
+                }
+                // When the capacity is not null && not an integer
+                catch (FormatException fEx)
+                {
+                    MessageBox.Show("Erreur lors de l'ajout du transporteur. Le transporteur " + txtName.Text + " n'a pas pu être ajouté.\n\n" +
+                                    "La capacité maximum doit être un nombre entier. Vous pouvez aussi laisser le champ vide.\n\nDétail : \n" + fEx.Message);
                 }
                 catch (Exception ex)
                 {

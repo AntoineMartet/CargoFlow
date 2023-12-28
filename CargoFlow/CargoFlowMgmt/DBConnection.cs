@@ -37,6 +37,14 @@ namespace CargoFlowMgmt
             connection.Open();
         }
 
+        /// <summary>
+        /// Close connection to the database
+        /// </summary>
+        public void CloseConnection()
+        {
+            connection.Dispose();
+        }
+
         public void CheckPassword(string email, string password)
         {
             // Create a SQL command object
@@ -108,8 +116,10 @@ namespace CargoFlowMgmt
             cmd.ExecuteNonQuery();
         }
 
-        // TODO : manage exceptions
-        public int AddCarrier(string name, string tel, string email, int? loadCapacity)
+        /// <summary>
+        /// Add a record in the database
+        /// </summary>
+        public int Add(string query, Dictionary<string, string?> data)
         {
             try
             {
@@ -117,17 +127,16 @@ namespace CargoFlowMgmt
                 MySqlCommand cmd = connection.CreateCommand();
 
                 // SQL request
-                cmd.CommandText = "INSERT INTO carriers (companyName, loadCapacity, email, phoneNumber) VALUES (@name, @loadCapacity, @email, @tel)";
+                cmd.CommandText = query;
 
-                // Add parameter to the SQL request
-                cmd.Parameters.AddWithValue("@name", name);
-                cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@tel", tel);
-                cmd.Parameters.AddWithValue("@loadCapacity", loadCapacity);
+                // Add each data key and value to the SQL request
+                foreach (KeyValuePair<string, string?> d in data)
+                {
+                    cmd.Parameters.AddWithValue(d.Key, d.Value);
+                }
 
-                // Execute the SQL command
+                // Execute the SQL command and return the number of rows affected
                 int nbRowsAffected = cmd.ExecuteNonQuery();
-
                 return nbRowsAffected;
             }
             catch (Exception ex)
@@ -170,13 +179,7 @@ namespace CargoFlowMgmt
             return carriers;
         }
 
-        /// <summary>
-        /// Close connection to the database
-        /// </summary>
-        public void CloseConnection()
-        {
-            connection.Dispose();
-        }
+
 
         public class WrongLoginException : Exception
         {

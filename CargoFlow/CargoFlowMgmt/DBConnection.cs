@@ -162,41 +162,55 @@ namespace CargoFlowMgmt
         }
 
         /// <summary>
-        /// Get all the carriers from the database and return them as a list of Carrier objects
+        /// Get all the records from the database and return them as a 2D string array
         /// </summary>
-        /// <returns></returns>
-        public List<Carrier> GetAllCarriers()
+        /// <param name="query">The text of the SQL request</param>
+        /// <returns>A two-dimensional array containing the records</returns>
+        public List<string[]> GetAllRecords(string query)
         {
-            List<Carrier> carriers = new List<Carrier>();
-
             // Create a SQL command object
             MySqlCommand cmd = connection.CreateCommand();
 
             // SQL request
-            cmd.CommandText = "SELECT id, companyName, loadCapacity, email, phoneNumber FROM carriers";
+            cmd.CommandText = query;
 
             // Execute the SQL command and put its result in a DbDataReader object
             DbDataReader reader = cmd.ExecuteReader();
 
-            // Read the result line by line, creating a Carrier object for each line
+            // Get the number of columns in the result set
+            int columnCount = reader.FieldCount;
+
+            // Create a list to store the records
+            List<string[]> records = new List<string[]>();
+
+            // Read the result line by line
             while (reader.Read())
             {
-                // Preparing the parameters for the Carrier constructor
-                int id = reader.GetInt32(0);
-                string name = reader.GetString(1);
-                // GetInt32() doesn't accept null values
-                // If the value is null, we set it to null, else we set it to the value
-                int? capacity = reader.IsDBNull(2) ? null : reader.GetInt32(2);
-                string email = reader.GetString(3);
-                string phoneNumber = reader.GetString(4);
-                // Create the Carrier object
-                Carrier carrier = new Carrier(id, name, phoneNumber, email, capacity);
-                // Add the Carrier object to the list
-                carriers.Add(carrier);
+                // Create an array to store the values of the current record
+                string[] record = new string[columnCount];
+
+                // Get the values of each column in the current record
+                for (int i = 0; i < columnCount; i++)
+                {
+                    if (reader.IsDBNull(i))
+                    {
+                        // Case when the value to retrieve is null
+                        record[i] = null;
+                    }
+                    else
+                    {
+                        // Case when the value to retrieve is not null
+                        record[i] = reader.GetString(i);
+                    }
+                }
+
+                // Add the record to the list
+                records.Add(record);
             }
 
             reader.Close();
-            return carriers;
+
+            return records;
         }
 
         public class WrongLoginException : Exception

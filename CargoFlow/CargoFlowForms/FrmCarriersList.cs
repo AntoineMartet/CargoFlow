@@ -40,7 +40,32 @@ namespace CargoFlowForms
             List<Carrier> list = new List<Carrier>();
             dbConn = new DBConnection();
             dbConn.OpenConnection();
-            list = dbConn.GetAllCarriers();
+            string getAllCarriersQuery = "SELECT id, companyName, loadCapacity, email, phoneNumber FROM carriers";
+            List<string[]> records = dbConn.GetAllRecords(getAllCarriersQuery);
+
+            // Double loop reading records
+            foreach (string[] record in records)
+            {
+                // Preparing the parameters for the Carrier constructor
+                int id = Int32.Parse(record[0]);
+                string name = record[1];
+                // If the value is null, we set it to null, else we set it to the value retrieved from the database
+                int? capacity;
+                if (record[2] == null)
+                {
+                    capacity = null;
+                }
+                else
+                {
+                    capacity = Int32.Parse(record[2]);
+                }
+                string email = record[3];
+                string phoneNumber = record[4];
+                // Create the Carrier object
+                Carrier carrier = new Carrier(id, name, phoneNumber, email, capacity);
+                // Add the Carrier object to the list
+                list.Add(carrier);
+            }
             dbConn.CloseConnection();
             return list;
         }

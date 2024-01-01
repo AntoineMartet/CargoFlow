@@ -12,12 +12,28 @@ using CargoFlowMgmt;
 
 namespace CargoFlowForms
 {
+    /// <summary>
+    /// Form to add or update a carrier
+    /// </summary>
     public class FrmAddCarrier : Form
     {
+        private int? id;
         private DBConnection? dbConn;
+        private Label lblTitle;
+        private Label lblName;
+        private Label lblTel;
+        private Label lblMail;
+        private Label lblCapacity;
+        private TextBox txtName;
+        private TextBox txtTel;
+        private TextBox txtMail;
+        private TextBox txtCapacity;
+        private Button btnAdd;
+        private Button btnCancel;
 
-        public FrmAddCarrier()
+        public FrmAddCarrier(int? id)
         {
+            this.id = id;
             InitializeComponent();
         }
 
@@ -147,21 +163,43 @@ namespace CargoFlowForms
             Controls.Add(lblTitle);
             Name = "FrmAddCarrier";
             StartPosition = FormStartPosition.CenterScreen;
+            Load += FrmAddCarrier_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
-        private Label lblTitle;
-        private Label lblName;
-        private Label lblTel;
-        private Label lblMail;
-        private Label lblCapacity;
-        private TextBox txtName;
-        private TextBox txtTel;
-        private TextBox txtMail;
-        private TextBox txtCapacity;
-        private Button btnAdd;
-        private Button btnCancel;
+        /// <summary>
+        /// Changes labels and fill the fields with the carrier's data if we are updating a carrier
+        /// </summary>
+        private void FrmAddCarrier_Load(object sender, EventArgs e)
+        {
+            // If we are updating a carrier, we need to change form's text and fill the fields with the carrier's data
+            if (id != null)
+            {
+                lblTitle.Text = "Modification d'un transporteur";
+                btnAdd.Text = "Modifier le transporteur";
+
+                // Open connection to the database
+                dbConn = new DBConnection();
+                dbConn.OpenConnection();
+
+                // Prepare the SQL request
+                string query = "SELECT companyName, loadCapacity, email, phoneNumber FROM carriers WHERE id = " + id;
+
+                // Execute the SQL request
+                // Explicit conversion of id to int because it is nullable
+                string[] record = dbConn.GetRecord(query, (int)id);
+
+                // Close connection to the database
+                dbConn.CloseConnection();
+
+                // Fill the fields with the carrier's data
+                txtName.Text = record[0];
+                txtCapacity.Text = record[1];
+                txtMail.Text = record[2];
+                txtTel.Text = record[3];
+            }
+        }
 
         /// <summary>
         /// Close the current form and open frmCarriersList
@@ -175,7 +213,7 @@ namespace CargoFlowForms
         }
 
         /// <summary>
-        /// Add a carrier to the database
+        /// Add a new carrier or update an existing carrier in the database
         /// </summary>
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -199,7 +237,18 @@ namespace CargoFlowForms
                     }
 
                     // Prepare the SQL request
-                    string addQuery = "INSERT INTO carriers (companyName, loadCapacity, email, phoneNumber) VALUES (@companyName, @loadCapacity, @email, @phoneNumber)";
+                    string query;
+                    if (id == null)
+                    {
+                        // Add a carrier
+                        query = "INSERT INTO carriers (companyName, loadCapacity, email, phoneNumber) VALUES (@companyName, @loadCapacity, @email, @phoneNumber)";
+                    }
+                    else
+                    {
+                        // Update the carrier with the given id
+                        query = "UPDATE carriers SET companyName = @companyName, loadCapacity = @loadCapacity, email = @email,"
+                                + " phoneNumber = @phoneNumber WHERE id = " + id;
+                    }
 
                     // Prepare the data for the SQL request
                     Dictionary<string, string?> queryData = new Dictionary<string, string?>();
@@ -207,12 +256,25 @@ namespace CargoFlowForms
                     queryData.Add("@loadCapacity", capacity.HasValue ? capacity.ToString() : null);
                     queryData.Add("@email", txtMail.Text);
                     queryData.Add("@phoneNumber", txtTel.Text);
+                    if (id != null)
+                    {
+                        queryData.Add("@id", id.ToString());
+                    }
 
                     // Execute the SQL request
-                    dbConn.AddRecord(addQuery, queryData);
-                    dbConn.CloseConnection();
+                    if (id == null)
+                    {
+                        dbConn.AddRecord(query, queryData);
+                        MessageBox.Show("Le transporteur " + txtName.Text + " a été ajouté.");
+                    }
+                    else
+                    {
+                        dbConn.UpdateRecord(query, queryData);
+                        MessageBox.Show("Le transporteur " + txtName.Text + " a été modifié.");
+                    }
 
-                    MessageBox.Show("Le transporteur " + txtName.Text + " a été ajouté.");
+                    // Close connection to the database
+                    dbConn.CloseConnection();
 
                     // Create and open frmCarriersList and close frmAddCarrier
                     FrmCarriersList frmCarriersList = new FrmCarriersList();

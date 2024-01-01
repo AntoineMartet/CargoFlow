@@ -14,6 +14,9 @@ using static CargoFlowMgmt.DBConnection;
 
 namespace CargoFlowForms
 {
+    /// <summary>
+    /// Form to display the list of carriers
+    /// </summary>
     public partial class FrmCarriersList : Form
     {
         private List<Carrier> carriers = new List<Carrier>();
@@ -98,7 +101,8 @@ namespace CargoFlowForms
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // Create and open frmAddCarrier and close frmCarriersList
-            FrmAddCarrier frmAddCarrier = new FrmAddCarrier();
+            // Argument is null because we are adding a new carrier, not updating an existing one
+            FrmAddCarrier frmAddCarrier = new FrmAddCarrier(null);
             frmAddCarrier.Show();
             try
             {
@@ -110,9 +114,31 @@ namespace CargoFlowForms
             }
         }
 
+        /// <summary>
+        /// Close the current form and open frmUpdateCarrier with the selected carrier
+        /// </summary>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (dgvCarriers.SelectedRows.Count == 1)
+            {
+                // Get the selected row
+                DataGridViewRow selectedRow = dgvCarriers.SelectedRows[0];
 
+                // Get the id in the selected row
+                int carrierId = (int)selectedRow.Cells["Id"].Value;
+
+                // Create and open frmUpdateCarrier and close frmCarriersList
+                FrmAddCarrier frmAddCarrier = new FrmAddCarrier(carrierId);
+                frmAddCarrier.Show();
+                try
+                {
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         /// <summary>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1;
 
 namespace CargoFlowMgmt
 {
@@ -111,57 +112,6 @@ namespace CargoFlowMgmt
         }
 
         /// <summary>
-        /// Delete a record in the database
-        /// </summary>
-        /// <param name="query">The text of the SQL request</param>
-        /// <param name="id">The id of the record to delete</param>
-        public void DeleteRecord(string query, int id)
-        {
-            // Create a SQL command object
-            MySqlCommand cmd = connection.CreateCommand();
-
-            // SQL request
-            cmd.CommandText = query;
-
-            // Add parameter to the SQL request
-            cmd.Parameters.AddWithValue("@id", id);
-
-            // Execute the SQL command
-            cmd.ExecuteNonQuery();
-        }
-
-        /// <summary>
-        /// Add a record in the database
-        /// </summary>
-        /// <param name="query">The text of the SQL request</param>
-        /// <param name="data">The values to add to the SQL request, formatted as key-value associations</param>
-        public int AddRecord(string query, Dictionary<string, string?> data)
-        {
-            try
-            {
-                // Create a SQL command object
-                MySqlCommand cmd = connection.CreateCommand();
-
-                // SQL request
-                cmd.CommandText = query;
-
-                // Add each data key and value to the SQL request
-                foreach (KeyValuePair<string, string?> d in data)
-                {
-                    cmd.Parameters.AddWithValue(d.Key, d.Value);
-                }
-
-                // Execute the SQL command and return the number of rows affected
-                int nbRowsAffected = cmd.ExecuteNonQuery();
-                return nbRowsAffected;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        /// <summary>
         /// Get all the records from the database and return them as a 2D string array
         /// </summary>
         /// <param name="query">The text of the SQL request</param>
@@ -211,6 +161,120 @@ namespace CargoFlowMgmt
             reader.Close();
 
             return records;
+        }
+
+        /// <summary>
+        /// Get a record in the database and return it as a 2D string array
+        /// </summary>
+        /// <param name="query">The text of the SQL request</param>
+        /// <param name="id">The id of the record to get</param>
+        public string[] GetRecord(string query, int id)
+        {
+            // Create a SQL command object
+            MySqlCommand cmd = connection.CreateCommand();
+
+            // SQL request
+            cmd.CommandText = query;
+
+            // Add parameter to the SQL request
+            cmd.Parameters.AddWithValue("@id", id);
+
+            // Execute the SQL command and put its result in a DbDataReader object
+            DbDataReader reader = cmd.ExecuteReader();
+
+            // Get the number of columns in the result
+            int columnCount = reader.FieldCount;
+
+            // Create an array to store the values of the current record
+            string[] recordData = new string[columnCount];
+
+            reader.Read();
+
+            // Get the values of each column in the current record
+            for (int i = 0; i < columnCount; i++)
+            {
+                if (reader.IsDBNull(i))
+                {
+                    // Case when the value to retrieve is null
+                    recordData[i] = null;
+                }
+                else
+                {
+                    // Case when the value to retrieve is not null
+                    recordData[i] = reader.GetString(i);
+                }
+            }
+
+            reader.Close();
+            return recordData;
+        }
+
+        /// <summary>
+        /// Add a record in the database
+        /// </summary>
+        /// <param name="query">The text of the SQL request</param>
+        /// <param name="data">The values to add to the SQL request, formatted as key-value associations</param>
+        public int AddRecord(string query, Dictionary<string, string?> data)
+        {
+            // Create a SQL command object
+            MySqlCommand cmd = connection.CreateCommand();
+
+            // SQL request
+            cmd.CommandText = query;
+
+            // Add each data key and value to the SQL request
+            foreach (KeyValuePair<string, string?> d in data)
+            {
+                cmd.Parameters.AddWithValue(d.Key, d.Value);
+            }
+
+            // Execute the SQL command and return the number of rows affected
+            int nbRowsAffected = cmd.ExecuteNonQuery();
+            return nbRowsAffected;
+        }
+
+        /// <summary>
+        /// Update a record in the database
+        /// </summary>
+        /// <param name="query">The text of the SQL request</param>
+        /// <param name="data">The values to add to the SQL request, formatted as key-value associations</param>
+        public int UpdateRecord(string query, Dictionary<string, string?> data)
+        {
+            // Create a SQL command object
+            MySqlCommand cmd = connection.CreateCommand();
+
+            // SQL request
+            cmd.CommandText = query;
+
+            // Add each data key and value to the SQL request
+            foreach (KeyValuePair<string, string?> d in data)
+            {
+                cmd.Parameters.AddWithValue(d.Key, d.Value);
+            }
+
+            // Execute the SQL command and return the number of rows affected
+            int nbRowsAffected = cmd.ExecuteNonQuery();
+            return nbRowsAffected;
+        }
+
+        /// <summary>
+        /// Delete a record in the database
+        /// </summary>
+        /// <param name="query">The text of the SQL request</param>
+        /// <param name="id">The id of the record to delete</param>
+        public void DeleteRecord(string query, int id)
+        {
+            // Create a SQL command object
+            MySqlCommand cmd = connection.CreateCommand();
+
+            // SQL request
+            cmd.CommandText = query;
+
+            // Add parameter to the SQL request
+            cmd.Parameters.AddWithValue("@id", id);
+
+            // Execute the SQL command
+            cmd.ExecuteNonQuery();
         }
 
         public class WrongLoginException : Exception

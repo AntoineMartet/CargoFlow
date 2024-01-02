@@ -175,10 +175,10 @@ namespace CargoFlowForms
             // 
             // lblHeadline
             // 
-            lblHeadline.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblHeadline.Location = new Point(267, 281);
+            lblHeadline.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblHeadline.Location = new Point(284, 281);
             lblHeadline.Name = "lblHeadline";
-            lblHeadline.Size = new Size(498, 60);
+            lblHeadline.Size = new Size(465, 60);
             lblHeadline.TabIndex = 1;
             lblHeadline.Text = "Optimisez votre chaîne logistique avec CargoFlow, votre partenaire pour une gestion fluide de vos opérations, des clients aux livraisons.";
             lblHeadline.TextAlign = ContentAlignment.MiddleCenter;
@@ -187,7 +187,7 @@ namespace CargoFlowForms
             // 
             picLogo.Image = Properties.Resources.cargoflow_01_white;
             picLogo.InitialImage = null;
-            picLogo.Location = new Point(267, 128);
+            picLogo.Location = new Point(255, 128);
             picLogo.Name = "picLogo";
             picLogo.Size = new Size(498, 154);
             picLogo.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -196,12 +196,12 @@ namespace CargoFlowForms
             // 
             // lblSession
             // 
-            lblSession.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblSession.Location = new Point(267, 406);
+            lblSession.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblSession.Location = new Point(284, 394);
             lblSession.Name = "lblSession";
-            lblSession.Size = new Size(498, 97);
+            lblSession.Size = new Size(465, 83);
             lblSession.TabIndex = 3;
-            lblSession.Text = "Identifiants de la session en cours :";
+            lblSession.TextAlign = ContentAlignment.TopCenter;
             // 
             // FrmHome
             // 
@@ -216,6 +216,7 @@ namespace CargoFlowForms
             Name = "FrmHome";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmHome";
+            Load += FrmHome_Load;
             flpTabs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ResumeLayout(false);

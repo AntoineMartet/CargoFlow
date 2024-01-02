@@ -34,12 +34,14 @@
             txtMail = new TextBox();
             txtPassword = new TextBox();
             btnLogin = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // lblLoginMessage
             // 
             lblLoginMessage.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblLoginMessage.Location = new Point(138, 86);
+            lblLoginMessage.Location = new Point(130, 144);
             lblLoginMessage.Name = "lblLoginMessage";
             lblLoginMessage.Size = new Size(279, 58);
             lblLoginMessage.TabIndex = 0;
@@ -49,7 +51,7 @@
             // 
             lblMail.AutoSize = true;
             lblMail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblMail.Location = new Point(146, 168);
+            lblMail.Location = new Point(130, 225);
             lblMail.Name = "lblMail";
             lblMail.Size = new Size(48, 21);
             lblMail.TabIndex = 1;
@@ -59,7 +61,7 @@
             // 
             lblPassword.AutoSize = true;
             lblPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPassword.Location = new Point(146, 213);
+            lblPassword.Location = new Point(130, 270);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new Size(102, 21);
             lblPassword.TabIndex = 2;
@@ -67,14 +69,14 @@
             // 
             // txtMail
             // 
-            txtMail.Location = new Point(262, 170);
+            txtMail.Location = new Point(246, 227);
             txtMail.Name = "txtMail";
             txtMail.Size = new Size(155, 23);
             txtMail.TabIndex = 3;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(262, 215);
+            txtPassword.Location = new Point(246, 272);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '●';
             txtPassword.Size = new Size(155, 23);
@@ -82,20 +84,35 @@
             // 
             // btnLogin
             // 
+            btnLogin.BackColor = Color.WhiteSmoke;
+            btnLogin.FlatAppearance.BorderColor = Color.DarkGray;
+            btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLogin.Location = new Point(262, 260);
+            btnLogin.Location = new Point(246, 317);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(155, 32);
             btnLogin.TabIndex = 5;
             btnLogin.Text = "Se connecter";
-            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.cargoflow_01_white;
+            pictureBox1.Location = new Point(130, 2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(263, 143);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
             // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(549, 450);
+            BackColor = Color.White;
+            ClientSize = new Size(542, 404);
+            Controls.Add(pictureBox1);
             Controls.Add(btnLogin);
             Controls.Add(txtPassword);
             Controls.Add(txtMail);
@@ -105,6 +122,7 @@
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CargoFlow";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -117,5 +135,6 @@
         private TextBox txtMail;
         private TextBox txtPassword;
         private Button btnLogin;
+        private PictureBox pictureBox1;
     }
 }

@@ -13,14 +13,15 @@ namespace CargoFlowForms
 {
     public partial class FrmHome : Form
     {
-        public FrmHome(string email, string role)
+        // Email and role should not be optional in future versions
+        public FrmHome(string email = "", string role = "")
         {
             InitializeComponent();
         }
 
         private void btnCarriers_Click(object sender, EventArgs e)
         {
-            // Create and open frmHome and close frmLogin
+            // Create and open frmCarriersList and close frmHome
             FrmCarriersList frmCarriersList = new FrmCarriersList();
             frmCarriersList.Show();
             this.Close();

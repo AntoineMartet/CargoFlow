@@ -37,7 +37,7 @@ namespace CargoFlowForms
 
         /// <summary>
         /// Get all the carriers from the database and return them as a list of Carrier objects
-        /// </summary
+        /// </summary>
         private List<Carrier> GetCarriers()
         {
             List<Carrier> list = new List<Carrier>();
@@ -185,6 +185,14 @@ namespace CargoFlowForms
                     MessageBox.Show("Erreur lors de la suppression du transporteur. Le transporteur " + carrierName + " n'a pas pu être supprimé.\n\nDétail : \n" + ex.Message);
                 }
             }
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            // Create and open frmHome and close frmLogin
+            FrmHome frmHome = new FrmHome();
+            frmHome.Show();
+            this.Close();
         }
     }
 }

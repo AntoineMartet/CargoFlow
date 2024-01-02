@@ -17,10 +17,24 @@ namespace CargoFlowForms
     public partial class FrmLogin : Form
     {
         private DBConnection dbConn;
+        private string email;
+        private string role;
 
         public FrmLogin()
         {
             InitializeComponent();
+        }
+
+        public string Email
+        {
+            get { return email; }
+            private set { email = value; }
+        }
+
+        public string Role
+        {
+            get { return role; }
+            private set { role = value; }
         }
 
         /// <summary>
@@ -44,8 +58,13 @@ namespace CargoFlowForms
 
                 dbConn.CloseConnection();
 
+                // Initialize email and role object attributes.
+                // They will be used in all the other forms as the login form is always open.
+                this.Email = email;
+                this.Role = role;
+
                 // Create and open frmHome and close frmLogin
-                FrmHome frmHome = new FrmHome(email, role);
+                FrmHome frmHome = new FrmHome(this.Email, this.Role);
                 frmHome.Show();
                 // Hide the login form. Closing it would close the whole application.
                 this.Hide();

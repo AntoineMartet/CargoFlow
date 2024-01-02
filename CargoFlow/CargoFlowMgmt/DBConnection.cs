@@ -47,7 +47,7 @@ namespace CargoFlowMgmt
         }
 
         /// <summary>
-        /// Check if the email exists in the database, then check if the password matches
+        /// Check if the email exists in the database, then check if the password matches. Throw exception if bad login data.
         /// </summary>
         /// <param name="email">The email to check</param>
         /// <param name="password">The password to check</param>

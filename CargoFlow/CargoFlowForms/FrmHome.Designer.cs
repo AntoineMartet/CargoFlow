@@ -36,11 +36,13 @@
             btnEmployees = new Button();
             btnCategories = new Button();
             btnArticles = new Button();
+            btnHome = new Button();
             flpTabs.SuspendLayout();
             SuspendLayout();
             // 
             // flpTabs
             // 
+            flpTabs.Controls.Add(btnHome);
             flpTabs.Controls.Add(btnStock);
             flpTabs.Controls.Add(btnDeliveries);
             flpTabs.Controls.Add(btnCarriers);
@@ -57,7 +59,7 @@
             // 
             btnStock.AutoSize = true;
             btnStock.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnStock.Location = new Point(3, 3);
+            btnStock.Location = new Point(84, 3);
             btnStock.Name = "btnStock";
             btnStock.Size = new Size(46, 25);
             btnStock.TabIndex = 0;
@@ -68,7 +70,7 @@
             // 
             btnDeliveries.AutoSize = true;
             btnDeliveries.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnDeliveries.Location = new Point(55, 3);
+            btnDeliveries.Location = new Point(136, 3);
             btnDeliveries.Name = "btnDeliveries";
             btnDeliveries.Size = new Size(69, 25);
             btnDeliveries.TabIndex = 1;
@@ -79,7 +81,7 @@
             // 
             btnCarriers.AutoSize = true;
             btnCarriers.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnCarriers.Location = new Point(130, 3);
+            btnCarriers.Location = new Point(211, 3);
             btnCarriers.Name = "btnCarriers";
             btnCarriers.Size = new Size(88, 25);
             btnCarriers.TabIndex = 2;
@@ -91,7 +93,7 @@
             // 
             btnClients.AutoSize = true;
             btnClients.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnClients.Location = new Point(224, 3);
+            btnClients.Location = new Point(305, 3);
             btnClients.Name = "btnClients";
             btnClients.Size = new Size(62, 25);
             btnClients.TabIndex = 3;
@@ -102,7 +104,7 @@
             // 
             btnEmployees.AutoSize = true;
             btnEmployees.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnEmployees.Location = new Point(292, 3);
+            btnEmployees.Location = new Point(373, 3);
             btnEmployees.Name = "btnEmployees";
             btnEmployees.Size = new Size(77, 25);
             btnEmployees.TabIndex = 4;
@@ -113,7 +115,7 @@
             // 
             btnCategories.AutoSize = true;
             btnCategories.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnCategories.Location = new Point(375, 3);
+            btnCategories.Location = new Point(456, 3);
             btnCategories.Name = "btnCategories";
             btnCategories.Size = new Size(73, 25);
             btnCategories.TabIndex = 5;
@@ -124,12 +126,21 @@
             // 
             btnArticles.AutoSize = true;
             btnArticles.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnArticles.Location = new Point(454, 3);
+            btnArticles.Location = new Point(535, 3);
             btnArticles.Name = "btnArticles";
             btnArticles.Size = new Size(56, 25);
             btnArticles.TabIndex = 6;
             btnArticles.Text = "Articles";
             btnArticles.UseVisualStyleBackColor = true;
+            // 
+            // btnHome
+            // 
+            btnHome.Location = new Point(3, 3);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(75, 23);
+            btnHome.TabIndex = 7;
+            btnHome.Text = "Accueil";
+            btnHome.UseVisualStyleBackColor = true;
             // 
             // FrmHome
             // 
@@ -155,5 +166,6 @@
         private Button btnEmployees;
         private Button btnCategories;
         private Button btnArticles;
+        private Button btnHome;
     }
 }

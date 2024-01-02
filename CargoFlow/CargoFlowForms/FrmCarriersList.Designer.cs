@@ -109,7 +109,7 @@
             btnCarriers.AutoSize = true;
             btnCarriers.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnCarriers.BackColor = Color.LightCyan;
-            btnCarriers.FlatAppearance.BorderColor = Color.LightCyan;
+            btnCarriers.FlatAppearance.BorderColor = Color.PowderBlue;
             btnCarriers.FlatStyle = FlatStyle.Flat;
             btnCarriers.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnCarriers.Location = new Point(215, 3);

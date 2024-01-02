@@ -66,7 +66,7 @@ namespace CargoFlowForms
             btnHome.BackColor = Color.LightCyan;
             btnHome.FlatAppearance.BorderColor = Color.PowderBlue;
             btnHome.FlatStyle = FlatStyle.Flat;
-            btnHome.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnHome.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnHome.Location = new Point(3, 3);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(120, 40);
@@ -80,7 +80,7 @@ namespace CargoFlowForms
             btnStock.BackColor = Color.PowderBlue;
             btnStock.FlatAppearance.BorderColor = Color.PowderBlue;
             btnStock.FlatStyle = FlatStyle.Flat;
-            btnStock.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnStock.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnStock.Location = new Point(129, 3);
             btnStock.Name = "btnStock";
             btnStock.Size = new Size(120, 40);
@@ -94,7 +94,7 @@ namespace CargoFlowForms
             btnDeliveries.BackColor = Color.PowderBlue;
             btnDeliveries.FlatAppearance.BorderColor = Color.PowderBlue;
             btnDeliveries.FlatStyle = FlatStyle.Flat;
-            btnDeliveries.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDeliveries.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnDeliveries.Location = new Point(255, 3);
             btnDeliveries.Name = "btnDeliveries";
             btnDeliveries.Size = new Size(120, 40);
@@ -108,7 +108,7 @@ namespace CargoFlowForms
             btnCarriers.BackColor = Color.PowderBlue;
             btnCarriers.FlatAppearance.BorderColor = Color.PowderBlue;
             btnCarriers.FlatStyle = FlatStyle.Flat;
-            btnCarriers.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCarriers.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnCarriers.Location = new Point(381, 3);
             btnCarriers.Name = "btnCarriers";
             btnCarriers.Size = new Size(120, 40);
@@ -123,7 +123,7 @@ namespace CargoFlowForms
             btnClients.BackColor = Color.PowderBlue;
             btnClients.FlatAppearance.BorderColor = Color.PowderBlue;
             btnClients.FlatStyle = FlatStyle.Flat;
-            btnClients.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnClients.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnClients.Location = new Point(507, 3);
             btnClients.Name = "btnClients";
             btnClients.Size = new Size(120, 40);
@@ -137,7 +137,7 @@ namespace CargoFlowForms
             btnEmployees.BackColor = Color.PowderBlue;
             btnEmployees.FlatAppearance.BorderColor = Color.PowderBlue;
             btnEmployees.FlatStyle = FlatStyle.Flat;
-            btnEmployees.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEmployees.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnEmployees.Location = new Point(633, 3);
             btnEmployees.Name = "btnEmployees";
             btnEmployees.Size = new Size(120, 40);
@@ -151,7 +151,7 @@ namespace CargoFlowForms
             btnCategories.BackColor = Color.PowderBlue;
             btnCategories.FlatAppearance.BorderColor = Color.PowderBlue;
             btnCategories.FlatStyle = FlatStyle.Flat;
-            btnCategories.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCategories.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnCategories.Location = new Point(759, 3);
             btnCategories.Name = "btnCategories";
             btnCategories.Size = new Size(120, 40);
@@ -165,7 +165,7 @@ namespace CargoFlowForms
             btnArticles.BackColor = Color.PowderBlue;
             btnArticles.FlatAppearance.BorderColor = Color.PowderBlue;
             btnArticles.FlatStyle = FlatStyle.Flat;
-            btnArticles.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnArticles.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnArticles.Location = new Point(885, 3);
             btnArticles.Name = "btnArticles";
             btnArticles.Size = new Size(120, 40);
@@ -175,10 +175,10 @@ namespace CargoFlowForms
             // 
             // lblHeadline
             // 
-            lblHeadline.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblHeadline.Location = new Point(284, 281);
+            lblHeadline.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblHeadline.Location = new Point(298, 281);
             lblHeadline.Name = "lblHeadline";
-            lblHeadline.Size = new Size(465, 60);
+            lblHeadline.Size = new Size(444, 69);
             lblHeadline.TabIndex = 1;
             lblHeadline.Text = "Optimisez votre chaîne logistique avec CargoFlow, votre partenaire pour une gestion fluide de vos opérations, des clients aux livraisons.";
             lblHeadline.TextAlign = ContentAlignment.MiddleCenter;
@@ -196,10 +196,10 @@ namespace CargoFlowForms
             // 
             // lblSession
             // 
-            lblSession.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblSession.Location = new Point(284, 394);
+            lblSession.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblSession.Location = new Point(298, 394);
             lblSession.Name = "lblSession";
-            lblSession.Size = new Size(465, 83);
+            lblSession.Size = new Size(444, 83);
             lblSession.TabIndex = 3;
             lblSession.TextAlign = ContentAlignment.TopCenter;
             // 

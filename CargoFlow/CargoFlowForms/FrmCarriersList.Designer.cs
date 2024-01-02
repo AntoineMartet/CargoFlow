@@ -66,7 +66,7 @@
             btnHome.BackColor = Color.PowderBlue;
             btnHome.FlatAppearance.BorderColor = Color.PowderBlue;
             btnHome.FlatStyle = FlatStyle.Flat;
-            btnHome.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnHome.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnHome.Location = new Point(3, 3);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(120, 40);
@@ -82,7 +82,7 @@
             btnStock.BackColor = Color.PowderBlue;
             btnStock.FlatAppearance.BorderColor = Color.PowderBlue;
             btnStock.FlatStyle = FlatStyle.Flat;
-            btnStock.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnStock.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnStock.Location = new Point(129, 3);
             btnStock.Name = "btnStock";
             btnStock.Size = new Size(120, 40);
@@ -97,7 +97,7 @@
             btnDeliveries.BackColor = Color.PowderBlue;
             btnDeliveries.FlatAppearance.BorderColor = Color.PowderBlue;
             btnDeliveries.FlatStyle = FlatStyle.Flat;
-            btnDeliveries.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDeliveries.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnDeliveries.Location = new Point(255, 3);
             btnDeliveries.Name = "btnDeliveries";
             btnDeliveries.Size = new Size(120, 40);
@@ -112,7 +112,7 @@
             btnCarriers.BackColor = Color.LightCyan;
             btnCarriers.FlatAppearance.BorderColor = Color.PowderBlue;
             btnCarriers.FlatStyle = FlatStyle.Flat;
-            btnCarriers.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCarriers.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnCarriers.Location = new Point(381, 3);
             btnCarriers.Name = "btnCarriers";
             btnCarriers.Size = new Size(120, 40);
@@ -127,7 +127,7 @@
             btnClients.BackColor = Color.PowderBlue;
             btnClients.FlatAppearance.BorderColor = Color.PowderBlue;
             btnClients.FlatStyle = FlatStyle.Flat;
-            btnClients.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnClients.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnClients.Location = new Point(507, 3);
             btnClients.Name = "btnClients";
             btnClients.Size = new Size(120, 40);
@@ -142,7 +142,7 @@
             btnEmployees.BackColor = Color.PowderBlue;
             btnEmployees.FlatAppearance.BorderColor = Color.PowderBlue;
             btnEmployees.FlatStyle = FlatStyle.Flat;
-            btnEmployees.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEmployees.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnEmployees.Location = new Point(633, 3);
             btnEmployees.Name = "btnEmployees";
             btnEmployees.Size = new Size(120, 40);
@@ -157,7 +157,7 @@
             btnCategories.BackColor = Color.PowderBlue;
             btnCategories.FlatAppearance.BorderColor = Color.PowderBlue;
             btnCategories.FlatStyle = FlatStyle.Flat;
-            btnCategories.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCategories.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnCategories.Location = new Point(759, 3);
             btnCategories.Name = "btnCategories";
             btnCategories.Size = new Size(120, 40);
@@ -172,7 +172,7 @@
             btnArticles.BackColor = Color.PowderBlue;
             btnArticles.FlatAppearance.BorderColor = Color.PowderBlue;
             btnArticles.FlatStyle = FlatStyle.Flat;
-            btnArticles.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnArticles.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnArticles.Location = new Point(885, 3);
             btnArticles.Name = "btnArticles";
             btnArticles.Size = new Size(120, 40);
@@ -200,7 +200,7 @@
             btnAdd.BackColor = Color.WhiteSmoke;
             btnAdd.FlatAppearance.BorderColor = Color.DarkGray;
             btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAdd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnAdd.Location = new Point(867, 260);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(150, 40);
@@ -215,7 +215,7 @@
             btnUpdate.BackColor = Color.WhiteSmoke;
             btnUpdate.FlatAppearance.BorderColor = Color.DarkGray;
             btnUpdate.FlatStyle = FlatStyle.Flat;
-            btnUpdate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnUpdate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnUpdate.Location = new Point(867, 320);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(150, 40);
@@ -230,7 +230,7 @@
             btnDelete.BackColor = Color.WhiteSmoke;
             btnDelete.FlatAppearance.BorderColor = Color.DarkGray;
             btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDelete.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnDelete.Location = new Point(867, 380);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(150, 40);
@@ -245,7 +245,7 @@
             btnDetails.BackColor = Color.WhiteSmoke;
             btnDetails.FlatAppearance.BorderColor = Color.DarkGray;
             btnDetails.FlatStyle = FlatStyle.Flat;
-            btnDetails.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDetails.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnDetails.Location = new Point(867, 200);
             btnDetails.Name = "btnDetails";
             btnDetails.Size = new Size(150, 40);

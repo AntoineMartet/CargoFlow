@@ -43,11 +43,11 @@
             // 
             // lblTitle
             // 
-            lblTitle.BackColor = Color.YellowGreen;
-            lblTitle.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTitle.BackColor = Color.PowderBlue;
+            lblTitle.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblTitle.Location = new Point(0, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(801, 43);
+            lblTitle.Size = new Size(1040, 61);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Ajout d'un transporteur";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -55,90 +55,103 @@
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(147, 117);
+            lblName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblName.Location = new Point(246, 118);
             lblName.Name = "lblName";
-            lblName.Size = new Size(119, 15);
+            lblName.Size = new Size(159, 21);
             lblName.TabIndex = 1;
             lblName.Text = "Nom de l'entreprise *";
             // 
             // lblTel
             // 
             lblTel.AutoSize = true;
-            lblTel.Location = new Point(147, 157);
+            lblTel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTel.Location = new Point(246, 158);
             lblTel.Name = "lblTel";
-            lblTel.Size = new Size(69, 15);
+            lblTel.Size = new Size(91, 21);
             lblTel.TabIndex = 2;
             lblTel.Text = "Téléphone *";
             // 
             // lblMail
             // 
             lblMail.AutoSize = true;
-            lblMail.Location = new Point(147, 197);
+            lblMail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblMail.Location = new Point(246, 198);
             lblMail.Name = "lblMail";
-            lblMail.Size = new Size(44, 15);
+            lblMail.Size = new Size(59, 21);
             lblMail.TabIndex = 3;
             lblMail.Text = "Email *";
             // 
             // lblCapacity
             // 
             lblCapacity.AutoSize = true;
-            lblCapacity.Location = new Point(147, 237);
+            lblCapacity.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCapacity.Location = new Point(246, 238);
             lblCapacity.Name = "lblCapacity";
-            lblCapacity.Size = new Size(111, 15);
+            lblCapacity.Size = new Size(143, 21);
             lblCapacity.TabIndex = 4;
             lblCapacity.Text = "Capacité maximum";
             // 
             // txtName
             // 
-            txtName.Location = new Point(283, 114);
+            txtName.Location = new Point(433, 115);
             txtName.Name = "txtName";
-            txtName.Size = new Size(270, 23);
+            txtName.Size = new Size(334, 23);
             txtName.TabIndex = 5;
             // 
             // txtTel
             // 
-            txtTel.Location = new Point(283, 154);
+            txtTel.Location = new Point(433, 155);
             txtTel.Name = "txtTel";
-            txtTel.Size = new Size(270, 23);
+            txtTel.Size = new Size(334, 23);
             txtTel.TabIndex = 6;
             // 
             // txtMail
             // 
-            txtMail.Location = new Point(283, 197);
+            txtMail.Location = new Point(433, 195);
             txtMail.Name = "txtMail";
-            txtMail.Size = new Size(270, 23);
+            txtMail.Size = new Size(334, 23);
             txtMail.TabIndex = 7;
             // 
             // txtCapacity
             // 
-            txtCapacity.Location = new Point(283, 234);
+            txtCapacity.Location = new Point(433, 235);
             txtCapacity.Name = "txtCapacity";
-            txtCapacity.Size = new Size(270, 23);
+            txtCapacity.Size = new Size(334, 23);
             txtCapacity.TabIndex = 8;
             // 
             // btnAddUpd
             // 
-            btnAddUpd.Location = new Point(283, 295);
+            btnAddUpd.BackColor = Color.WhiteSmoke;
+            btnAddUpd.FlatAppearance.BorderColor = Color.DarkGray;
+            btnAddUpd.FlatStyle = FlatStyle.Flat;
+            btnAddUpd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAddUpd.Location = new Point(433, 295);
             btnAddUpd.Name = "btnAddUpd";
-            btnAddUpd.Size = new Size(120, 40);
+            btnAddUpd.Size = new Size(150, 60);
             btnAddUpd.TabIndex = 9;
             btnAddUpd.Text = "Ajouter le transporteur";
-            btnAddUpd.UseVisualStyleBackColor = true;
+            btnAddUpd.UseVisualStyleBackColor = false;
             btnAddUpd.Click += btnAddUpd_Click;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(433, 295);
+            btnCancel.BackColor = Color.WhiteSmoke;
+            btnCancel.FlatAppearance.BorderColor = Color.DarkGray;
+            btnCancel.FlatStyle = FlatStyle.Flat;
+            btnCancel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCancel.Location = new Point(617, 295);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(120, 40);
+            btnCancel.Size = new Size(150, 60);
             btnCancel.TabIndex = 10;
             btnCancel.Text = "Annuler";
-            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
             // FrmAddUpdCarrier
             // 
-            ClientSize = new Size(800, 450);
+            BackColor = Color.White;
+            ClientSize = new Size(1039, 599);
             Controls.Add(btnCancel);
             Controls.Add(btnAddUpd);
             Controls.Add(txtCapacity);

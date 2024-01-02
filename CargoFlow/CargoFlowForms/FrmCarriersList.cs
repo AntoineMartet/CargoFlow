@@ -96,14 +96,14 @@ namespace CargoFlowForms
         }
 
         /// <summary>
-        /// Close the current form and open frmAddCarrier
+        /// Close the current form and open frmAddUpdCarrier
         /// </summary>
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            // Create and open frmAddCarrier and close frmCarriersList
+            // Create and open frmAddUpdCarrier and close frmCarriersList
             // Argument is null because we are adding a new carrier, not updating an existing one
-            FrmAddCarrier frmAddCarrier = new FrmAddCarrier(null);
-            frmAddCarrier.Show();
+            FrmAddUpdCarrier frmAddUpdCarrier = new FrmAddUpdCarrier(null);
+            frmAddUpdCarrier.Show();
             try
             {
                 this.Close();
@@ -128,8 +128,8 @@ namespace CargoFlowForms
                 int carrierId = (int)selectedRow.Cells["Id"].Value;
 
                 // Create and open frmUpdateCarrier and close frmCarriersList
-                FrmAddCarrier frmAddCarrier = new FrmAddCarrier(carrierId);
-                frmAddCarrier.Show();
+                FrmAddUpdCarrier frmAddUpdCarrier = new FrmAddUpdCarrier(carrierId);
+                frmAddUpdCarrier.Show();
                 try
                 {
                     this.Close();

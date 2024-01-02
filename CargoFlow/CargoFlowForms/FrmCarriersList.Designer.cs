@@ -41,6 +41,7 @@
             btnAdd = new Button();
             btnUpdate = new Button();
             btnDelete = new Button();
+            btnDetails = new Button();
             flpTabs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCarriers).BeginInit();
             SuspendLayout();
@@ -55,9 +56,9 @@
             flpTabs.Controls.Add(btnEmployees);
             flpTabs.Controls.Add(btnCategories);
             flpTabs.Controls.Add(btnArticles);
-            flpTabs.Location = new Point(1, 1);
+            flpTabs.Location = new Point(12, 12);
             flpTabs.Name = "flpTabs";
-            flpTabs.Size = new Size(796, 57);
+            flpTabs.Size = new Size(1016, 58);
             flpTabs.TabIndex = 1;
             // 
             // btnHome
@@ -65,9 +66,10 @@
             btnHome.BackColor = Color.PowderBlue;
             btnHome.FlatAppearance.BorderColor = Color.PowderBlue;
             btnHome.FlatStyle = FlatStyle.Flat;
+            btnHome.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnHome.Location = new Point(3, 3);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(75, 27);
+            btnHome.Size = new Size(120, 40);
             btnHome.TabIndex = 7;
             btnHome.TabStop = false;
             btnHome.Text = "Accueil";
@@ -76,14 +78,14 @@
             // 
             // btnStock
             // 
-            btnStock.AutoSize = true;
             btnStock.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnStock.BackColor = Color.PowderBlue;
             btnStock.FlatAppearance.BorderColor = Color.PowderBlue;
             btnStock.FlatStyle = FlatStyle.Flat;
-            btnStock.Location = new Point(84, 3);
+            btnStock.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnStock.Location = new Point(129, 3);
             btnStock.Name = "btnStock";
-            btnStock.Size = new Size(48, 27);
+            btnStock.Size = new Size(120, 40);
             btnStock.TabIndex = 0;
             btnStock.TabStop = false;
             btnStock.Text = "Stock";
@@ -91,14 +93,14 @@
             // 
             // btnDeliveries
             // 
-            btnDeliveries.AutoSize = true;
             btnDeliveries.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnDeliveries.BackColor = Color.PowderBlue;
             btnDeliveries.FlatAppearance.BorderColor = Color.PowderBlue;
             btnDeliveries.FlatStyle = FlatStyle.Flat;
-            btnDeliveries.Location = new Point(138, 3);
+            btnDeliveries.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDeliveries.Location = new Point(255, 3);
             btnDeliveries.Name = "btnDeliveries";
-            btnDeliveries.Size = new Size(71, 27);
+            btnDeliveries.Size = new Size(120, 40);
             btnDeliveries.TabIndex = 1;
             btnDeliveries.TabStop = false;
             btnDeliveries.Text = "Livraisons";
@@ -106,15 +108,14 @@
             // 
             // btnCarriers
             // 
-            btnCarriers.AutoSize = true;
             btnCarriers.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnCarriers.BackColor = Color.LightCyan;
             btnCarriers.FlatAppearance.BorderColor = Color.PowderBlue;
             btnCarriers.FlatStyle = FlatStyle.Flat;
-            btnCarriers.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCarriers.Location = new Point(215, 3);
+            btnCarriers.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCarriers.Location = new Point(381, 3);
             btnCarriers.Name = "btnCarriers";
-            btnCarriers.Size = new Size(96, 27);
+            btnCarriers.Size = new Size(120, 40);
             btnCarriers.TabIndex = 2;
             btnCarriers.TabStop = false;
             btnCarriers.Text = "Transporteurs";
@@ -122,14 +123,14 @@
             // 
             // btnClients
             // 
-            btnClients.AutoSize = true;
             btnClients.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnClients.BackColor = Color.PowderBlue;
             btnClients.FlatAppearance.BorderColor = Color.PowderBlue;
             btnClients.FlatStyle = FlatStyle.Flat;
-            btnClients.Location = new Point(317, 3);
+            btnClients.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnClients.Location = new Point(507, 3);
             btnClients.Name = "btnClients";
-            btnClients.Size = new Size(64, 27);
+            btnClients.Size = new Size(120, 40);
             btnClients.TabIndex = 3;
             btnClients.TabStop = false;
             btnClients.Text = "Client.es";
@@ -137,14 +138,14 @@
             // 
             // btnEmployees
             // 
-            btnEmployees.AutoSize = true;
             btnEmployees.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnEmployees.BackColor = Color.PowderBlue;
             btnEmployees.FlatAppearance.BorderColor = Color.PowderBlue;
             btnEmployees.FlatStyle = FlatStyle.Flat;
-            btnEmployees.Location = new Point(387, 3);
+            btnEmployees.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEmployees.Location = new Point(633, 3);
             btnEmployees.Name = "btnEmployees";
-            btnEmployees.Size = new Size(79, 27);
+            btnEmployees.Size = new Size(120, 40);
             btnEmployees.TabIndex = 4;
             btnEmployees.TabStop = false;
             btnEmployees.Text = "Employé.es";
@@ -152,14 +153,14 @@
             // 
             // btnCategories
             // 
-            btnCategories.AutoSize = true;
             btnCategories.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnCategories.BackColor = Color.PowderBlue;
             btnCategories.FlatAppearance.BorderColor = Color.PowderBlue;
             btnCategories.FlatStyle = FlatStyle.Flat;
-            btnCategories.Location = new Point(472, 3);
+            btnCategories.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCategories.Location = new Point(759, 3);
             btnCategories.Name = "btnCategories";
-            btnCategories.Size = new Size(75, 27);
+            btnCategories.Size = new Size(120, 40);
             btnCategories.TabIndex = 5;
             btnCategories.TabStop = false;
             btnCategories.Text = "Catégories";
@@ -167,14 +168,14 @@
             // 
             // btnArticles
             // 
-            btnArticles.AutoSize = true;
             btnArticles.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnArticles.BackColor = Color.PowderBlue;
             btnArticles.FlatAppearance.BorderColor = Color.PowderBlue;
             btnArticles.FlatStyle = FlatStyle.Flat;
-            btnArticles.Location = new Point(553, 3);
+            btnArticles.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnArticles.Location = new Point(885, 3);
             btnArticles.Name = "btnArticles";
-            btnArticles.Size = new Size(58, 27);
+            btnArticles.Size = new Size(120, 40);
             btnArticles.TabIndex = 6;
             btnArticles.TabStop = false;
             btnArticles.Text = "Articles";
@@ -186,12 +187,12 @@
             dgvCarriers.AllowUserToDeleteRows = false;
             dgvCarriers.AllowUserToOrderColumns = true;
             dgvCarriers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCarriers.Location = new Point(47, 95);
+            dgvCarriers.Location = new Point(15, 95);
             dgvCarriers.MultiSelect = false;
             dgvCarriers.Name = "dgvCarriers";
             dgvCarriers.RowTemplate.Height = 25;
             dgvCarriers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCarriers.Size = new Size(529, 268);
+            dgvCarriers.Size = new Size(819, 473);
             dgvCarriers.TabIndex = 2;
             // 
             // btnAdd
@@ -199,9 +200,10 @@
             btnAdd.BackColor = Color.WhiteSmoke;
             btnAdd.FlatAppearance.BorderColor = Color.DarkGray;
             btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Location = new Point(631, 95);
+            btnAdd.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAdd.Location = new Point(867, 260);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(112, 40);
+            btnAdd.Size = new Size(150, 40);
             btnAdd.TabIndex = 3;
             btnAdd.TabStop = false;
             btnAdd.Text = "Ajouter";
@@ -213,9 +215,10 @@
             btnUpdate.BackColor = Color.WhiteSmoke;
             btnUpdate.FlatAppearance.BorderColor = Color.DarkGray;
             btnUpdate.FlatStyle = FlatStyle.Flat;
-            btnUpdate.Location = new Point(631, 152);
+            btnUpdate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnUpdate.Location = new Point(867, 320);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(112, 40);
+            btnUpdate.Size = new Size(150, 40);
             btnUpdate.TabIndex = 4;
             btnUpdate.TabStop = false;
             btnUpdate.Text = "Modifier";
@@ -227,21 +230,37 @@
             btnDelete.BackColor = Color.WhiteSmoke;
             btnDelete.FlatAppearance.BorderColor = Color.DarkGray;
             btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Location = new Point(631, 210);
+            btnDelete.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDelete.Location = new Point(867, 380);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(112, 40);
+            btnDelete.Size = new Size(150, 40);
             btnDelete.TabIndex = 5;
             btnDelete.TabStop = false;
             btnDelete.Text = "Supprimer";
             btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
+            // btnDetails
+            // 
+            btnDetails.BackColor = Color.WhiteSmoke;
+            btnDetails.FlatAppearance.BorderColor = Color.DarkGray;
+            btnDetails.FlatStyle = FlatStyle.Flat;
+            btnDetails.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDetails.Location = new Point(867, 200);
+            btnDetails.Name = "btnDetails";
+            btnDetails.Size = new Size(150, 40);
+            btnDetails.TabIndex = 6;
+            btnDetails.TabStop = false;
+            btnDetails.Text = "Détails";
+            btnDetails.UseVisualStyleBackColor = false;
+            // 
             // FrmCarriersList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1039, 599);
+            Controls.Add(btnDetails);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
@@ -252,7 +271,6 @@
             Text = "FrmCarriersList";
             Load += FrmCarriersList_Load;
             flpTabs.ResumeLayout(false);
-            flpTabs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCarriers).EndInit();
             ResumeLayout(false);
         }
@@ -275,5 +293,6 @@
         private Button btnUpdate;
         private Button btnDelete;
         private Button btnHome;
+        private Button btnDetails;
     }
 }

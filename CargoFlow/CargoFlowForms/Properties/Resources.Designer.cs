@@ -59,5 +59,15 @@ namespace CargoFlowForms.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cargoflow_01_white {
+            get {
+                object obj = ResourceManager.GetObject("cargoflow_01_white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

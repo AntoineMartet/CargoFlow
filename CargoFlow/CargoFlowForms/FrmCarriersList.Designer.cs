@@ -253,6 +253,7 @@
             btnDetails.TabStop = false;
             btnDetails.Text = "Détails";
             btnDetails.UseVisualStyleBackColor = false;
+            btnDetails.Click += btnDetails_Click;
             // 
             // FrmCarriersList
             // 

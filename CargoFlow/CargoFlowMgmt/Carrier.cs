@@ -34,10 +34,12 @@ namespace CargoFlowMgmt
         {
             get { return name; }
         }
+
         public string PhoneNumber
         {
             get { return phoneNumber; }
         }
+
         public string Email
         {
             get { return email; }
@@ -46,6 +48,37 @@ namespace CargoFlowMgmt
         public int? LoadCapacity
         {
             get { return loadCapacity; }
+        }
+
+        /// <summary>
+        /// Returns a dictionary containing the carrier's details
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<string, string?> DetailsTable()
+        {
+            Dictionary<string, string?> infoTable = new Dictionary<string, string?>();
+            infoTable.Add("ID base de données", id.ToString());
+            infoTable.Add("Nom de l'entreprise ", Name);
+            infoTable.Add("Téléphone", PhoneNumber);
+            infoTable.Add("Email", Email);
+            infoTable.Add("Capacité en kg", (LoadCapacity == null) ? null : LoadCapacity.ToString());
+            return infoTable;
+        }
+
+        /// <summary>
+        /// Returns a string containing the carrier's details
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            string result = "";
+
+            foreach (KeyValuePair<string, string?> entry in DetailsTable())
+            {
+                result += entry.Key + " : " + entry.Value + "\n\n";
+            }
+
+            return result;
         }
     }
 }

@@ -96,6 +96,37 @@ namespace CargoFlowForms
         }
 
         /// <summary>
+        /// Close the current form and open frmDetails with the selected carrier
+        /// </summary>
+        private void btnDetails_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Get the selected row
+                DataGridViewRow selectedRow = dgvCarriers.SelectedRows[0];
+
+                // Get the id in the selected row
+                int carrierId = (int)selectedRow.Cells["Id"].Value;
+
+                // Get the selected carrier with his id
+                Carrier? selectedCarrier = carriers.FirstOrDefault(c => c.Id == carrierId);
+                
+                // MessageBox displaying the carrier's details
+                // MessageBox.Show(selectedCarrier.ToString());
+
+                // Create and open frmDetails
+                FrmDetails frmDetails = new FrmDetails(selectedCarrier.ToString(), "Détail du transporteur " + selectedCarrier.Name);
+                frmDetails.Show();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        /// <summary>
         /// Close the current form and open frmAddUpdCarrier
         /// </summary>
         private void btnAdd_Click(object sender, EventArgs e)
@@ -115,23 +146,24 @@ namespace CargoFlowForms
         }
 
         /// <summary>
-        /// Close the current form and open frmUpdateCarrier with the selected carrier
+        /// Close the current form and open frmAddUpdCarrier with the selected carrier
         /// </summary>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (dgvCarriers.SelectedRows.Count == 1)
             {
-                // Get the selected row
-                DataGridViewRow selectedRow = dgvCarriers.SelectedRows[0];
-
-                // Get the id in the selected row
-                int carrierId = (int)selectedRow.Cells["Id"].Value;
-
-                // Create and open frmUpdateCarrier and close frmCarriersList
-                FrmAddUpdCarrier frmAddUpdCarrier = new FrmAddUpdCarrier(carrierId);
-                frmAddUpdCarrier.Show();
                 try
                 {
+                    // Get the selected row
+                    DataGridViewRow selectedRow = dgvCarriers.SelectedRows[0];
+
+                    // Get the id in the selected row
+                    int carrierId = (int)selectedRow.Cells["Id"].Value;
+
+                    // Create and open frmUpdateCarrier and close frmCarriersList
+                    FrmAddUpdCarrier frmAddUpdCarrier = new FrmAddUpdCarrier(carrierId);
+                    frmAddUpdCarrier.Show();
+
                     this.Close();
                 }
                 catch (Exception ex)
@@ -187,6 +219,9 @@ namespace CargoFlowForms
             }
         }
 
+        /// <summary>
+        /// Close the current form and open frmHome
+        /// </summary>
         private void btnHome_Click(object sender, EventArgs e)
         {
             // Create and open frmHome and close frmLogin

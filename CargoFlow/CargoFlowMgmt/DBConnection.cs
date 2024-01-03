@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Asn1;
@@ -51,7 +52,7 @@ namespace CargoFlowMgmt
         /// </summary>
         /// <param name="email">The email to check</param>
         /// <param name="password">The password to check</param>
-        public void CheckPassword(string email, string password)
+        public void CheckPassword(string email, string pwd)
         {
             // Create a SQL command object
             MySqlCommand cmd = connection.CreateCommand();
@@ -69,9 +70,18 @@ namespace CargoFlowMgmt
             // If reader has rows, check if it matches the password, else return false
             if (reader.HasRows)
             {
+                // Create a byte array from source data.
+                byte[] pwdBytes = ASCIIEncoding.ASCII.GetBytes(pwd);
+                // Compute hash based on source data.
+                byte[] pwdHashBytes = new MD5CryptoServiceProvider().ComputeHash(pwdBytes);
+                // Convert pwdHashBytes to hexadecimal string
+                string pwdHashHexa = BitConverter.ToString(pwdHashBytes);
+                // Replace() and ToLower needed otherwise result looks like "3A-E8-43-CA-22..."
+                pwdHashHexa = pwdHashHexa.Replace("-", "").ToLower();
+
                 // If password matches, return true, else return false
                 // password column is the first and only column (index 0)
-                if (reader.GetString(0) == password)
+                if (reader.GetString(0) == pwdHashHexa)
                 {
                     reader.Close();
                 }

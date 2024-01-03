@@ -110,14 +110,14 @@ namespace CargoFlowForms
 
                 // Get the selected carrier with his id
                 Carrier? selectedCarrier = carriers.FirstOrDefault(c => c.Id == carrierId);
-                
+
                 // MessageBox displaying the carrier's details
                 // MessageBox.Show(selectedCarrier.ToString());
 
                 // Create and open frmDetails
                 FrmDetails frmDetails = new FrmDetails(selectedCarrier.ToString(), "Détail du transporteur " + selectedCarrier.Name);
                 frmDetails.Show();
-                
+
             }
             catch (Exception ex)
             {

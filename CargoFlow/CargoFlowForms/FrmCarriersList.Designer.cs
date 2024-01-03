@@ -35,13 +35,13 @@
             btnCarriers = new Button();
             btnClients = new Button();
             btnEmployees = new Button();
-            btnCategories = new Button();
             btnArticles = new Button();
             dgvCarriers = new DataGridView();
             btnAdd = new Button();
             btnUpdate = new Button();
             btnDelete = new Button();
             btnDetails = new Button();
+            btnWarehouses = new Button();
             flpTabs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCarriers).BeginInit();
             SuspendLayout();
@@ -54,7 +54,7 @@
             flpTabs.Controls.Add(btnCarriers);
             flpTabs.Controls.Add(btnClients);
             flpTabs.Controls.Add(btnEmployees);
-            flpTabs.Controls.Add(btnCategories);
+            flpTabs.Controls.Add(btnWarehouses);
             flpTabs.Controls.Add(btnArticles);
             flpTabs.Location = new Point(12, 12);
             flpTabs.Name = "flpTabs";
@@ -151,21 +151,6 @@
             btnEmployees.Text = "Employé.es";
             btnEmployees.UseVisualStyleBackColor = false;
             // 
-            // btnCategories
-            // 
-            btnCategories.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnCategories.BackColor = Color.PowderBlue;
-            btnCategories.FlatAppearance.BorderColor = Color.PowderBlue;
-            btnCategories.FlatStyle = FlatStyle.Flat;
-            btnCategories.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCategories.Location = new Point(759, 3);
-            btnCategories.Name = "btnCategories";
-            btnCategories.Size = new Size(120, 40);
-            btnCategories.TabIndex = 5;
-            btnCategories.TabStop = false;
-            btnCategories.Text = "Catégories";
-            btnCategories.UseVisualStyleBackColor = false;
-            // 
             // btnArticles
             // 
             btnArticles.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -255,6 +240,21 @@
             btnDetails.UseVisualStyleBackColor = false;
             btnDetails.Click += btnDetails_Click;
             // 
+            // btnWarehouses
+            // 
+            btnWarehouses.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnWarehouses.BackColor = Color.PowderBlue;
+            btnWarehouses.FlatAppearance.BorderColor = Color.PowderBlue;
+            btnWarehouses.FlatStyle = FlatStyle.Flat;
+            btnWarehouses.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnWarehouses.Location = new Point(759, 3);
+            btnWarehouses.Name = "btnWarehouses";
+            btnWarehouses.Size = new Size(120, 40);
+            btnWarehouses.TabIndex = 5;
+            btnWarehouses.TabStop = false;
+            btnWarehouses.Text = "Entrepôts";
+            btnWarehouses.UseVisualStyleBackColor = false;
+            // 
             // FrmCarriersList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -284,7 +284,6 @@
         private Button btnCarriers;
         private Button btnClients;
         private Button btnEmployees;
-        private Button btnCategories;
         private Button btnArticles;
         private DataGridView dgvCarriers;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
@@ -295,5 +294,6 @@
         private Button btnDelete;
         private Button btnHome;
         private Button btnDetails;
+        private Button btnWarehouses;
     }
 }

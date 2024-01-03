@@ -37,7 +37,7 @@ namespace CargoFlowForms
             btnCarriers = new Button();
             btnClients = new Button();
             btnEmployees = new Button();
-            btnCategories = new Button();
+            btnWarehouses = new Button();
             btnArticles = new Button();
             lblHeadline = new Label();
             picLogo = new PictureBox();
@@ -54,7 +54,7 @@ namespace CargoFlowForms
             flpTabs.Controls.Add(btnCarriers);
             flpTabs.Controls.Add(btnClients);
             flpTabs.Controls.Add(btnEmployees);
-            flpTabs.Controls.Add(btnCategories);
+            flpTabs.Controls.Add(btnWarehouses);
             flpTabs.Controls.Add(btnArticles);
             flpTabs.Location = new Point(12, 12);
             flpTabs.Name = "flpTabs";
@@ -145,19 +145,19 @@ namespace CargoFlowForms
             btnEmployees.Text = "Employé.es";
             btnEmployees.UseVisualStyleBackColor = false;
             // 
-            // btnCategories
+            // btnWarehouses
             // 
-            btnCategories.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnCategories.BackColor = Color.PowderBlue;
-            btnCategories.FlatAppearance.BorderColor = Color.PowderBlue;
-            btnCategories.FlatStyle = FlatStyle.Flat;
-            btnCategories.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCategories.Location = new Point(759, 3);
-            btnCategories.Name = "btnCategories";
-            btnCategories.Size = new Size(120, 40);
-            btnCategories.TabIndex = 5;
-            btnCategories.Text = "Catégories";
-            btnCategories.UseVisualStyleBackColor = false;
+            btnWarehouses.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnWarehouses.BackColor = Color.PowderBlue;
+            btnWarehouses.FlatAppearance.BorderColor = Color.PowderBlue;
+            btnWarehouses.FlatStyle = FlatStyle.Flat;
+            btnWarehouses.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnWarehouses.Location = new Point(759, 3);
+            btnWarehouses.Name = "btnWarehouses";
+            btnWarehouses.Size = new Size(120, 40);
+            btnWarehouses.TabIndex = 5;
+            btnWarehouses.Text = "Entrepôts";
+            btnWarehouses.UseVisualStyleBackColor = false;
             // 
             // btnArticles
             // 
@@ -230,7 +230,7 @@ namespace CargoFlowForms
         private Button btnCarriers;
         private Button btnClients;
         private Button btnEmployees;
-        private Button btnCategories;
+        private Button btnWarehouses;
         private Button btnArticles;
         private Button btnHome;
         private Label lblHeadline;

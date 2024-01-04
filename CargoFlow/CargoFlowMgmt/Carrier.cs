@@ -57,7 +57,7 @@ namespace CargoFlowMgmt
         public Dictionary<string, string?> DetailsTable()
         {
             Dictionary<string, string?> infoTable = new Dictionary<string, string?>();
-            infoTable.Add("ID base de données", id.ToString());
+            infoTable.Add("ID base de données", Id.ToString());
             infoTable.Add("Nom de l'entreprise ", Name);
             infoTable.Add("Téléphone", PhoneNumber);
             infoTable.Add("Email", Email);

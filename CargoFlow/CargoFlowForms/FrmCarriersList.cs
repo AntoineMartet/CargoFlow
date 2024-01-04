@@ -83,11 +83,13 @@ namespace CargoFlowForms
                 dgvCarriers.DataSource = carriers;
                 // Renommage des colonnes. Pourquoi en fonction des propriétés de l'objet Carrier et non pas de ses attributs ? À voir...
                 dgvCarriers.Columns["Id"].HeaderText = "ID";
+                dgvCarriers.Columns["Id"].Visible = false;
                 dgvCarriers.Columns["Name"].HeaderText = "Nom";
+                dgvCarriers.Columns["Name"].Width = 150;
                 dgvCarriers.Columns["LoadCapacity"].HeaderText = "Capacité";
                 dgvCarriers.Columns["Email"].HeaderText = "Mail";
+                dgvCarriers.Columns["Email"].Width = 150;
                 dgvCarriers.Columns["PhoneNumber"].HeaderText = "Téléphone";
-                dgvCarriers.Columns["Id"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -224,9 +226,17 @@ namespace CargoFlowForms
         /// </summary>
         private void btnHome_Click(object sender, EventArgs e)
         {
-            // Create and open frmHome and close frmLogin
+            // Create and open frmHome and close frmCarriersList
             FrmHome frmHome = new FrmHome();
             frmHome.Show();
+            this.Close();
+        }
+
+        private void btnClients_Click(object sender, EventArgs e)
+        {
+            // Create and open frmClientsList and close frmCarriersList
+            FrmClientsList frmClientsList = new FrmClientsList();
+            frmClientsList.Show();
             this.Close();
         }
     }

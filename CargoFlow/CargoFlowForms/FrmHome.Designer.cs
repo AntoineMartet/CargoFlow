@@ -130,6 +130,7 @@ namespace CargoFlowForms
             btnClients.TabIndex = 3;
             btnClients.Text = "Client.es";
             btnClients.UseVisualStyleBackColor = false;
+            btnClients.Click += btnClients_Click;
             // 
             // btnEmployees
             // 

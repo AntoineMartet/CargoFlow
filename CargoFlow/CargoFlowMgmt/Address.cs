@@ -41,5 +41,11 @@ namespace CargoFlowMgmt
         {
             get { return postalCode; }
         }
+
+        public override string ToString()
+        {
+            string result = Street + " " + StreetNb + ", " + PostalCode + " " + City;
+            return result;
+        }
     }
 }

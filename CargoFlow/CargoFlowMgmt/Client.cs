@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Org.BouncyCastle.Asn1.TeleTrust;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 
 namespace CargoFlowMgmt
 {
@@ -47,6 +49,37 @@ namespace CargoFlowMgmt
         public Address Address
         {
             get { return address; }
+        }
+
+        /// <summary>
+        /// Returns a dictionary containing the client's details
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<string, string?> DetailsTable()
+        {
+            Dictionary<string, string?> infoTable = new Dictionary<string, string?>();
+            infoTable.Add("ID base de données", Id.ToString());
+            infoTable.Add("Nom", LastName);
+            infoTable.Add("Prénom", FirstName);
+            infoTable.Add("Email", Email);
+            infoTable.Add("Adresse", Address.ToString());
+            return infoTable;
+        }
+
+        /// <summary>
+        /// Returns a string containing the client's details
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            string result = "";
+
+            foreach (KeyValuePair<string, string?> entry in DetailsTable())
+            {
+                result += entry.Key + " : " + entry.Value + "\n\n";
+            }
+
+            return result;
         }
     }
 }

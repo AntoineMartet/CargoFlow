@@ -61,6 +61,7 @@
             Controls.Add(txtDetails);
             Controls.Add(lblTitle);
             Name = "FrmDetails";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmDetails";
             Load += FrmDetails_Load;
             ResumeLayout(false);

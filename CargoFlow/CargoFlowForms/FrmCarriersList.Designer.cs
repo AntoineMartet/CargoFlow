@@ -135,6 +135,7 @@
             btnClients.TabStop = false;
             btnClients.Text = "Client.es";
             btnClients.UseVisualStyleBackColor = false;
+            btnClients.Click += btnClients_Click;
             // 
             // btnEmployees
             // 

@@ -1,4 +1,5 @@
 ﻿using CargoFlowMgmt;
+//using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -176,7 +177,7 @@ namespace CargoFlowForms
                 }
             }
         }
-        
+
         #region Updates when clicking tabs
         private void btnHome_Click(object sender, EventArgs e)
         {
@@ -228,5 +229,46 @@ namespace CargoFlowForms
             updateFlpTabs(btnArticles.Name);
         }
         #endregion
+
+        private void btnDetails_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Get the selected row
+                DataGridViewRow selectedRow = dgvList.SelectedRows[0];
+
+                // Get the id in the selected row
+                int objectId = (int)selectedRow.Cells["Id"].Value;
+
+                FrmDetails frmDetails;
+
+                switch (currentTab)
+                {
+                    case "btnCarriers":
+                        // Get the selected carrier with his id
+                        Carrier? selectedCarrier = carriers.FirstOrDefault(c => c.Id == objectId);
+                        // Create and open frmDetails
+                        frmDetails = new FrmDetails(selectedCarrier.ToString(), "Détail du transporteur " + selectedCarrier.Name);
+                        frmDetails.Show();
+                        break;
+                    case "btnClients":
+                        // Get the selected client with his id
+                        Client? selectedClient = clients.FirstOrDefault(c => c.Id == objectId);
+                        // Create and open frmDetails
+                        frmDetails = new FrmDetails(selectedClient.ToString(), "Détail du client·e " + selectedClient.LastName);
+                        frmDetails.Show();
+                        break;
+                    default :
+                        break;
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

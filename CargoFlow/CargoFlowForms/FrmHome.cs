@@ -43,7 +43,7 @@ namespace CargoFlowForms
         private void btnCarriers_Click(object sender, EventArgs e)
         {
             // Create and open frmLists and close frmHome
-            FrmLists frmLists = new FrmLists("carriers");
+            FrmLists frmLists = new FrmLists(btnCarriers.Name);
             frmLists.Show();
             this.Close();
         }
@@ -51,7 +51,7 @@ namespace CargoFlowForms
         private void btnClients_Click(object sender, EventArgs e)
         {
             // Create and open frmLists and close frmHome
-            FrmLists frmLists = new FrmLists("clients");
+            FrmLists frmLists = new FrmLists(btnClients.Name);
             frmLists.Show();
             this.Close();
         }

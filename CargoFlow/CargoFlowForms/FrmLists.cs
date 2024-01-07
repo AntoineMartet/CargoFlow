@@ -13,27 +13,37 @@ namespace CargoFlowForms
 {
     public partial class FrmLists : Form
     {
-        private string tab;
+        private string currentTab;
+        private List<Button> tabButtons = new List<Button>();
         private List<Carrier> carriers = new List<Carrier>();
         private List<Client> clients = new List<Client>();
         private DBConnection? dbConn;
 
+
         public FrmLists(string tab)
         {
-            this.tab = tab;
             InitializeComponent();
+            this.currentTab = tab;
+            this.tabButtons.Add(btnStock);
+            this.tabButtons.Add(btnDeliveries);
+            this.tabButtons.Add(btnCarriers);
+            this.tabButtons.Add(btnClients);
+            this.tabButtons.Add(btnEmployees);
+            this.tabButtons.Add(btnWarehouses);
+            this.tabButtons.Add(btnArticles);
         }
 
         private void FrmLists_Load(object sender, EventArgs e)
         {
-            updateDGV(tab);
+            updateDGV(currentTab);
+            updateFlpTabs(currentTab);
         }
 
         public void updateDGV(string tab)
         {
             switch (tab)
             {
-                case "carriers":
+                case "btnCarriers":
                     //TODO: put GetClients in a static methhod in Client class
                     this.carriers = GetCarriers();
                     try
@@ -54,7 +64,7 @@ namespace CargoFlowForms
                         MessageBox.Show("Erreur lors de l'affichage des données. Elles pourraient être erronées ou incomplètes.\n\nDétail : \n" + ex.Message);
                     }
                     break;
-                case "clients":
+                case "btnClients":
                     //TODO: put GetClients in a static methhod in Client class
                     this.clients = GetClients();
                     try
@@ -74,6 +84,8 @@ namespace CargoFlowForms
                     {
                         MessageBox.Show("Erreur lors de l'affichage des données. Elles pourraient être erronées ou incomplètes.\n\nDétail : \n" + ex.Message);
                     }
+                    break;
+                default:
                     break;
             }
         }
@@ -149,5 +161,72 @@ namespace CargoFlowForms
             dbConn.CloseConnection();
             return list;
         }
+
+        private void updateFlpTabs(string tab)
+        {
+            foreach (Button button in tabButtons)
+            {
+                if (button.Name == tab)
+                {
+                    button.BackColor = Color.LightCyan;
+                }
+                else
+                {
+                    button.BackColor = Color.PowderBlue;
+                }
+            }
+        }
+        
+        #region Updates when clicking tabs
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            // Create and open frmHome and close frmLists
+            FrmHome frmHome = new FrmHome();
+            frmHome.Show();
+            this.Close();
+        }
+
+        private void btnStock_Click(object sender, EventArgs e)
+        {
+            updateDGV(btnStock.Name);
+            updateFlpTabs(btnStock.Name);
+        }
+
+        private void btnDeliveries_Click(object sender, EventArgs e)
+        {
+            updateDGV(btnDeliveries.Name);
+            updateFlpTabs(btnDeliveries.Name);
+        }
+
+        private void btnCarriers_Click(object sender, EventArgs e)
+        {
+            updateDGV(btnCarriers.Name);
+            updateFlpTabs(btnCarriers.Name);
+        }
+
+        private void btnClients_Click(object sender, EventArgs e)
+        {
+            updateDGV(btnClients.Name);
+            updateFlpTabs(btnClients.Name);
+        }
+
+        private void btnEmployees_Click(object sender, EventArgs e)
+        {
+            updateDGV(btnEmployees.Name);
+            updateFlpTabs(btnEmployees.Name);
+        }
+
+        private void btnWarehouses_Click(object sender, EventArgs e)
+        {
+            updateDGV(btnWarehouses.Name);
+            updateFlpTabs(btnWarehouses.Name);
+        }
+
+        private void btnArticles_Click(object sender, EventArgs e)
+        {
+            updateDGV(btnArticles.Name);
+            updateFlpTabs(btnArticles.Name);
+        }
+        #endregion
     }
 }

@@ -74,6 +74,7 @@
             btnHome.TabStop = false;
             btnHome.Text = "Accueil";
             btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += btnHome_Click;
             // 
             // btnStock
             // 
@@ -89,6 +90,7 @@
             btnStock.TabStop = false;
             btnStock.Text = "Stock";
             btnStock.UseVisualStyleBackColor = false;
+            btnStock.Click += btnStock_Click;
             // 
             // btnDeliveries
             // 
@@ -104,6 +106,7 @@
             btnDeliveries.TabStop = false;
             btnDeliveries.Text = "Livraisons";
             btnDeliveries.UseVisualStyleBackColor = false;
+            btnDeliveries.Click += btnDeliveries_Click;
             // 
             // btnCarriers
             // 
@@ -119,6 +122,7 @@
             btnCarriers.TabStop = false;
             btnCarriers.Text = "Transporteurs";
             btnCarriers.UseVisualStyleBackColor = false;
+            btnCarriers.Click += btnCarriers_Click;
             // 
             // btnClients
             // 
@@ -134,6 +138,7 @@
             btnClients.TabStop = false;
             btnClients.Text = "Client.es";
             btnClients.UseVisualStyleBackColor = false;
+            btnClients.Click += btnClients_Click;
             // 
             // btnEmployees
             // 
@@ -149,6 +154,7 @@
             btnEmployees.TabStop = false;
             btnEmployees.Text = "Employé.es";
             btnEmployees.UseVisualStyleBackColor = false;
+            btnEmployees.Click += btnEmployees_Click;
             // 
             // btnWarehouses
             // 
@@ -164,6 +170,7 @@
             btnWarehouses.TabStop = false;
             btnWarehouses.Text = "Entrepôts";
             btnWarehouses.UseVisualStyleBackColor = false;
+            btnWarehouses.Click += btnWarehouses_Click;
             // 
             // btnArticles
             // 
@@ -179,6 +186,7 @@
             btnArticles.TabStop = false;
             btnArticles.Text = "Articles";
             btnArticles.UseVisualStyleBackColor = false;
+            btnArticles.Click += btnArticles_Click;
             // 
             // dgvList
             // 

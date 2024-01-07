@@ -35,13 +35,13 @@
             btnCarriers = new Button();
             btnClients = new Button();
             btnEmployees = new Button();
+            btnWarehouses = new Button();
             btnArticles = new Button();
             dgvList = new DataGridView();
             btnAdd = new Button();
             btnUpdate = new Button();
             btnDelete = new Button();
             btnDetails = new Button();
-            btnWarehouses = new Button();
             flpTabs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvList).BeginInit();
             SuspendLayout();
@@ -150,6 +150,21 @@
             btnEmployees.Text = "Employé.es";
             btnEmployees.UseVisualStyleBackColor = false;
             // 
+            // btnWarehouses
+            // 
+            btnWarehouses.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnWarehouses.BackColor = Color.PowderBlue;
+            btnWarehouses.FlatAppearance.BorderColor = Color.PowderBlue;
+            btnWarehouses.FlatStyle = FlatStyle.Flat;
+            btnWarehouses.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnWarehouses.Location = new Point(759, 3);
+            btnWarehouses.Name = "btnWarehouses";
+            btnWarehouses.Size = new Size(120, 40);
+            btnWarehouses.TabIndex = 5;
+            btnWarehouses.TabStop = false;
+            btnWarehouses.Text = "Entrepôts";
+            btnWarehouses.UseVisualStyleBackColor = false;
+            // 
             // btnArticles
             // 
             btnArticles.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -235,22 +250,7 @@
             btnDetails.Text = "Détails";
             btnDetails.UseVisualStyleBackColor = false;
             // 
-            // btnWarehouses
-            // 
-            btnWarehouses.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnWarehouses.BackColor = Color.PowderBlue;
-            btnWarehouses.FlatAppearance.BorderColor = Color.PowderBlue;
-            btnWarehouses.FlatStyle = FlatStyle.Flat;
-            btnWarehouses.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnWarehouses.Location = new Point(759, 3);
-            btnWarehouses.Name = "btnWarehouses";
-            btnWarehouses.Size = new Size(120, 40);
-            btnWarehouses.TabIndex = 5;
-            btnWarehouses.TabStop = false;
-            btnWarehouses.Text = "Entrepôts";
-            btnWarehouses.UseVisualStyleBackColor = false;
-            // 
-            // frmLists
+            // FrmLists
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -262,9 +262,10 @@
             Controls.Add(btnAdd);
             Controls.Add(dgvList);
             Controls.Add(flpTabs);
-            Name = "frmLists";
+            Name = "FrmLists";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmLists";
+            Load += FrmLists_Load;
             flpTabs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvList).EndInit();
             ResumeLayout(false);

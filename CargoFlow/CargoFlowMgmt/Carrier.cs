@@ -51,21 +51,6 @@ namespace CargoFlowMgmt
         }
 
         /// <summary>
-        /// Returns a dictionary containing the carrier's details
-        /// </summary>
-        /// <returns></returns>
-        public Dictionary<string, string?> DetailsTable()
-        {
-            Dictionary<string, string?> infoTable = new Dictionary<string, string?>();
-            infoTable.Add("ID base de données", Id.ToString());
-            infoTable.Add("Nom de l'entreprise ", Name);
-            infoTable.Add("Téléphone", PhoneNumber);
-            infoTable.Add("Email", Email);
-            infoTable.Add("Capacité en kg", (LoadCapacity == null) ? null : LoadCapacity.ToString());
-            return infoTable;
-        }
-
-        /// <summary>
         /// Returns a string containing the carrier's details
         /// </summary>
         /// <returns></returns>
@@ -79,6 +64,21 @@ namespace CargoFlowMgmt
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Returns a dictionary containing the carrier's details
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<string, string?> DetailsTable()
+        {
+            Dictionary<string, string?> infoTable = new Dictionary<string, string?>();
+            infoTable.Add("ID base de données", Id.ToString());
+            infoTable.Add("Nom de l'entreprise ", Name);
+            infoTable.Add("Téléphone", PhoneNumber);
+            infoTable.Add("Email", Email);
+            infoTable.Add("Capacité en kg", (LoadCapacity == null) ? null : LoadCapacity.ToString());
+            return infoTable;
         }
     }
 }

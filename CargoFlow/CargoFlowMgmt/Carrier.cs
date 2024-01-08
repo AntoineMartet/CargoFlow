@@ -80,12 +80,11 @@ namespace CargoFlowMgmt
         public override string ToString()
         {
             string result = "";
-
             foreach (KeyValuePair<string, string?> entry in DetailsTable())
             {
-                result += entry.Key + " : " + entry.Value + "\n\n";
+                result += entry.Key + " : " + entry.Value + "\n";
             }
-
+            result += GetDeliveries();
             return result;
         }
 
@@ -143,24 +142,27 @@ namespace CargoFlowMgmt
             return list;
         }
 
-        public static void GetDeliveriesById(int id)
+        public string GetDeliveries()
         {
             dbConn = new DBConnection();
             dbConn.OpenConnection();
-            /*
-            SELECT deliveries.startDate, deliveries.`status`, warehouses.name, clients.LastName FROM deliveries
+            string query = @"SELECT deliveries.startDate, deliveries.`status`, warehouses.name, clients.LastName FROM deliveries
             INNER JOIN warehouses ON deliveries.warehouse_origin_id = warehouses.id
             INNER JOIN clients ON deliveries.client_id = clients.id
-            WHERE deliveries.carrier_id = 1
+            WHERE deliveries.carrier_id = " + id + @"
             UNION
             SELECT deliveries.startDate, deliveries.`status`, depart.name, dest.name FROM deliveries
             INNER JOIN warehouses AS depart ON deliveries.warehouse_origin_id = depart.id
             INNER JOIN warehouses AS dest ON deliveries.warehouse_destination_id = dest.id
-            WHERE deliveries.carrier_id = 2;
-            */
-
-
+            WHERE deliveries.carrier_id = " + id;
+            List<string[]> records = dbConn.GetAllRecords(query);
+            string result = "\nLivraisons associées :\n\n";
+            foreach (string[] record in records)
+            {
+                result += "Date : " + record[0] + "\nEntrepôt de départ : " + record[2] + "\nEntrepôt de destination : " + record[3] + "\nStatut : " + record[1] + "\n\n";
+            }
             dbConn.CloseConnection();
+            return result;
         }
     }
 }

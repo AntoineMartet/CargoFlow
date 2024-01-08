@@ -149,7 +149,9 @@ INSERT INTO `deliveries` (`id`, `barcode`, `startDate`, `endDate`, `status`, `ca
 	(2, 987654321098, '2023-02-16 08:45:00', '2023-02-17 11:15:00', 'En transit', 2, NULL, 2, 3),
 	(3, 567890123456, '2023-02-17 14:20:00', '2023-02-18 18:45:00', 'Planifié', 3, NULL, 3, 5),
 	(4, 345678901234, '2023-02-18 11:30:00', '2023-03-01 16:00:00', 'En transit', 4, 5, 4, NULL),
-	(5, 789012345678, '2023-02-19 09:15:00', '2023-02-26 12:45:00', 'Livré', 5, 2, 5, NULL);
+	(5, 789012345678, '2023-02-19 09:15:00', '2023-02-26 12:45:00', 'Livré', 5, 2, 5, NULL),
+	(6, 445487789977, '2023-02-15 10:45:00', '2023-03-18 08:00:00', 'Planifié', 1, NULL, 2, 1),
+	(7, 216656787231, '2023-02-14 16:00:00', '2023-05-18 16:30:00', 'Livré', 1, 2, 3, NULL);
 
 -- Listage de la structure de la table cargoflow. deliveries_have_articles
 CREATE TABLE IF NOT EXISTS `deliveries_have_articles` (
@@ -279,7 +281,7 @@ INSERT INTO `warehouses_have_days` (`id`, `warehouse_id`, `day_id`, `openingHour
 	(25, 5, 2, '08:30:00', '17:30:00'),
 	(26, 5, 3, '10:00:00', '19:00:00'),
 	(27, 5, 4, '08:00:00', '16:45:00'),
-	(28, 5, 5, '06:00:00', '22:30:00'),
+	(28, 5, 5, '06:00:00', '22:30:00');
 
 -- Listage de la structure de la table cargoflow. warehouses_have_employees
 CREATE TABLE IF NOT EXISTS `warehouses_have_employees` (

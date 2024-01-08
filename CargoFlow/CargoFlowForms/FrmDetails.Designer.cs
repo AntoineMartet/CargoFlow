@@ -44,11 +44,13 @@
             // 
             // txtDetails
             // 
+            txtDetails.BorderStyle = BorderStyle.None;
             txtDetails.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtDetails.Location = new Point(35, 89);
             txtDetails.Multiline = true;
             txtDetails.Name = "txtDetails";
             txtDetails.ReadOnly = true;
+            txtDetails.ScrollBars = ScrollBars.Vertical;
             txtDetails.Size = new Size(964, 488);
             txtDetails.TabIndex = 2;
             // 

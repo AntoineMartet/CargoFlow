@@ -212,17 +212,19 @@ namespace CargoFlowForms
         {
             try
             {
+                // Create and open frmAddUpd corresponding to current tab and close frmLists
+                // Argument is null because when adding a new entity, not updating an existing one
                 switch (currentTab)
                 {
                     case "btnCarriers":
-                        // Create and open frmAddUpdCarrier and close frmLists
-                        // Argument is null because we are adding a new carrier, not updating an existing one
                         FrmAddUpdCarrier frmAddUpdCarrier = new FrmAddUpdCarrier(null);
                         frmAddUpdCarrier.Show();
                         this.Close();
                         break;
                     case "btnClients":
-                        //TODO
+                        FrmAddUpdClient frmAddUpdClient = new FrmAddUpdClient(null);
+                        frmAddUpdClient.Show();
+                        this.Close();
                         break;
                     default:
                         break;
@@ -257,7 +259,13 @@ namespace CargoFlowForms
                             }
                             break;
                         case "btnClients":
-                            //TODO
+                            if (dgvList.SelectedRows.Count == 1)
+                            {
+                                // Create and open frmUpdateCarrier and close frmCarriersList
+                                FrmAddUpdClient frmAddUpdClient = new FrmAddUpdClient(objectId);
+                                frmAddUpdClient.Show();
+                                this.Close();
+                            }
                             break;
                         default:
                             break;

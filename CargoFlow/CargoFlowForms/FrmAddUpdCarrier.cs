@@ -63,9 +63,9 @@ namespace CargoFlowForms
         /// </summary>
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            // Open and create frmHome and close frmAddCarrier
-            FrmCarriersList frmCarriersList = new FrmCarriersList();
-            frmCarriersList.Show();
+            // Open and create frmHome and close frmLists
+            FrmLists frmLists = new FrmLists("btnCarriers");
+            frmLists.Show();
             this.Close();
         }
 
@@ -133,9 +133,9 @@ namespace CargoFlowForms
                     // Close connection to the database
                     dbConn.CloseConnection();
 
-                    // Create and open frmCarriersList and close frmAddCarrier
-                    FrmCarriersList frmCarriersList = new FrmCarriersList();
-                    frmCarriersList.Show();
+                    // Open and create frmHome and close frmLists
+                    FrmLists frmLists = new FrmLists("btnCarriers");
+                    frmLists.Show();
                     this.Close();
                 }
                 // When the capacity is not null && not an integer

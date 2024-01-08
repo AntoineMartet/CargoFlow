@@ -14,6 +14,7 @@ namespace CargoFlowMgmt
         private string firstName;
         private string email;
         private Address address;
+        private static DBConnection? dbConn;
 
         // Constructor
         public Client(int id, string lastName, string firstName, string email, Address address)
@@ -52,6 +53,22 @@ namespace CargoFlowMgmt
         }
 
         /// <summary>
+        /// Returns a string containing the client's details
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            string result = "";
+
+            foreach (KeyValuePair<string, string?> entry in DetailsTable())
+            {
+                result += entry.Key + " : " + entry.Value + "\n\n";
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Returns a dictionary containing the client's details
         /// </summary>
         /// <returns></returns>
@@ -67,19 +84,37 @@ namespace CargoFlowMgmt
         }
 
         /// <summary>
-        /// Returns a string containing the client's details
+        /// Get all the clients from the database and return them as a list of Client objects
         /// </summary>
-        /// <returns></returns>
-        public override string ToString()
+        public static List<CargoFlowMgmt.Client> GetClients()
         {
-            string result = "";
+            List<CargoFlowMgmt.Client> list = new List<CargoFlowMgmt.Client>();
+            dbConn = new DBConnection();
+            dbConn.OpenConnection();
+            string getAllClientsQuery = "SELECT id, lastName, firstName, email, street, streetNumber, city, postalCode FROM clients";
+            List<string[]> records = dbConn.GetAllRecords(getAllClientsQuery);
 
-            foreach (KeyValuePair<string, string?> entry in DetailsTable())
+            // Double loop reading records
+            foreach (string[] record in records)
             {
-                result += entry.Key + " : " + entry.Value + "\n\n";
+                // Preparing the parameters for the Client constructor
+                int id = Int32.Parse(record[0]);
+                string lastName = record[1];
+                string firstName = record[2];
+                string email = record[3];
+                string street = record[4];
+                string streetNumber = record[5];
+                string city = record[6];
+                string postalCode = record[7];
+                // Create the Address object
+                Address address = new Address(street, streetNumber, city, postalCode);
+                // Create the Client object
+                CargoFlowMgmt.Client client = new CargoFlowMgmt.Client(id, lastName, firstName, email, address);
+                // Add the Client object to the list
+                list.Add(client);
             }
-
-            return result;
+            dbConn.CloseConnection();
+            return list;
         }
     }
 }

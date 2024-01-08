@@ -13,6 +13,7 @@ namespace CargoFlowMgmt
         private int? loadCapacity;
         private string email;
         private string phoneNumber;
+        private static DBConnection? dbConn;
 
         // Constructor
         public Carrier(int id, string name, string phoneNumber, string email, int? loadCapacity = null)
@@ -51,6 +52,22 @@ namespace CargoFlowMgmt
         }
 
         /// <summary>
+        /// Returns a string containing the carrier's details
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            string result = "";
+
+            foreach (KeyValuePair<string, string?> entry in DetailsTable())
+            {
+                result += entry.Key + " : " + entry.Value + "\n\n";
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Returns a dictionary containing the carrier's details
         /// </summary>
         /// <returns></returns>
@@ -66,19 +83,41 @@ namespace CargoFlowMgmt
         }
 
         /// <summary>
-        /// Returns a string containing the carrier's details
+        /// Get all the carriers from the database and return them as a list of Carrier objects
         /// </summary>
-        /// <returns></returns>
-        public override string ToString()
+        public static List<Carrier> GetCarriers()
         {
-            string result = "";
+            List<Carrier> list = new List<Carrier>();
+            dbConn = new DBConnection();
+            dbConn.OpenConnection();
+            string getAllCarriersQuery = "SELECT id, companyName, loadCapacity, email, phoneNumber FROM carriers";
+            List<string[]> records = dbConn.GetAllRecords(getAllCarriersQuery);
 
-            foreach (KeyValuePair<string, string?> entry in DetailsTable())
+            // Double loop reading records
+            foreach (string[] record in records)
             {
-                result += entry.Key + " : " + entry.Value + "\n\n";
+                // Preparing the parameters for the Carrier constructor
+                int id = Int32.Parse(record[0]);
+                string name = record[1];
+                // If the value is null, we set it to null, else we set it to the value retrieved from the database
+                int? capacity;
+                if (record[2] == null)
+                {
+                    capacity = null;
+                }
+                else
+                {
+                    capacity = Int32.Parse(record[2]);
+                }
+                string email = record[3];
+                string phoneNumber = record[4];
+                // Create the Carrier object
+                Carrier carrier = new Carrier(id, name, phoneNumber, email, capacity);
+                // Add the Carrier object to the list
+                list.Add(carrier);
             }
-
-            return result;
+            dbConn.CloseConnection();
+            return list;
         }
     }
 }

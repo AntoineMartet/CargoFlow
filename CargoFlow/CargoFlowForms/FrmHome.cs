@@ -42,17 +42,17 @@ namespace CargoFlowForms
 
         private void btnCarriers_Click(object sender, EventArgs e)
         {
-            // Create and open frmCarriersList and close frmHome
-            FrmCarriersList frmCarriersList = new FrmCarriersList();
-            frmCarriersList.Show();
+            // Create and open frmLists and close frmHome
+            FrmLists frmLists = new FrmLists(btnCarriers.Name);
+            frmLists.Show();
             this.Close();
         }
 
         private void btnClients_Click(object sender, EventArgs e)
         {
-            // Create and open frmClientsList and close frmHome
-            FrmClientsList frmClientsList = new FrmClientsList();
-            frmClientsList.Show();
+            // Create and open frmLists and close frmHome
+            FrmLists frmLists = new FrmLists(btnClients.Name);
+            frmLists.Show();
             this.Close();
         }
     }

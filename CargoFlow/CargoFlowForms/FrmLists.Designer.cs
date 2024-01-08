@@ -35,13 +35,13 @@
             btnCarriers = new Button();
             btnClients = new Button();
             btnEmployees = new Button();
+            btnWarehouses = new Button();
             btnArticles = new Button();
             dgvList = new DataGridView();
             btnAdd = new Button();
             btnUpdate = new Button();
             btnDelete = new Button();
             btnDetails = new Button();
-            btnWarehouses = new Button();
             flpTabs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvList).BeginInit();
             SuspendLayout();
@@ -74,6 +74,7 @@
             btnHome.TabStop = false;
             btnHome.Text = "Accueil";
             btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += btnHome_Click;
             // 
             // btnStock
             // 
@@ -89,6 +90,7 @@
             btnStock.TabStop = false;
             btnStock.Text = "Stock";
             btnStock.UseVisualStyleBackColor = false;
+            btnStock.Click += btnStock_Click;
             // 
             // btnDeliveries
             // 
@@ -104,6 +106,7 @@
             btnDeliveries.TabStop = false;
             btnDeliveries.Text = "Livraisons";
             btnDeliveries.UseVisualStyleBackColor = false;
+            btnDeliveries.Click += btnDeliveries_Click;
             // 
             // btnCarriers
             // 
@@ -119,6 +122,7 @@
             btnCarriers.TabStop = false;
             btnCarriers.Text = "Transporteurs";
             btnCarriers.UseVisualStyleBackColor = false;
+            btnCarriers.Click += btnCarriers_Click;
             // 
             // btnClients
             // 
@@ -134,6 +138,7 @@
             btnClients.TabStop = false;
             btnClients.Text = "Client.es";
             btnClients.UseVisualStyleBackColor = false;
+            btnClients.Click += btnClients_Click;
             // 
             // btnEmployees
             // 
@@ -149,6 +154,23 @@
             btnEmployees.TabStop = false;
             btnEmployees.Text = "Employé.es";
             btnEmployees.UseVisualStyleBackColor = false;
+            btnEmployees.Click += btnEmployees_Click;
+            // 
+            // btnWarehouses
+            // 
+            btnWarehouses.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnWarehouses.BackColor = Color.PowderBlue;
+            btnWarehouses.FlatAppearance.BorderColor = Color.PowderBlue;
+            btnWarehouses.FlatStyle = FlatStyle.Flat;
+            btnWarehouses.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnWarehouses.Location = new Point(759, 3);
+            btnWarehouses.Name = "btnWarehouses";
+            btnWarehouses.Size = new Size(120, 40);
+            btnWarehouses.TabIndex = 5;
+            btnWarehouses.TabStop = false;
+            btnWarehouses.Text = "Entrepôts";
+            btnWarehouses.UseVisualStyleBackColor = false;
+            btnWarehouses.Click += btnWarehouses_Click;
             // 
             // btnArticles
             // 
@@ -164,6 +186,7 @@
             btnArticles.TabStop = false;
             btnArticles.Text = "Articles";
             btnArticles.UseVisualStyleBackColor = false;
+            btnArticles.Click += btnArticles_Click;
             // 
             // dgvList
             // 
@@ -192,6 +215,7 @@
             btnAdd.TabStop = false;
             btnAdd.Text = "Ajouter";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnUpdate
             // 
@@ -206,6 +230,7 @@
             btnUpdate.TabStop = false;
             btnUpdate.Text = "Modifier";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
@@ -220,6 +245,7 @@
             btnDelete.TabStop = false;
             btnDelete.Text = "Supprimer";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnDetails
             // 
@@ -234,23 +260,9 @@
             btnDetails.TabStop = false;
             btnDetails.Text = "Détails";
             btnDetails.UseVisualStyleBackColor = false;
+            btnDetails.Click += btnDetails_Click;
             // 
-            // btnWarehouses
-            // 
-            btnWarehouses.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnWarehouses.BackColor = Color.PowderBlue;
-            btnWarehouses.FlatAppearance.BorderColor = Color.PowderBlue;
-            btnWarehouses.FlatStyle = FlatStyle.Flat;
-            btnWarehouses.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnWarehouses.Location = new Point(759, 3);
-            btnWarehouses.Name = "btnWarehouses";
-            btnWarehouses.Size = new Size(120, 40);
-            btnWarehouses.TabIndex = 5;
-            btnWarehouses.TabStop = false;
-            btnWarehouses.Text = "Entrepôts";
-            btnWarehouses.UseVisualStyleBackColor = false;
-            // 
-            // frmLists
+            // FrmLists
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -262,9 +274,10 @@
             Controls.Add(btnAdd);
             Controls.Add(dgvList);
             Controls.Add(flpTabs);
-            Name = "frmLists";
+            Name = "FrmLists";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmLists";
+            Load += FrmLists_Load;
             flpTabs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvList).EndInit();
             ResumeLayout(false);

@@ -15,7 +15,14 @@ namespace CargoFlowMgmt
         private string phoneNumber;
         private static DBConnection? dbConn;
 
-        // Constructor
+        /// <summary>
+        /// Constructor for Carrier objects
+        /// </summary>
+        /// <param name="id">ID of the carrier</param>
+        /// <param name="name">Nam of the carriere</param>
+        /// <param name="phoneNumber">Phone number of the carrier</param>
+        /// <param name="email">Email of the carrier</param>
+        /// <param name="loadCapacity">Load capacity of the carrier</param>
         public Carrier(int id, string name, string phoneNumber, string email, int? loadCapacity = null)
         {
             this.id = id;
@@ -25,36 +32,50 @@ namespace CargoFlowMgmt
             this.loadCapacity = loadCapacity;
         }
 
-        // Properties
+        /// <summary>
+        /// Carrier's ID property
+        /// </summary>
         public int Id
         {
             get { return id; }
         }
 
+        /// <summary>
+        /// Carrier's name property
+        /// </summary>
         public string Name
         {
             get { return name; }
         }
 
+        /// <summary>
+        /// Carrier's phone number property
+        /// </summary>
         public string PhoneNumber
         {
             get { return phoneNumber; }
         }
 
+        /// <summary>
+        /// Carrier's email property
+        /// </summary>
         public string Email
         {
             get { return email; }
         }
 
+        /// <summary>
+        /// Carrier's load capacity property
+        /// </summary>
         public int? LoadCapacity
         {
             get { return loadCapacity; }
         }
 
         /// <summary>
-        /// Returns a string containing the carrier's details
+        /// Create a string containing the carrier's details
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A string containing the carrier's details</returns>
         public override string ToString()
         {
             string result = "";
@@ -68,9 +89,9 @@ namespace CargoFlowMgmt
         }
 
         /// <summary>
-        /// Returns a dictionary containing the carrier's details
+        /// Create a dictionary containing the carrier's details
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns a dictionary containing the carrier's details</returns>
         public Dictionary<string, string?> DetailsTable()
         {
             Dictionary<string, string?> infoTable = new Dictionary<string, string?>();
@@ -83,8 +104,9 @@ namespace CargoFlowMgmt
         }
 
         /// <summary>
-        /// Get all the carriers from the database and return them as a list of Carrier objects
+        /// Get all the carriers from the database
         /// </summary>
+        /// <returns>A list of Carrier objects</returns>
         public static List<Carrier> GetCarriers()
         {
             List<Carrier> list = new List<Carrier>();

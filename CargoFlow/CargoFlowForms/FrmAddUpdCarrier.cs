@@ -59,7 +59,7 @@ namespace CargoFlowForms
         }
 
         /// <summary>
-        /// Close the current form and open frmCarriersList
+        /// Close the current form and open frmLists
         /// </summary>
         private void btnCancel_Click(object sender, EventArgs e)
         {

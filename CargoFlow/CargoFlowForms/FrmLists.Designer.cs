@@ -215,6 +215,7 @@
             btnAdd.TabStop = false;
             btnAdd.Text = "Ajouter";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnUpdate
             // 
@@ -229,6 +230,7 @@
             btnUpdate.TabStop = false;
             btnUpdate.Text = "Modifier";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
@@ -243,6 +245,7 @@
             btnDelete.TabStop = false;
             btnDelete.Text = "Supprimer";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnDetails
             // 

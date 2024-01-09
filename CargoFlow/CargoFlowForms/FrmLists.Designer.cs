@@ -201,6 +201,7 @@
             dgvList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvList.Size = new Size(819, 473);
             dgvList.TabIndex = 2;
+            dgvList.ColumnHeaderMouseClick += dgvList_ColumnHeaderMouseClick;
             // 
             // btnAdd
             // 

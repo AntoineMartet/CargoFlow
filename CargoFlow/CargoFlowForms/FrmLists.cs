@@ -17,8 +17,9 @@ namespace CargoFlowForms
         private string currentTab;
         private List<Button> tabButtons = new List<Button>();
         private List<Carrier> carriers = new List<Carrier>();
+        // CargoFlowMgmt.Client needed instead of Client because of conflict with MySqlX.XDevAPI
         private List<CargoFlowMgmt.Client> clients = new List<CargoFlowMgmt.Client>();
-        private List<CargoFlowMgmt.Employee> employees = new List<CargoFlowMgmt.Employee>();
+        private List<Employee> employees = new List<Employee>();
         private DBConnection? dbConn;
 
         /// <summary>
@@ -72,6 +73,9 @@ namespace CargoFlowForms
                         dgvList.Columns["Email"].HeaderText = "Mail";
                         dgvList.Columns["Email"].Width = 150;
                         dgvList.Columns["PhoneNumber"].HeaderText = "Téléphone";
+
+                        // For each column, add an event when clicked to sort the DGV
+
                     }
                     catch (Exception ex)
                     {
@@ -100,7 +104,7 @@ namespace CargoFlowForms
                     }
                     break;
                 case "btnEmployees":
-                    this.employees = CargoFlowMgmt.Employee.GetEmployees();
+                    this.employees = Employee.GetEmployees();
                     try
                     {
                         dgvList.DataSource = employees;
@@ -142,6 +146,27 @@ namespace CargoFlowForms
                     button.BackColor = Color.PowderBlue;
                 }
             }
+        }
+
+        private void dgvList_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            switch (currentTab)
+            {
+                case "btnCarriers":
+                    {
+                        // Get the name of the header clicked
+                        string headerName = dgvList.Columns[e.ColumnIndex].Name;
+
+                        if(headerName == "Name")
+                        {
+                            //TODO
+                            //Carrier.SortCarriersByName();
+                            MessageBox.Show("Hello");
+                        }
+                        break;
+                    }
+            }
+            int selectedColumnIndex = e.ColumnIndex;
         }
 
         #region Updates when clicking tabs
@@ -470,5 +495,7 @@ namespace CargoFlowForms
             }
         }
         #endregion
+
+
     }
 }

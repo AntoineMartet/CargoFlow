@@ -74,21 +74,6 @@ namespace CargoFlowMgmt
         }
 
         /// <summary>
-        /// Create a string containing the carrier's details
-        /// </summary>
-        /// <returns>A string containing the carrier's details</returns>
-        public override string ToString()
-        {
-            string result = "";
-            foreach (KeyValuePair<string, string?> entry in DetailsTable())
-            {
-                result += entry.Key + " : " + entry.Value + "\n";
-            }
-            result += GetDeliveries();
-            return result;
-        }
-
-        /// <summary>
         /// Create a dictionary containing the carrier's details
         /// </summary>
         /// <returns>Returns a dictionary containing the carrier's details</returns>
@@ -101,6 +86,13 @@ namespace CargoFlowMgmt
             infoTable.Add("Email", Email);
             infoTable.Add("Capacité en kg", (LoadCapacity == null) ? null : LoadCapacity.ToString());
             return infoTable;
+        }
+
+        public static List<Carrier> SortCarriersByName()
+        {
+            //TODO : Implement this method
+            List<Carrier> temp = null;
+            return temp;
         }
 
         /// <summary>
@@ -142,6 +134,10 @@ namespace CargoFlowMgmt
             return list;
         }
 
+        /// <summary>
+        /// Get all the deliveries associated with the carrier in the database
+        /// </summary>
+        /// <returns></returns>
         public string GetDeliveries()
         {
             dbConn = new DBConnection();
@@ -164,5 +160,21 @@ namespace CargoFlowMgmt
             dbConn.CloseConnection();
             return result;
         }
+
+        /// <summary>
+        /// Create a string containing the carrier's details and his deliveries
+        /// </summary>
+        /// <returns>A string containing the carrier's details</returns>
+        public override string ToString()
+        {
+            string result = "";
+            foreach (KeyValuePair<string, string?> entry in DetailsTable())
+            {
+                result += entry.Key + " : " + entry.Value + "\n";
+            }
+            result += GetDeliveries();
+            return result;
+        }
+
     }
 }

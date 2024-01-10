@@ -1,4 +1,5 @@
-﻿using Org.BouncyCastle.Asn1.TeleTrust;
+﻿using MySqlX.XDevAPI;
+using Org.BouncyCastle.Asn1.TeleTrust;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -140,6 +141,26 @@ namespace CargoFlowMgmt
             }
             dbConn.CloseConnection();
             return list;
+        }
+
+        public static void GetDeliveriesById(int id)
+        {
+            dbConn = new DBConnection();
+            dbConn.OpenConnection();
+            /*
+            SELECT deliveries.startDate, deliveries.`status`, warehouses.name, clients.LastName FROM deliveries
+            INNER JOIN warehouses ON deliveries.warehouse_origin_id = warehouses.id
+            INNER JOIN clients ON deliveries.client_id = clients.id
+            WHERE deliveries.carrier_id = 1
+            UNION
+            SELECT deliveries.startDate, deliveries.`status`, depart.name, dest.name FROM deliveries
+            INNER JOIN warehouses AS depart ON deliveries.warehouse_origin_id = depart.id
+            INNER JOIN warehouses AS dest ON deliveries.warehouse_destination_id = dest.id
+            WHERE deliveries.carrier_id = 2;
+            */
+
+
+            dbConn.CloseConnection();
         }
     }
 }

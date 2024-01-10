@@ -144,7 +144,6 @@ namespace CargoFlowForms
             }
         }
 
-
         #region Updates when clicking tabs
         /// <summary>
         /// Create and open frmHome and close frmLists
@@ -255,30 +254,34 @@ namespace CargoFlowForms
                 // Get the id in the selected row
                 int objectId = (int)selectedRow.Cells["Id"].Value;
 
-                FrmDetails frmDetails;
-
                 switch (currentTab)
                 {
                     case "btnCarriers":
-                        // Get the selected carrier with his id
-                        Carrier? selectedCarrier = carriers.FirstOrDefault(c => c.Id == objectId);
-                        // Create and open frmDetails
-                        frmDetails = new FrmDetails(selectedCarrier.ToString(), "Détail du transporteur " + selectedCarrier.Name);
-                        frmDetails.Show();
-                        break;
+                        {
+                            // Get the selected carrier with his id
+                            Carrier? selectedCarrier = carriers.FirstOrDefault(c => c.Id == objectId);
+                            // Create and open frmDetails
+                            FrmDetails frmDetails = new FrmDetails(selectedCarrier.ToString(), "Détail du transporteur " + selectedCarrier.Name);
+                            frmDetails.Show();
+                            break;
+                        }
                     case "btnClients":
-                        // Get the selected client with his id
-                        CargoFlowMgmt.Client? selectedClient = clients.FirstOrDefault(c => c.Id == objectId);
-                        // Create and open frmDetails
-                        frmDetails = new FrmDetails(selectedClient.ToString(), "Détail du client·e " + selectedClient.LastName);
-                        frmDetails.Show();
-                        break;
+                        {
+                            // Get the selected client with his id
+                            CargoFlowMgmt.Client? selectedClient = clients.FirstOrDefault(c => c.Id == objectId);
+                            // Create and open frmDetails
+                            FrmDetails frmDetails = new FrmDetails(selectedClient.ToString(), "Détail du client·e " + selectedClient.LastName);
+                            frmDetails.Show();
+                            break;
+                        }
                     case "btnEmployees":
-                        // Get the selected employee with his id
-                        CargoFlowMgmt.Employee? selectedEmployee = employees.FirstOrDefault(c => c.Id == objectId);
-                        // Create and open frmDetails
-                        frmDetails = new FrmDetails(selectedEmployee.ToString(), "Détail de l'employé·e " + selectedEmployee.LastName);
-                        frmDetails.Show();
+                        {
+                            // Get the selected employee with his id
+                            Employee? selectedEmployee = employees.FirstOrDefault(c => c.Id == objectId);
+                            // Create and open frmDetails
+                            FrmDetails frmDetails = new FrmDetails(selectedEmployee.ToString(), "Détail de l'employé·e " + selectedEmployee.LastName);
+                            frmDetails.Show();
+                        }
                         break;
                     default:
                         break;

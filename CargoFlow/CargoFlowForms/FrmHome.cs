@@ -55,5 +55,13 @@ namespace CargoFlowForms
             frmLists.Show();
             this.Close();
         }
+
+        private void btnEmployees_Click(object sender, EventArgs e)
+        {
+            // Create and open frmLists and close frmHome
+            FrmLists frmLists = new FrmLists(btnEmployees.Name);
+            frmLists.Show();
+            this.Close();
+        }
     }
 }

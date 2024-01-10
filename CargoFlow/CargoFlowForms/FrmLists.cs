@@ -211,6 +211,7 @@ namespace CargoFlowForms
         /// <param name="e"></param>
         private void btnEmployees_Click(object sender, EventArgs e)
         {
+            currentTab = btnEmployees.Name;
             updateDGV(btnEmployees.Name);
             updateFlpTabs(btnEmployees.Name);
         }
@@ -312,7 +313,9 @@ namespace CargoFlowForms
                         this.Close();
                         break;
                     case "btnEmployees":
-                        //TODO
+                        FrmAddUpdEmployee frmAddUpdEmployee = new FrmAddUpdEmployee(null);
+                        frmAddUpdEmployee.Show();
+                        this.Close();
                         break;
                     default:
                         break;
@@ -355,14 +358,20 @@ namespace CargoFlowForms
                         case "btnClients":
                             if (dgvList.SelectedRows.Count == 1)
                             {
-                                // Create and open frmUpdateCarrier and close frmCarriersList
+                                // Create and open frmUpdateClient and close frmClientsList
                                 FrmAddUpdClient frmAddUpdClient = new FrmAddUpdClient(objectId);
                                 frmAddUpdClient.Show();
                                 this.Close();
                             }
                             break;
                         case "btnEmployees":
-                            //TODO
+                            if (dgvList.SelectedRows.Count == 1)
+                            {
+                                // Create and open frmUpdateEmployee and close frmEmployeesList
+                                FrmAddUpdEmployee frmAddUpdEmployee = new FrmAddUpdEmployee(objectId);
+                                frmAddUpdEmployee.Show();
+                                this.Close();
+                            }
                             break;
                         default:
                             break;
@@ -376,7 +385,7 @@ namespace CargoFlowForms
         }
 
         /// <summary>
-        /// Delete the selected row in the DataGridView and refresh the list of carriers or clients
+        /// Delete the selected row in the DataGridView and refresh the list of carriers or clients or employees
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

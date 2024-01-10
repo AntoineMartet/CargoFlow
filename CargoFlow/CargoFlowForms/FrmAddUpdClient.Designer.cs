@@ -55,7 +55,7 @@
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(1040, 61);
             lblTitle.TabIndex = 0;
-            lblTitle.Text = "Ajout d'un client";
+            lblTitle.Text = "Ajout d'un·e client·e";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblLastName

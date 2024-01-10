@@ -25,7 +25,7 @@ namespace CargoFlowForms
 
         private void FrmAddUpdClient_Load(object sender, EventArgs e)
         {
-            // If we are updating a carrier, we need to change form's text and fill the fields with the carrier's data
+            // If we are updating a client, we need to change form's text and fill the fields with the client's data
             if (id != null)
             {
                 lblTitle.Text = "Modification d'un client";
@@ -45,7 +45,7 @@ namespace CargoFlowForms
                 // Close connection to the database
                 dbConn.CloseConnection();
 
-                // Fill the fields with the carrier's data
+                // Fill the fields with the client's data
                 txtLastName.Text = record[0];
                 txtFirstName.Text = record[1];
                 txtEmail.Text = record[2];
@@ -75,12 +75,12 @@ namespace CargoFlowForms
                     string query;
                     if (id == null)
                     {
-                        // Add a carrier
+                        // Add a client
                         query = "INSERT INTO clients (lastName, firstName, email, street, streetNumber, city, postalCode) VALUES (@lastName, @firstName, @email, @street, @streetNumber, @city, @postalCode)";
                     }
                     else
                     {
-                        // Update the carrier with the given id
+                        // Update the client with the given id
                         query = "UPDATE clients SET lastName = @lastName, firstName = @firstName, email = @email,"
                                 + " street = @street, streetNumber = @streetNumber, city = @city, postalCode = @postalCode WHERE id = " + id;
                     }
@@ -123,7 +123,7 @@ namespace CargoFlowForms
                 // When the capacity is not null && not an integer
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erreur lors de l'ajout du transporteur. Le client " + txtLastName.Text + " n'a pas pu être ajouté.\n\nDétail : \n" + ex.Message);
+                    MessageBox.Show("Erreur lors de l'ajout du client. Le client " + txtLastName.Text + " n'a pas pu être ajouté.\n\nDétail : \n" + ex.Message);
                 }
             }
         }

@@ -32,7 +32,7 @@
             lblLastName = new Label();
             lblFirstName = new Label();
             lblEmail = new Label();
-            lblPhoneNumber = new Label();
+            lblPassword = new Label();
             txtLastName = new TextBox();
             txtFirstName = new TextBox();
             txtEmail = new TextBox();
@@ -41,9 +41,9 @@
             btnCancel = new Button();
             txtPhoneNumber = new TextBox();
             txtRole = new TextBox();
+            lblPhoneNumber = new Label();
             lblRole = new Label();
             lblEmployeeNumber = new Label();
-            label1 = new Label();
             txtEmployeeNumber = new TextBox();
             SuspendLayout();
             // 
@@ -88,15 +88,15 @@
             lblEmail.TabIndex = 3;
             lblEmail.Text = "Email *";
             // 
-            // lblPhoneNumber
+            // lblPassword
             // 
-            lblPhoneNumber.AutoSize = true;
-            lblPhoneNumber.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPhoneNumber.Location = new Point(246, 238);
-            lblPhoneNumber.Name = "lblPhoneNumber";
-            lblPhoneNumber.Size = new Size(113, 21);
-            lblPhoneNumber.TabIndex = 4;
-            lblPhoneNumber.Text = "Mot de passe *";
+            lblPassword.AutoSize = true;
+            lblPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPassword.Location = new Point(246, 238);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(113, 21);
+            lblPassword.TabIndex = 4;
+            lblPassword.Text = "Mot de passe *";
             // 
             // txtLastName
             // 
@@ -169,51 +169,51 @@
             txtRole.Size = new Size(334, 23);
             txtRole.TabIndex = 6;
             // 
+            // lblPhoneNumber
+            // 
+            lblPhoneNumber.AutoSize = true;
+            lblPhoneNumber.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPhoneNumber.Location = new Point(246, 278);
+            lblPhoneNumber.Name = "lblPhoneNumber";
+            lblPhoneNumber.Size = new Size(173, 21);
+            lblPhoneNumber.TabIndex = 13;
+            lblPhoneNumber.Text = "Numéro de téléphone *";
+            // 
             // lblRole
             // 
             lblRole.AutoSize = true;
             lblRole.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblRole.Location = new Point(246, 278);
+            lblRole.Location = new Point(246, 318);
             lblRole.Name = "lblRole";
-            lblRole.Size = new Size(173, 21);
-            lblRole.TabIndex = 13;
-            lblRole.Text = "Numéro de téléphone *";
+            lblRole.Size = new Size(52, 21);
+            lblRole.TabIndex = 14;
+            lblRole.Text = "Rôle *";
             // 
             // lblEmployeeNumber
             // 
             lblEmployeeNumber.AutoSize = true;
             lblEmployeeNumber.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEmployeeNumber.Location = new Point(246, 318);
+            lblEmployeeNumber.Location = new Point(246, 357);
             lblEmployeeNumber.Name = "lblEmployeeNumber";
-            lblEmployeeNumber.Size = new Size(52, 21);
-            lblEmployeeNumber.TabIndex = 14;
-            lblEmployeeNumber.Text = "Rôle *";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(246, 357);
-            label1.Name = "label1";
-            label1.Size = new Size(167, 21);
-            label1.TabIndex = 15;
-            label1.Text = "Numéro d'employé·e *";
+            lblEmployeeNumber.Size = new Size(167, 21);
+            lblEmployeeNumber.TabIndex = 15;
+            lblEmployeeNumber.Text = "Numéro d'employé·e *";
             // 
             // txtEmployeeNumber
             // 
             txtEmployeeNumber.Location = new Point(433, 357);
             txtEmployeeNumber.Name = "txtEmployeeNumber";
             txtEmployeeNumber.Size = new Size(334, 23);
-            txtEmployeeNumber.TabIndex = 16;
+            txtEmployeeNumber.TabIndex = 7;
             // 
             // FrmAddUpdEmployee
             // 
             BackColor = Color.White;
             ClientSize = new Size(1039, 599);
             Controls.Add(txtEmployeeNumber);
-            Controls.Add(label1);
             Controls.Add(lblEmployeeNumber);
             Controls.Add(lblRole);
+            Controls.Add(lblPhoneNumber);
             Controls.Add(txtRole);
             Controls.Add(txtPhoneNumber);
             Controls.Add(btnCancel);
@@ -222,7 +222,7 @@
             Controls.Add(txtEmail);
             Controls.Add(txtFirstName);
             Controls.Add(txtLastName);
-            Controls.Add(lblPhoneNumber);
+            Controls.Add(lblPassword);
             Controls.Add(lblEmail);
             Controls.Add(lblFirstName);
             Controls.Add(lblLastName);
@@ -244,7 +244,7 @@
         private Label lblLastName;
         private Label lblFirstName;
         private Label lblEmail;
-        private Label lblPhoneNumber;
+        private Label lblPassword;
         private TextBox txtLastName;
         private TextBox txtFirstName;
         private TextBox txtEmail;
@@ -253,9 +253,9 @@
         private Button btnCancel;
         private TextBox txtPhoneNumber;
         private TextBox txtRole;
+        private Label lblPhoneNumber;
         private Label lblRole;
         private Label lblEmployeeNumber;
-        private Label label1;
         private TextBox txtEmployeeNumber;
     }
 }

@@ -50,6 +50,10 @@ namespace CargoFlowForms
                 txtFirstName.Text = record[1];
                 txtEmail.Text = record[2];
                 txtPassword.Text = record[3];
+                if (id != null)
+                {
+                    txtPassword.Enabled = false;
+                }
                 txtPhoneNumber.Text = record[4];
                 txtRole.Text = record[5];
                 txtEmployeeNumber.Text = record[6];
@@ -81,7 +85,7 @@ namespace CargoFlowForms
                     else
                     {
                         // Update the employee with the given id
-                        query = "UPDATE employees SET lastName = @lastName, firstName = @firstName, email = @email, password = @password, phoneNumber = @phoneNumber, role = @role, employeeNumber = @employeeNumber"
+                        query = "UPDATE employees SET lastName = @lastName, firstName = @firstName, email = @email, phoneNumber = @phoneNumber, role = @role, employeeNumber = @employeeNumber"
                                 + " WHERE id = " + id;
                     }
 

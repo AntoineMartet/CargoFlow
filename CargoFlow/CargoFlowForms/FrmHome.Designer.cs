@@ -70,7 +70,7 @@ namespace CargoFlowForms
             btnHome.Location = new Point(3, 3);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(120, 40);
-            btnHome.TabIndex = 7;
+            btnHome.TabIndex = 0;
             btnHome.Text = "Accueil";
             btnHome.UseVisualStyleBackColor = false;
             // 
@@ -84,7 +84,7 @@ namespace CargoFlowForms
             btnStock.Location = new Point(129, 3);
             btnStock.Name = "btnStock";
             btnStock.Size = new Size(120, 40);
-            btnStock.TabIndex = 0;
+            btnStock.TabIndex = 1;
             btnStock.Text = "Stock";
             btnStock.UseVisualStyleBackColor = false;
             // 
@@ -98,7 +98,7 @@ namespace CargoFlowForms
             btnDeliveries.Location = new Point(255, 3);
             btnDeliveries.Name = "btnDeliveries";
             btnDeliveries.Size = new Size(120, 40);
-            btnDeliveries.TabIndex = 1;
+            btnDeliveries.TabIndex = 2;
             btnDeliveries.Text = "Livraisons";
             btnDeliveries.UseVisualStyleBackColor = false;
             // 
@@ -112,7 +112,7 @@ namespace CargoFlowForms
             btnCarriers.Location = new Point(381, 3);
             btnCarriers.Name = "btnCarriers";
             btnCarriers.Size = new Size(120, 40);
-            btnCarriers.TabIndex = 2;
+            btnCarriers.TabIndex = 3;
             btnCarriers.Text = "Transporteurs";
             btnCarriers.UseVisualStyleBackColor = false;
             btnCarriers.Click += btnCarriers_Click;
@@ -127,7 +127,7 @@ namespace CargoFlowForms
             btnClients.Location = new Point(507, 3);
             btnClients.Name = "btnClients";
             btnClients.Size = new Size(120, 40);
-            btnClients.TabIndex = 3;
+            btnClients.TabIndex = 4;
             btnClients.Text = "Client.es";
             btnClients.UseVisualStyleBackColor = false;
             btnClients.Click += btnClients_Click;
@@ -142,7 +142,7 @@ namespace CargoFlowForms
             btnEmployees.Location = new Point(633, 3);
             btnEmployees.Name = "btnEmployees";
             btnEmployees.Size = new Size(120, 40);
-            btnEmployees.TabIndex = 4;
+            btnEmployees.TabIndex = 5;
             btnEmployees.Text = "Employé.es";
             btnEmployees.UseVisualStyleBackColor = false;
             btnEmployees.Click += btnEmployees_Click;
@@ -157,7 +157,7 @@ namespace CargoFlowForms
             btnWarehouses.Location = new Point(759, 3);
             btnWarehouses.Name = "btnWarehouses";
             btnWarehouses.Size = new Size(120, 40);
-            btnWarehouses.TabIndex = 5;
+            btnWarehouses.TabIndex = 6;
             btnWarehouses.Text = "Entrepôts";
             btnWarehouses.UseVisualStyleBackColor = false;
             // 
@@ -171,7 +171,7 @@ namespace CargoFlowForms
             btnArticles.Location = new Point(885, 3);
             btnArticles.Name = "btnArticles";
             btnArticles.Size = new Size(120, 40);
-            btnArticles.TabIndex = 6;
+            btnArticles.TabIndex = 7;
             btnArticles.Text = "Articles";
             btnArticles.UseVisualStyleBackColor = false;
             // 

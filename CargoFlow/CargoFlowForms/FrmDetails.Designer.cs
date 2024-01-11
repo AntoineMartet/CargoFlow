@@ -53,6 +53,7 @@
             txtDetails.ScrollBars = ScrollBars.Vertical;
             txtDetails.Size = new Size(964, 488);
             txtDetails.TabIndex = 2;
+            txtDetails.TabStop = false;
             // 
             // FrmDetails
             // 

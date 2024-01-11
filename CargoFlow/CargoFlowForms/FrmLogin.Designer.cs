@@ -72,7 +72,7 @@
             txtMail.Location = new Point(246, 227);
             txtMail.Name = "txtMail";
             txtMail.Size = new Size(155, 23);
-            txtMail.TabIndex = 3;
+            txtMail.TabIndex = 0;
             txtMail.KeyUp += txtMail_KeyUp;
             // 
             // txtPassword
@@ -81,7 +81,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '●';
             txtPassword.Size = new Size(155, 23);
-            txtPassword.TabIndex = 4;
+            txtPassword.TabIndex = 1;
             txtPassword.KeyUp += txtPassword_KeyUp;
             // 
             // btnLogin
@@ -93,7 +93,7 @@
             btnLogin.Location = new Point(246, 317);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(155, 32);
-            btnLogin.TabIndex = 5;
+            btnLogin.TabIndex = 2;
             btnLogin.Text = "Se connecter";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;

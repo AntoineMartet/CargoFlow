@@ -70,7 +70,7 @@
             btnHome.Location = new Point(3, 3);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(120, 40);
-            btnHome.TabIndex = 7;
+            btnHome.TabIndex = 0;
             btnHome.TabStop = false;
             btnHome.Text = "Accueil";
             btnHome.UseVisualStyleBackColor = false;
@@ -86,7 +86,7 @@
             btnStock.Location = new Point(129, 3);
             btnStock.Name = "btnStock";
             btnStock.Size = new Size(120, 40);
-            btnStock.TabIndex = 0;
+            btnStock.TabIndex = 1;
             btnStock.TabStop = false;
             btnStock.Text = "Stock";
             btnStock.UseVisualStyleBackColor = false;
@@ -102,7 +102,7 @@
             btnDeliveries.Location = new Point(255, 3);
             btnDeliveries.Name = "btnDeliveries";
             btnDeliveries.Size = new Size(120, 40);
-            btnDeliveries.TabIndex = 1;
+            btnDeliveries.TabIndex = 2;
             btnDeliveries.TabStop = false;
             btnDeliveries.Text = "Livraisons";
             btnDeliveries.UseVisualStyleBackColor = false;
@@ -118,7 +118,7 @@
             btnCarriers.Location = new Point(381, 3);
             btnCarriers.Name = "btnCarriers";
             btnCarriers.Size = new Size(120, 40);
-            btnCarriers.TabIndex = 2;
+            btnCarriers.TabIndex = 3;
             btnCarriers.TabStop = false;
             btnCarriers.Text = "Transporteurs";
             btnCarriers.UseVisualStyleBackColor = false;
@@ -134,7 +134,7 @@
             btnClients.Location = new Point(507, 3);
             btnClients.Name = "btnClients";
             btnClients.Size = new Size(120, 40);
-            btnClients.TabIndex = 3;
+            btnClients.TabIndex = 4;
             btnClients.TabStop = false;
             btnClients.Text = "Client.es";
             btnClients.UseVisualStyleBackColor = false;
@@ -150,7 +150,7 @@
             btnEmployees.Location = new Point(633, 3);
             btnEmployees.Name = "btnEmployees";
             btnEmployees.Size = new Size(120, 40);
-            btnEmployees.TabIndex = 4;
+            btnEmployees.TabIndex = 5;
             btnEmployees.TabStop = false;
             btnEmployees.Text = "Employé.es";
             btnEmployees.UseVisualStyleBackColor = false;
@@ -166,7 +166,7 @@
             btnWarehouses.Location = new Point(759, 3);
             btnWarehouses.Name = "btnWarehouses";
             btnWarehouses.Size = new Size(120, 40);
-            btnWarehouses.TabIndex = 5;
+            btnWarehouses.TabIndex = 6;
             btnWarehouses.TabStop = false;
             btnWarehouses.Text = "Entrepôts";
             btnWarehouses.UseVisualStyleBackColor = false;
@@ -182,7 +182,7 @@
             btnArticles.Location = new Point(885, 3);
             btnArticles.Name = "btnArticles";
             btnArticles.Size = new Size(120, 40);
-            btnArticles.TabIndex = 6;
+            btnArticles.TabIndex = 7;
             btnArticles.TabStop = false;
             btnArticles.Text = "Articles";
             btnArticles.UseVisualStyleBackColor = false;
@@ -200,7 +200,8 @@
             dgvList.RowTemplate.Height = 25;
             dgvList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvList.Size = new Size(819, 473);
-            dgvList.TabIndex = 2;
+            dgvList.StandardTab = true;
+            dgvList.TabIndex = 12;
             dgvList.ColumnHeaderMouseClick += dgvList_ColumnHeaderMouseClick;
             // 
             // btnAdd
@@ -212,7 +213,7 @@
             btnAdd.Location = new Point(867, 260);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(150, 40);
-            btnAdd.TabIndex = 3;
+            btnAdd.TabIndex = 9;
             btnAdd.TabStop = false;
             btnAdd.Text = "Ajouter";
             btnAdd.UseVisualStyleBackColor = false;
@@ -227,7 +228,7 @@
             btnUpdate.Location = new Point(867, 320);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(150, 40);
-            btnUpdate.TabIndex = 4;
+            btnUpdate.TabIndex = 10;
             btnUpdate.TabStop = false;
             btnUpdate.Text = "Modifier";
             btnUpdate.UseVisualStyleBackColor = false;
@@ -242,7 +243,7 @@
             btnDelete.Location = new Point(867, 380);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(150, 40);
-            btnDelete.TabIndex = 5;
+            btnDelete.TabIndex = 11;
             btnDelete.TabStop = false;
             btnDelete.Text = "Supprimer";
             btnDelete.UseVisualStyleBackColor = false;
@@ -257,7 +258,7 @@
             btnDetails.Location = new Point(867, 200);
             btnDetails.Name = "btnDetails";
             btnDetails.Size = new Size(150, 40);
-            btnDetails.TabIndex = 6;
+            btnDetails.TabIndex = 8;
             btnDetails.TabStop = false;
             btnDetails.Text = "Détails";
             btnDetails.UseVisualStyleBackColor = false;

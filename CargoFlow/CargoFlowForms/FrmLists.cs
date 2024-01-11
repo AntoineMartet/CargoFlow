@@ -157,7 +157,7 @@ namespace CargoFlowForms
                         // Get the name of the header clicked
                         string headerName = dgvList.Columns[e.ColumnIndex].Name;
 
-                        if(headerName == "Name")
+                        if (headerName == "Name")
                         {
                             //TODO
                             //Carrier.SortCarriersByName();

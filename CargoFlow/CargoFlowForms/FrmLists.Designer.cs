@@ -275,6 +275,8 @@
             Controls.Add(btnAdd);
             Controls.Add(dgvList);
             Controls.Add(flpTabs);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FrmLists";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmLists";

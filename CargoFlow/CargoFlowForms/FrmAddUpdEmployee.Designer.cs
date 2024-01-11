@@ -227,6 +227,8 @@
             Controls.Add(lblFirstName);
             Controls.Add(lblLastName);
             Controls.Add(lblTitle);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FrmAddUpdEmployee";
             StartPosition = FormStartPosition.CenterScreen;
             Load += FrmAddUpdEmployee_Load;

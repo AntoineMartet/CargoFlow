@@ -215,6 +215,8 @@ namespace CargoFlowForms
             Controls.Add(picLogo);
             Controls.Add(lblHeadline);
             Controls.Add(flpTabs);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FrmHome";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmHome";

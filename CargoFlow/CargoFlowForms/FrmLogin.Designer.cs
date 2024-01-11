@@ -121,6 +121,8 @@
             Controls.Add(lblPassword);
             Controls.Add(lblMail);
             Controls.Add(lblLoginMessage);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CargoFlow";

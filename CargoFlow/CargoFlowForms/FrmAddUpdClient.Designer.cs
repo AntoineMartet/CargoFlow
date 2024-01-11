@@ -226,6 +226,8 @@
             Controls.Add(lblFirstName);
             Controls.Add(lblLastName);
             Controls.Add(lblTitle);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FrmAddUpdClient";
             StartPosition = FormStartPosition.CenterScreen;
             Load += FrmAddUpdClient_Load;

@@ -62,6 +62,8 @@
             ClientSize = new Size(1039, 599);
             Controls.Add(txtDetails);
             Controls.Add(lblTitle);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FrmDetails";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmDetails";

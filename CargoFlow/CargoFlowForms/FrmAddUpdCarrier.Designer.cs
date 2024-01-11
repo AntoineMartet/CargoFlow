@@ -163,6 +163,8 @@
             Controls.Add(lblTel);
             Controls.Add(lblName);
             Controls.Add(lblTitle);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FrmAddUpdCarrier";
             StartPosition = FormStartPosition.CenterScreen;
             Load += FrmAddUpdCarrier_Load;

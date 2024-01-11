@@ -42,6 +42,34 @@ namespace CargoFlowForms
         /// </summary>
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            Login();
+        }
+
+        private void txtMail_KeyUp(object sender, KeyEventArgs e)
+        {
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    Login();
+                }
+            }
+        }
+
+        private void txtPassword_KeyUp(object sender, KeyEventArgs e)
+        {
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    Login();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Check the given email and password and open frmHome if they are correct
+        /// </summary>
+        private void Login()
+        {
             try
             {
                 // Create a DBConnection object and open the connection
@@ -80,26 +108,6 @@ namespace CargoFlowForms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void txtMail_KeyUp(object sender, KeyEventArgs e)
-        {
-            {
-                if (e.KeyCode == Keys.Enter)
-                {
-                    btnLogin_Click(sender, e);
-                }
-            }
-        }
-
-        private void txtPassword_KeyUp(object sender, KeyEventArgs e)
-        {
-            {
-                if (e.KeyCode == Keys.Enter)
-                {
-                    btnLogin_Click(sender, e);
-                }
             }
         }
     }

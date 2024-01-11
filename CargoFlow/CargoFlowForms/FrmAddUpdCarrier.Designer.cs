@@ -97,28 +97,28 @@
             txtName.Location = new Point(433, 115);
             txtName.Name = "txtName";
             txtName.Size = new Size(334, 23);
-            txtName.TabIndex = 5;
+            txtName.TabIndex = 1;
             // 
             // txtTel
             // 
             txtTel.Location = new Point(433, 155);
             txtTel.Name = "txtTel";
             txtTel.Size = new Size(334, 23);
-            txtTel.TabIndex = 6;
+            txtTel.TabIndex = 2;
             // 
             // txtMail
             // 
             txtMail.Location = new Point(433, 195);
             txtMail.Name = "txtMail";
             txtMail.Size = new Size(334, 23);
-            txtMail.TabIndex = 7;
+            txtMail.TabIndex = 3;
             // 
             // txtCapacity
             // 
             txtCapacity.Location = new Point(433, 235);
             txtCapacity.Name = "txtCapacity";
             txtCapacity.Size = new Size(334, 23);
-            txtCapacity.TabIndex = 8;
+            txtCapacity.TabIndex = 4;
             // 
             // btnAddUpd
             // 
@@ -129,7 +129,7 @@
             btnAddUpd.Location = new Point(433, 295);
             btnAddUpd.Name = "btnAddUpd";
             btnAddUpd.Size = new Size(150, 60);
-            btnAddUpd.TabIndex = 9;
+            btnAddUpd.TabIndex = 5;
             btnAddUpd.Text = "Ajouter le transporteur";
             btnAddUpd.UseVisualStyleBackColor = false;
             btnAddUpd.Click += btnAddUpd_Click;
@@ -143,7 +143,7 @@
             btnCancel.Location = new Point(617, 295);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(150, 60);
-            btnCancel.TabIndex = 10;
+            btnCancel.TabIndex = 6;
             btnCancel.Text = "Annuler";
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;

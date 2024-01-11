@@ -195,9 +195,9 @@
             lblEmployeeNumber.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblEmployeeNumber.Location = new Point(246, 357);
             lblEmployeeNumber.Name = "lblEmployeeNumber";
-            lblEmployeeNumber.Size = new Size(167, 21);
+            lblEmployeeNumber.Size = new Size(156, 21);
             lblEmployeeNumber.TabIndex = 15;
-            lblEmployeeNumber.Text = "Numéro d'employé·e *";
+            lblEmployeeNumber.Text = "Numéro d'employé·e";
             // 
             // txtEmployeeNumber
             // 

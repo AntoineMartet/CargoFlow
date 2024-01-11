@@ -193,14 +193,15 @@
             dgvList.AllowUserToAddRows = false;
             dgvList.AllowUserToDeleteRows = false;
             dgvList.AllowUserToOrderColumns = true;
+            dgvList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvList.Location = new Point(15, 95);
             dgvList.MultiSelect = false;
             dgvList.Name = "dgvList";
+            dgvList.ReadOnly = true;
             dgvList.RowTemplate.Height = 25;
             dgvList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvList.Size = new Size(819, 473);
-            dgvList.StandardTab = true;
             dgvList.TabIndex = 12;
             dgvList.ColumnHeaderMouseClick += dgvList_ColumnHeaderMouseClick;
             // 

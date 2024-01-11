@@ -82,5 +82,25 @@ namespace CargoFlowForms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void txtMail_KeyUp(object sender, KeyEventArgs e)
+        {
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    btnLogin_Click(sender, e);
+                }
+            }
+        }
+
+        private void txtPassword_KeyUp(object sender, KeyEventArgs e)
+        {
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    btnLogin_Click(sender, e);
+                }
+            }
+        }
     }
 }

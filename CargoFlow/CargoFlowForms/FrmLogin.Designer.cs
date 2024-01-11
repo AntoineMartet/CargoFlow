@@ -73,6 +73,7 @@
             txtMail.Name = "txtMail";
             txtMail.Size = new Size(155, 23);
             txtMail.TabIndex = 3;
+            txtMail.KeyUp += txtMail_KeyUp;
             // 
             // txtPassword
             // 
@@ -81,6 +82,7 @@
             txtPassword.PasswordChar = '●';
             txtPassword.Size = new Size(155, 23);
             txtPassword.TabIndex = 4;
+            txtPassword.KeyUp += txtPassword_KeyUp;
             // 
             // btnLogin
             // 

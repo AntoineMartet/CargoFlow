@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CargoFlowMgmt;
+using System.Security.Cryptography;
 
 namespace CargoFlowForms
 {
@@ -73,7 +74,7 @@ namespace CargoFlowForms
                     string query;
                     if (id == null)
                     {
-                        // Add a employee
+                        // Add an employee
                         query = "INSERT INTO employees (lastName, firstName, email, password, phoneNumber, role, employeeNumber) VALUES (@lastName, @firstName, @email, @password, @phoneNumber, @role, @employeeNumber)";
                     }
                     else
@@ -88,7 +89,15 @@ namespace CargoFlowForms
                     queryData.Add("@lastName", txtLastName.Text);
                     queryData.Add("@firstName", txtFirstName.Text);
                     queryData.Add("@email", txtEmail.Text);
-                    queryData.Add("@password", txtPassword.Text);
+                    // Create a byte array from input password
+                    byte[] pwdBytes = ASCIIEncoding.ASCII.GetBytes(txtPassword.Text);
+                    // Compute hash based on input password
+                    byte[] pwdHashBytes = new MD5CryptoServiceProvider().ComputeHash(pwdBytes);
+                    // Convert pwdHashBytes to hexadecimal string
+                    string pwdHashHexa = BitConverter.ToString(pwdHashBytes);
+                    // Replace() and ToLower needed otherwise result looks like "3A-E8-43-CA-22..."
+                    pwdHashHexa = pwdHashHexa.Replace("-", "").ToLower();
+                    queryData.Add("@password", pwdHashHexa);
                     queryData.Add("@phoneNumber", txtPassword.Text);
                     queryData.Add("@role", txtPhoneNumber.Text);
                     queryData.Add("@employeeNumber", txtRole.Text);

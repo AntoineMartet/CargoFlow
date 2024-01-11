@@ -70,9 +70,9 @@ namespace CargoFlowMgmt
             // If reader has rows, check if it matches the password, else return false
             if (reader.HasRows)
             {
-                // Create a byte array from source data.
+                // Create a byte array from input password
                 byte[] pwdBytes = ASCIIEncoding.ASCII.GetBytes(pwd);
-                // Compute hash based on source data.
+                // Compute hash based on input password
                 byte[] pwdHashBytes = new MD5CryptoServiceProvider().ComputeHash(pwdBytes);
                 // Convert pwdHashBytes to hexadecimal string
                 string pwdHashHexa = BitConverter.ToString(pwdHashBytes);

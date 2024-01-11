@@ -166,7 +166,9 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "FrmAddUpdCarrier";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "CargoFlow";
             Load += FrmAddUpdCarrier_Load;
             ResumeLayout(false);
             PerformLayout();

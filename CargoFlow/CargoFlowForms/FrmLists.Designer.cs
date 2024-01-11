@@ -278,8 +278,9 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "FrmLists";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmLists";
+            Text = "CargoFlow";
             Load += FrmLists_Load;
             flpTabs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvList).EndInit();

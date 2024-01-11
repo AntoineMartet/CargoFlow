@@ -65,8 +65,9 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "FrmDetails";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FrmDetails";
+            Text = "CargoFlow";
             Load += FrmDetails_Load;
             ResumeLayout(false);
             PerformLayout();

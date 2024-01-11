@@ -124,6 +124,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "FrmLogin";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CargoFlow";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

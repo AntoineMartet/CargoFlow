@@ -145,6 +145,7 @@ namespace CargoFlowForms
             btnEmployees.TabIndex = 4;
             btnEmployees.Text = "Employé.es";
             btnEmployees.UseVisualStyleBackColor = false;
+            btnEmployees.Click += btnEmployees_Click;
             // 
             // btnWarehouses
             // 

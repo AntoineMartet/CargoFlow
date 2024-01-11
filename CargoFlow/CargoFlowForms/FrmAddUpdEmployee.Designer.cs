@@ -1,6 +1,6 @@
 ﻿namespace CargoFlowForms
 {
-    public partial class FrmAddUpdClient
+    partial class FrmAddUpdEmployee
     {
         /// <summary>
         /// Required designer variable.
@@ -32,19 +32,19 @@
             lblLastName = new Label();
             lblFirstName = new Label();
             lblEmail = new Label();
-            lblStreet = new Label();
+            lblPhoneNumber = new Label();
             txtLastName = new TextBox();
             txtFirstName = new TextBox();
             txtEmail = new TextBox();
-            txtStreet = new TextBox();
+            txtPassword = new TextBox();
             btnAddUpd = new Button();
             btnCancel = new Button();
-            txtStreetNumber = new TextBox();
-            txtCity = new TextBox();
-            lblStreetNumber = new Label();
-            lblCity = new Label();
-            txtPostalCode = new TextBox();
-            lblPostalCode = new Label();
+            txtPhoneNumber = new TextBox();
+            txtRole = new TextBox();
+            lblRole = new Label();
+            lblEmployeeNumber = new Label();
+            label1 = new Label();
+            txtEmployeeNumber = new TextBox();
             SuspendLayout();
             // 
             // lblTitle
@@ -55,7 +55,7 @@
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(1040, 61);
             lblTitle.TabIndex = 0;
-            lblTitle.Text = "Ajout d'un·e client·e";
+            lblTitle.Text = "Ajout d'un·e employé·e";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblLastName
@@ -88,15 +88,15 @@
             lblEmail.TabIndex = 3;
             lblEmail.Text = "Email *";
             // 
-            // lblStreet
+            // lblPhoneNumber
             // 
-            lblStreet.AutoSize = true;
-            lblStreet.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblStreet.Location = new Point(246, 238);
-            lblStreet.Name = "lblStreet";
-            lblStreet.Size = new Size(48, 21);
-            lblStreet.TabIndex = 4;
-            lblStreet.Text = "Rue *";
+            lblPhoneNumber.AutoSize = true;
+            lblPhoneNumber.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPhoneNumber.Location = new Point(246, 238);
+            lblPhoneNumber.Name = "lblPhoneNumber";
+            lblPhoneNumber.Size = new Size(113, 21);
+            lblPhoneNumber.TabIndex = 4;
+            lblPhoneNumber.Text = "Mot de passe *";
             // 
             // txtLastName
             // 
@@ -119,12 +119,13 @@
             txtEmail.Size = new Size(334, 23);
             txtEmail.TabIndex = 3;
             // 
-            // txtStreet
+            // txtPassword
             // 
-            txtStreet.Location = new Point(433, 235);
-            txtStreet.Name = "txtStreet";
-            txtStreet.Size = new Size(334, 23);
-            txtStreet.TabIndex = 4;
+            txtPassword.Location = new Point(433, 235);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
+            txtPassword.Size = new Size(334, 23);
+            txtPassword.TabIndex = 4;
             // 
             // btnAddUpd
             // 
@@ -132,11 +133,11 @@
             btnAddUpd.FlatAppearance.BorderColor = Color.DarkGray;
             btnAddUpd.FlatStyle = FlatStyle.Flat;
             btnAddUpd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAddUpd.Location = new Point(433, 407);
+            btnAddUpd.Location = new Point(433, 406);
             btnAddUpd.Name = "btnAddUpd";
-            btnAddUpd.Size = new Size(150, 60);
+            btnAddUpd.Size = new Size(154, 60);
             btnAddUpd.TabIndex = 8;
-            btnAddUpd.Text = "Ajouter le client";
+            btnAddUpd.Text = "Ajouter l'employé·e";
             btnAddUpd.UseVisualStyleBackColor = false;
             btnAddUpd.Click += btnAddUpd_Click;
             // 
@@ -146,7 +147,7 @@
             btnCancel.FlatAppearance.BorderColor = Color.DarkGray;
             btnCancel.FlatStyle = FlatStyle.Flat;
             btnCancel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCancel.Location = new Point(617, 407);
+            btnCancel.Location = new Point(617, 406);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(150, 60);
             btnCancel.TabIndex = 9;
@@ -154,81 +155,81 @@
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
-            // txtStreetNumber
+            // txtPhoneNumber
             // 
-            txtStreetNumber.Location = new Point(433, 275);
-            txtStreetNumber.Name = "txtStreetNumber";
-            txtStreetNumber.Size = new Size(334, 23);
-            txtStreetNumber.TabIndex = 5;
+            txtPhoneNumber.Location = new Point(433, 275);
+            txtPhoneNumber.Name = "txtPhoneNumber";
+            txtPhoneNumber.Size = new Size(334, 23);
+            txtPhoneNumber.TabIndex = 5;
             // 
-            // txtCity
+            // txtRole
             // 
-            txtCity.Location = new Point(433, 315);
-            txtCity.Name = "txtCity";
-            txtCity.Size = new Size(334, 23);
-            txtCity.TabIndex = 6;
+            txtRole.Location = new Point(433, 315);
+            txtRole.Name = "txtRole";
+            txtRole.Size = new Size(334, 23);
+            txtRole.TabIndex = 6;
             // 
-            // lblStreetNumber
+            // lblRole
             // 
-            lblStreetNumber.AutoSize = true;
-            lblStreetNumber.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblStreetNumber.Location = new Point(246, 278);
-            lblStreetNumber.Name = "lblStreetNumber";
-            lblStreetNumber.Size = new Size(87, 21);
-            lblStreetNumber.TabIndex = 13;
-            lblStreetNumber.Text = "N° de rue *";
+            lblRole.AutoSize = true;
+            lblRole.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblRole.Location = new Point(246, 278);
+            lblRole.Name = "lblRole";
+            lblRole.Size = new Size(173, 21);
+            lblRole.TabIndex = 13;
+            lblRole.Text = "Numéro de téléphone *";
             // 
-            // lblCity
+            // lblEmployeeNumber
             // 
-            lblCity.AutoSize = true;
-            lblCity.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblCity.Location = new Point(246, 318);
-            lblCity.Name = "lblCity";
-            lblCity.Size = new Size(94, 21);
-            lblCity.TabIndex = 14;
-            lblCity.Text = "Commune *";
+            lblEmployeeNumber.AutoSize = true;
+            lblEmployeeNumber.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblEmployeeNumber.Location = new Point(246, 318);
+            lblEmployeeNumber.Name = "lblEmployeeNumber";
+            lblEmployeeNumber.Size = new Size(52, 21);
+            lblEmployeeNumber.TabIndex = 14;
+            lblEmployeeNumber.Text = "Rôle *";
             // 
-            // txtPostalCode
+            // label1
             // 
-            txtPostalCode.Location = new Point(433, 355);
-            txtPostalCode.Name = "txtPostalCode";
-            txtPostalCode.Size = new Size(334, 23);
-            txtPostalCode.TabIndex = 7;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(246, 357);
+            label1.Name = "label1";
+            label1.Size = new Size(167, 21);
+            label1.TabIndex = 15;
+            label1.Text = "Numéro d'employé·e *";
             // 
-            // lblPostalCode
+            // txtEmployeeNumber
             // 
-            lblPostalCode.AutoSize = true;
-            lblPostalCode.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPostalCode.Location = new Point(246, 358);
-            lblPostalCode.Name = "lblPostalCode";
-            lblPostalCode.Size = new Size(51, 21);
-            lblPostalCode.TabIndex = 16;
-            lblPostalCode.Text = "NPA *";
+            txtEmployeeNumber.Location = new Point(433, 357);
+            txtEmployeeNumber.Name = "txtEmployeeNumber";
+            txtEmployeeNumber.Size = new Size(334, 23);
+            txtEmployeeNumber.TabIndex = 16;
             // 
-            // FrmAddUpdClient
+            // FrmAddUpdEmployee
             // 
             BackColor = Color.White;
             ClientSize = new Size(1039, 599);
-            Controls.Add(lblPostalCode);
-            Controls.Add(txtPostalCode);
-            Controls.Add(lblCity);
-            Controls.Add(lblStreetNumber);
-            Controls.Add(txtCity);
-            Controls.Add(txtStreetNumber);
+            Controls.Add(txtEmployeeNumber);
+            Controls.Add(label1);
+            Controls.Add(lblEmployeeNumber);
+            Controls.Add(lblRole);
+            Controls.Add(txtRole);
+            Controls.Add(txtPhoneNumber);
             Controls.Add(btnCancel);
             Controls.Add(btnAddUpd);
-            Controls.Add(txtStreet);
+            Controls.Add(txtPassword);
             Controls.Add(txtEmail);
             Controls.Add(txtFirstName);
             Controls.Add(txtLastName);
-            Controls.Add(lblStreet);
+            Controls.Add(lblPhoneNumber);
             Controls.Add(lblEmail);
             Controls.Add(lblFirstName);
             Controls.Add(lblLastName);
             Controls.Add(lblTitle);
-            Name = "FrmAddUpdClient";
+            Name = "FrmAddUpdEmployee";
             StartPosition = FormStartPosition.CenterScreen;
-            Load += FrmAddUpdClient_Load;
+            Load += FrmAddUpdEmployee_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -239,18 +240,18 @@
         private Label lblLastName;
         private Label lblFirstName;
         private Label lblEmail;
-        private Label lblStreet;
+        private Label lblPhoneNumber;
         private TextBox txtLastName;
         private TextBox txtFirstName;
         private TextBox txtEmail;
-        private TextBox txtStreet;
+        private TextBox txtPassword;
         private Button btnAddUpd;
         private Button btnCancel;
-        private TextBox txtStreetNumber;
-        private TextBox txtCity;
-        private Label lblStreetNumber;
-        private Label lblCity;
-        private TextBox txtPostalCode;
-        private Label lblPostalCode;
+        private TextBox txtPhoneNumber;
+        private TextBox txtRole;
+        private Label lblRole;
+        private Label lblEmployeeNumber;
+        private Label label1;
+        private TextBox txtEmployeeNumber;
     }
 }

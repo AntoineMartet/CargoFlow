@@ -98,9 +98,9 @@ namespace CargoFlowForms
                     // Replace() and ToLower needed otherwise result looks like "3A-E8-43-CA-22..."
                     pwdHashHexa = pwdHashHexa.Replace("-", "").ToLower();
                     queryData.Add("@password", pwdHashHexa);
-                    queryData.Add("@phoneNumber", txtPassword.Text);
-                    queryData.Add("@role", txtPhoneNumber.Text);
-                    queryData.Add("@employeeNumber", txtRole.Text);
+                    queryData.Add("@phoneNumber", txtPhoneNumber.Text);
+                    queryData.Add("@role", txtRole.Text);
+                    queryData.Add("@employeeNumber", txtEmployeeNumber.Text);
 
                     if (id != null)
                     {

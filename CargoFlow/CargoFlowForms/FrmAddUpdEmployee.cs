@@ -36,7 +36,7 @@ namespace CargoFlowForms
                 dbConn.OpenConnection();
 
                 // Prepare the SQL request
-                string query = "SELECT lastName, firstName, email, phoneNumber, role, employeeNumber FROM employees WHERE id = " + id;
+                string query = "SELECT lastName, firstName, email, password, phoneNumber, role, employeeNumber FROM employees WHERE id = " + id;
 
                 // Execute the SQL request
                 // Explicit conversion of id to int because it is nullable
@@ -52,6 +52,7 @@ namespace CargoFlowForms
                 txtPassword.Text = record[3];
                 txtPhoneNumber.Text = record[4];
                 txtRole.Text = record[5];
+                txtEmployeeNumber.Text = record[6];
             }
         }
 

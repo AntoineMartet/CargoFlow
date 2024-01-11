@@ -56,7 +56,7 @@ namespace CargoFlowForms
 
         private void btnAddUpd_Click(object sender, EventArgs e)
         {
-            if (txtLastName.Text == "" || txtFirstName.Text == "" || txtEmail.Text == "" || txtPassword.Text == ""
+            if (txtLastName.Text == "" || txtFirstName.Text == "" || txtEmail.Text == "" || txtPassword.Text == "" || txtPassword.Text == ""
                 || txtPhoneNumber.Text == "" || txtRole.Text == "")
             {
                 MessageBox.Show("Veuillez remplir tous les champs obligatoires.\nLes champs obligatoires sont marqués par des astérisques (*).");
@@ -74,12 +74,12 @@ namespace CargoFlowForms
                     if (id == null)
                     {
                         // Add a employee
-                        query = "INSERT INTO employees (lastName, firstName, email, phoneNumber, role, employeeNumber) VALUES (@lastName, @firstName, @email, @phoneNumber, @role, @employeeNumber)";
+                        query = "INSERT INTO employees (lastName, firstName, email, password, phoneNumber, role, employeeNumber) VALUES (@lastName, @firstName, @email, @password, @phoneNumber, @role, @employeeNumber)";
                     }
                     else
                     {
                         // Update the employee with the given id
-                        query = "UPDATE employees SET lastName = @lastName, firstName = @firstName, email = @email, phoneNumber = @phoneNumber, role = @role, employeeNumber = @employeeNumber"
+                        query = "UPDATE employees SET lastName = @lastName, firstName = @firstName, email = @email, password = @password, phoneNumber = @phoneNumber, role = @role, employeeNumber = @employeeNumber"
                                 + " WHERE id = " + id;
                     }
 
@@ -88,6 +88,7 @@ namespace CargoFlowForms
                     queryData.Add("@lastName", txtLastName.Text);
                     queryData.Add("@firstName", txtFirstName.Text);
                     queryData.Add("@email", txtEmail.Text);
+                    queryData.Add("@password", txtPassword.Text);
                     queryData.Add("@phoneNumber", txtPassword.Text);
                     queryData.Add("@role", txtPhoneNumber.Text);
                     queryData.Add("@employeeNumber", txtRole.Text);

@@ -78,10 +78,13 @@ namespace CargoFlowForms
 
                 dbConn.CloseConnection();
 
-                // Initialize email and role object attributes.
-                // They will be used in all the other forms as the login form is always open.
+                // Initialize session variables
                 Session.UserMail = email;
                 Session.UserRole = role;
+
+                // Erase login data in textBoxes
+                txtMail.Text = "";
+                txtPassword.Text = "";
 
                 // Create and open frmHome and close frmLogin
                 FrmHome frmHome = new FrmHome();

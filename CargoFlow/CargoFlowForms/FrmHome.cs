@@ -47,5 +47,17 @@ namespace CargoFlowForms
             frmLists.Show();
             this.Close();
         }
+
+        /// <summary>
+        /// Reset session's variables and open frmLogin
+        /// </summary>
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.UserMail = "";
+            Session.UserRole = "";
+            // Dispose the current form and display frmLogin
+            this.Close();
+            Program.FrmLogin.Show();
+         }
     }
 }

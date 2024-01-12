@@ -92,7 +92,7 @@ namespace CargoFlowMgmt
             dbConn = new DBConnection();
             dbConn.OpenConnection();
             string getAllClientsQuery = "SELECT id, lastName, firstName, email, street, streetNumber, city, postalCode FROM clients";
-            List<string[]> records = dbConn.GetAllRecords(getAllClientsQuery);
+            List<string[]> records = dbConn.GetRecords(getAllClientsQuery);
 
             // Double loop reading records
             foreach (string[] record in records)

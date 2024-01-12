@@ -42,6 +42,7 @@ namespace CargoFlowForms
             lblHeadline = new Label();
             picLogo = new PictureBox();
             lblSession = new Label();
+            btnLogout = new Button();
             flpTabs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             SuspendLayout();
@@ -203,7 +204,23 @@ namespace CargoFlowForms
             lblSession.Name = "lblSession";
             lblSession.Size = new Size(444, 83);
             lblSession.TabIndex = 3;
+            lblSession.Text = "Utilisateur et rôle : ";
             lblSession.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // btnLogout
+            // 
+            btnLogout.BackColor = Color.WhiteSmoke;
+            btnLogout.FlatAppearance.BorderColor = Color.DarkGray;
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLogout.Location = new Point(444, 480);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(150, 40);
+            btnLogout.TabIndex = 10;
+            btnLogout.TabStop = false;
+            btnLogout.Text = "Déconnexion";
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // FrmHome
             // 
@@ -211,6 +228,7 @@ namespace CargoFlowForms
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1039, 599);
+            Controls.Add(btnLogout);
             Controls.Add(lblSession);
             Controls.Add(picLogo);
             Controls.Add(lblHeadline);
@@ -240,5 +258,6 @@ namespace CargoFlowForms
         private Button btnHome;
         private Label lblHeadline;
         private Label lblSession;
+        private Button btnLogout;
     }
 }

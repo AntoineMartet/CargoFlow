@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using CargoFlowMgmt;
 using System.Security.Cryptography;
 using System.Net.Mail;
+using Org.BouncyCastle.Asn1.Crmf;
+using Org.BouncyCastle.Asn1.X509;
 
 namespace CargoFlowForms
 {
@@ -26,6 +28,14 @@ namespace CargoFlowForms
 
         private void FrmAddUpdEmployee_Load(object sender, EventArgs e)
         {
+            List<string[]> roles = Employee.GetAllRoles();
+
+            // Fill the cmbRole comboBox with the roles from the database
+            foreach (string[] role in roles)
+            {
+                cmbRole.Items.Add(role[0]);
+            }
+
             // If we are updating a employee, we need to change form's text and fill the fields with the employee's data
             if (id != null)
             {
@@ -37,11 +47,11 @@ namespace CargoFlowForms
                 dbConn.OpenConnection();
 
                 // Prepare the SQL request
-                string query = "SELECT lastName, firstName, email, password, phoneNumber, role, employeeNumber FROM employees WHERE id = " + id;
+                string employeeDataQuery = "SELECT lastName, firstName, email, password, phoneNumber, role, employeeNumber FROM employees WHERE id = " + id;
 
                 // Execute the SQL request
                 // Explicit conversion of id to int because it is nullable
-                string[] record = dbConn.GetRecord(query, (int)id);
+                string[] record = dbConn.GetRecord(employeeDataQuery, (int)id);
 
                 // Close connection to the database
                 dbConn.CloseConnection();
@@ -51,20 +61,17 @@ namespace CargoFlowForms
                 txtFirstName.Text = record[1];
                 txtEmail.Text = record[2];
                 txtPassword.Text = record[3];
-                if (id != null)
-                {
-                    txtPassword.Enabled = false;
-                }
+                txtPassword.Enabled = false;
                 txtPhoneNumber.Text = record[4];
-                txtRole.Text = record[5];
+                cmbRole.Text = record[5];
                 txtEmployeeNumber.Text = record[6];
             }
         }
 
         private void btnAddUpd_Click(object sender, EventArgs e)
         {
-            if (txtLastName.Text == "" || txtFirstName.Text == "" || txtEmail.Text == "" || txtPassword.Text == "" || txtPassword.Text == ""
-                || txtPhoneNumber.Text == "" || txtRole.Text == "")
+            if (txtLastName.Text == "" || txtFirstName.Text == "" || txtEmail.Text == "" || txtPassword.Text == ""
+                || txtPhoneNumber.Text == "" || cmbRole.Text == "" || txtEmployeeNumber.Text == "")
             {
                 MessageBox.Show("Veuillez remplir tous les champs obligatoires.\nLes champs obligatoires sont marqués par des astérisques (*).");
             }
@@ -109,7 +116,7 @@ namespace CargoFlowForms
                     pwdHashHexa = pwdHashHexa.Replace("-", "").ToLower();
                     queryData.Add("@password", pwdHashHexa);
                     queryData.Add("@phoneNumber", txtPhoneNumber.Text);
-                    queryData.Add("@role", txtRole.Text);
+                    queryData.Add("@role", cmbRole.Text);
                     queryData.Add("@employeeNumber", txtEmployeeNumber.Text);
 
                     if (id != null)

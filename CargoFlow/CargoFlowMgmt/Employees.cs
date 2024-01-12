@@ -99,13 +99,13 @@ namespace CargoFlowMgmt
         /// <summary>
         /// Get all the employees from the database and return them as a list of Employee objects
         /// </summary>
-        public static List<CargoFlowMgmt.Employee> GetEmployees()
+        public static List<Employee> GetEmployees()
         {
-            List<CargoFlowMgmt.Employee> list = new List<CargoFlowMgmt.Employee>();
+            List<Employee> list = new List<Employee>();
             dbConn = new DBConnection();
             dbConn.OpenConnection();
             string getAllEmployeesQuery = "SELECT id, lastName, firstName, email, phoneNumber, role, employeeNumber FROM employees";
-            List<string[]> records = dbConn.GetAllRecords(getAllEmployeesQuery);
+            List<string[]> records = dbConn.GetRecords(getAllEmployeesQuery);
 
             // Double loop reading records
             foreach (string[] record in records)
@@ -119,12 +119,30 @@ namespace CargoFlowMgmt
                 string role = record[5];
                 string employeeNumber = record[6];
                 // Create the Employee object
-                CargoFlowMgmt.Employee employee = new CargoFlowMgmt.Employee(id, lastName, firstName, email, phoneNumber, role, employeeNumber);
+                Employee employee = new Employee(id, lastName, firstName, email, phoneNumber, role, employeeNumber);
                 // Add the Employee object to the list
                 list.Add(employee);
             }
             dbConn.CloseConnection();
             return list;
+        }
+
+        public static List<string[]> GetAllRoles()
+        {
+            // Open connection to the database
+            dbConn = new DBConnection();
+            dbConn.OpenConnection();
+
+            // Prepare the SQL request
+            string roleQuery = "SELECT DISTINCT role FROM employees";
+
+            // Execute the SQL request
+            List<string[]> rolesList = dbConn.GetRecords(roleQuery);
+
+            // Close connection to the database
+            dbConn.CloseConnection();
+
+            return rolesList;
         }
     }
 }

@@ -103,7 +103,7 @@ namespace CargoFlowMgmt
             {
                 getAllCarriersQuery = "SELECT id, companyName, loadCapacity, email, phoneNumber FROM carriers ORDER BY companyName DESC";
             }
-            List<string[]> records = dbConn.GetAllRecords(getAllCarriersQuery);
+            List<string[]> records = dbConn.GetRecords(getAllCarriersQuery);
             return temp;
         }
 
@@ -130,7 +130,7 @@ namespace CargoFlowMgmt
             {
                 getAllCarriersQuery = "SELECT id, companyName, loadCapacity, email, phoneNumber FROM carriers ORDER BY companyName";
             }
-            List<string[]> records = dbConn.GetAllRecords(getAllCarriersQuery);
+            List<string[]> records = dbConn.GetRecords(getAllCarriersQuery);
 
             // Double loop reading records
             foreach (string[] record in records)
@@ -176,7 +176,7 @@ namespace CargoFlowMgmt
             INNER JOIN warehouses AS depart ON deliveries.warehouse_origin_id = depart.id
             INNER JOIN warehouses AS dest ON deliveries.warehouse_destination_id = dest.id
             WHERE deliveries.carrier_id = " + id;
-            List<string[]> records = dbConn.GetAllRecords(query);
+            List<string[]> records = dbConn.GetRecords(query);
             string result = "\nLivraisons associées :\n\n";
             foreach (string[] record in records)
             {

@@ -40,11 +40,11 @@
             btnAddUpd = new Button();
             btnCancel = new Button();
             txtPhoneNumber = new TextBox();
-            txtRole = new TextBox();
             lblPhoneNumber = new Label();
             lblRole = new Label();
             lblEmployeeNumber = new Label();
             txtEmployeeNumber = new TextBox();
+            cmbRole = new ComboBox();
             SuspendLayout();
             // 
             // lblTitle
@@ -162,13 +162,6 @@
             txtPhoneNumber.Size = new Size(334, 23);
             txtPhoneNumber.TabIndex = 5;
             // 
-            // txtRole
-            // 
-            txtRole.Location = new Point(433, 315);
-            txtRole.Name = "txtRole";
-            txtRole.Size = new Size(334, 23);
-            txtRole.TabIndex = 6;
-            // 
             // lblPhoneNumber
             // 
             lblPhoneNumber.AutoSize = true;
@@ -195,9 +188,9 @@
             lblEmployeeNumber.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblEmployeeNumber.Location = new Point(246, 357);
             lblEmployeeNumber.Name = "lblEmployeeNumber";
-            lblEmployeeNumber.Size = new Size(156, 21);
+            lblEmployeeNumber.Size = new Size(167, 21);
             lblEmployeeNumber.TabIndex = 15;
-            lblEmployeeNumber.Text = "Numéro d'employé·e";
+            lblEmployeeNumber.Text = "Numéro d'employé·e *";
             // 
             // txtEmployeeNumber
             // 
@@ -206,15 +199,23 @@
             txtEmployeeNumber.Size = new Size(334, 23);
             txtEmployeeNumber.TabIndex = 7;
             // 
+            // cmbRole
+            // 
+            cmbRole.FormattingEnabled = true;
+            cmbRole.Location = new Point(433, 315);
+            cmbRole.Name = "cmbRole";
+            cmbRole.Size = new Size(334, 23);
+            cmbRole.TabIndex = 6;
+            // 
             // FrmAddUpdEmployee
             // 
             BackColor = Color.White;
             ClientSize = new Size(1039, 599);
+            Controls.Add(cmbRole);
             Controls.Add(txtEmployeeNumber);
             Controls.Add(lblEmployeeNumber);
             Controls.Add(lblRole);
             Controls.Add(lblPhoneNumber);
-            Controls.Add(txtRole);
             Controls.Add(txtPhoneNumber);
             Controls.Add(btnCancel);
             Controls.Add(btnAddUpd);
@@ -252,10 +253,10 @@
         private Button btnAddUpd;
         private Button btnCancel;
         private TextBox txtPhoneNumber;
-        private TextBox txtRole;
         private Label lblPhoneNumber;
         private Label lblRole;
         private Label lblEmployeeNumber;
         private TextBox txtEmployeeNumber;
+        private ComboBox cmbRole;
     }
 }

@@ -126,7 +126,7 @@ namespace CargoFlowMgmt
         /// </summary>
         /// <param name="query">The text of the SQL request</param>
         /// <returns>A two-dimensional array containing the records</returns>
-        public List<string[]> GetAllRecords(string query)
+        public List<string[]> GetRecords(string query)
         {
             // Create a SQL command object
             MySqlCommand cmd = connection.CreateCommand();

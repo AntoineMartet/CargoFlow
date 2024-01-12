@@ -13,31 +13,15 @@ namespace CargoFlowForms
 {
     public partial class FrmHome : Form
     {
-        private string email;
-        private string role;
-
-        // Email and role should not be optional in future versions of the software
-        public FrmHome(string email = "", string role = "")
+        public FrmHome()
         {
-            this.email = email;
-            this.role = role;
             InitializeComponent();
-        }
-
-        public string Email
-        {
-            get { return email; }
-        }
-
-        public string Role
-        {
-            get { return role; }
         }
 
         private void FrmHome_Load(object sender, EventArgs e)
         {
-            lblSession.Text = "Utilisateur : " + email;
-            lblSession.Text += "\n\nRôle (niveau d'accès) : " + role;
+            lblSession.Text = "Utilisateur : " + Session.UserMail;
+            lblSession.Text += "\n\nRôle (niveau d'accès) : " + Session.UserRole;
         }
 
         private void btnCarriers_Click(object sender, EventArgs e)

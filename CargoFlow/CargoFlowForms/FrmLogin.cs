@@ -17,24 +17,10 @@ namespace CargoFlowForms
     public partial class FrmLogin : Form
     {
         private DBConnection dbConn;
-        private string email;
-        private string role;
 
         public FrmLogin()
         {
             InitializeComponent();
-        }
-
-        public string Email
-        {
-            get { return email; }
-            private set { email = value; }
-        }
-
-        public string Role
-        {
-            get { return role; }
-            private set { role = value; }
         }
 
         /// <summary>
@@ -45,6 +31,9 @@ namespace CargoFlowForms
             Login();
         }
 
+        /// <summary>
+        /// Trigger the login method when the user presses enter in the email textbox
+        /// </summary>
         private void txtMail_KeyUp(object sender, KeyEventArgs e)
         {
             {
@@ -55,6 +44,9 @@ namespace CargoFlowForms
             }
         }
 
+        /// <summary>
+        /// Trigger the login method when the user presses enter in the password textbox
+        /// </summary>
         private void txtPassword_KeyUp(object sender, KeyEventArgs e)
         {
             {
@@ -88,11 +80,11 @@ namespace CargoFlowForms
 
                 // Initialize email and role object attributes.
                 // They will be used in all the other forms as the login form is always open.
-                this.Email = email;
-                this.Role = role;
+                Session.UserMail = email;
+                Session.UserRole = role;
 
                 // Create and open frmHome and close frmLogin
-                FrmHome frmHome = new FrmHome(this.Email, this.Role);
+                FrmHome frmHome = new FrmHome();
                 frmHome.Show();
                 // Hide the login form. Closing it would close the whole application.
                 this.Hide();

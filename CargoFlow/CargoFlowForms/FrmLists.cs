@@ -15,6 +15,7 @@ namespace CargoFlowForms
     public partial class FrmLists : Form
     {
         private string currentTab;
+        private bool orderByNameAsc;
         private List<Button> tabButtons = new List<Button>();
         private List<Carrier> carriers = new List<Carrier>();
         // CargoFlowMgmt.Client needed instead of Client because of conflict with MySqlX.XDevAPI
@@ -30,6 +31,7 @@ namespace CargoFlowForms
         {
             InitializeComponent();
             this.currentTab = tab;
+            this.orderByNameAsc = false;
             this.tabButtons.Add(btnStock);
             this.tabButtons.Add(btnDeliveries);
             this.tabButtons.Add(btnCarriers);
@@ -62,7 +64,7 @@ namespace CargoFlowForms
                     try
                     {
                         // Get all carriers in DB and fill the DataGridView with them
-                        this.carriers = Carrier.GetCarriers();
+                        this.carriers = Carrier.GetCarriers(null);
                         dgvList.DataSource = carriers;
                         // Rename and set properties of the DGV columns
                         dgvList.Columns["Id"].HeaderText = "ID";
@@ -159,9 +161,19 @@ namespace CargoFlowForms
 
                         if (headerName == "Name")
                         {
-                            //TODO
-                            //Carrier.SortCarriersByName();
-                            MessageBox.Show("Hello");
+                            if (orderByNameAsc == false)
+                            {
+                                // Sort the carriers by name (ascending)
+                                carriers = Carrier.GetCarriers(true);
+                                orderByNameAsc = true;
+                            }
+                            else
+                            {
+                                // Sort the carriers by name (descending)
+                                carriers = Carrier.GetCarriers(false);
+                                orderByNameAsc = false;
+                            }
+                            dgvList.DataSource = carriers;
                         }
                         break;
                     }
@@ -452,7 +464,7 @@ namespace CargoFlowForms
                                     carrierName = (string)selectedRow.Cells["Name"].Value;
 
                                     // Refresh the list of carriers
-                                    carriers = Carrier.GetCarriers();
+                                    carriers = Carrier.GetCarriers(null);
                                     dgvList.DataSource = carriers;
                                 }
                                 break;

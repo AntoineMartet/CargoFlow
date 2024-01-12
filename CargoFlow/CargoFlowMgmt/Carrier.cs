@@ -88,23 +88,48 @@ namespace CargoFlowMgmt
             return infoTable;
         }
 
-        public static List<Carrier> SortCarriersByName()
+        public static List<Carrier> SortCarriersByName(bool asc)
         {
             //TODO : Implement this method
-            List<Carrier> temp = null;
+            List<Carrier> temp = new List<Carrier>();
+            dbConn = new DBConnection();
+            dbConn.OpenConnection();
+            string getAllCarriersQuery;
+            if (asc)
+            {
+                getAllCarriersQuery = "SELECT id, companyName, loadCapacity, email, phoneNumber FROM carriers ORDER BY companyName ASC";
+            }
+            else
+            {
+                getAllCarriersQuery = "SELECT id, companyName, loadCapacity, email, phoneNumber FROM carriers ORDER BY companyName DESC";
+            }
+            List<string[]> records = dbConn.GetAllRecords(getAllCarriersQuery);
             return temp;
         }
 
         /// <summary>
         /// Get all the carriers from the database
         /// </summary>
+        /// <param name="asc">If true, carriers will be sorted by ascending name, if false, they will be sorted by descending name, if null, they will be sorted as in DB</param>
         /// <returns>A list of Carrier objects</returns>
-        public static List<Carrier> GetCarriers()
+        public static List<Carrier> GetCarriers(bool? asc)
         {
             List<Carrier> list = new List<Carrier>();
             dbConn = new DBConnection();
             dbConn.OpenConnection();
-            string getAllCarriersQuery = "SELECT id, companyName, loadCapacity, email, phoneNumber FROM carriers";
+            string getAllCarriersQuery;
+            if (asc != null && asc == true)
+            {
+                getAllCarriersQuery = "SELECT id, companyName, loadCapacity, email, phoneNumber FROM carriers ORDER BY companyName ASC";
+            }
+            else if (asc != null && asc == false)
+            {
+                getAllCarriersQuery = "SELECT id, companyName, loadCapacity, email, phoneNumber FROM carriers ORDER BY companyName DESC";
+            }
+            else
+            {
+                getAllCarriersQuery = "SELECT id, companyName, loadCapacity, email, phoneNumber FROM carriers ORDER BY companyName";
+            }
             List<string[]> records = dbConn.GetAllRecords(getAllCarriersQuery);
 
             // Double loop reading records

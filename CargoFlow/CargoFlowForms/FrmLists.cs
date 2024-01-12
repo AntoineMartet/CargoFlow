@@ -440,16 +440,21 @@ namespace CargoFlowForms
                                 // Prepare the SQL request
                                 string deleteQuery = "DELETE FROM carriers WHERE id = @id";
 
-                                // Execute the SQL request
-                                dbConn.DeleteRecord(deleteQuery, objectId);
-
-                                // Message box to confirm
+                                // Name of the carrier to delete
                                 string carrierName = (string)selectedRow.Cells["Name"].Value;
-                                MessageBox.Show("Le transporteur " + carrierName + " a été supprimé.");
 
-                                // Refresh the list of carriers
-                                this.carriers = Carrier.GetCarriers();
-                                dgvList.DataSource = carriers;
+                                if (MessageBox.Show("Êtes-vous sûr·e de vouloir supprimer le transporteur " + carrierName + "?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                {
+                                    // Execute the SQL request
+                                    dbConn.DeleteRecord(deleteQuery, objectId);
+
+                                    // Message box to confirm
+                                    carrierName = (string)selectedRow.Cells["Name"].Value;
+
+                                    // Refresh the list of carriers
+                                    carriers = Carrier.GetCarriers();
+                                    dgvList.DataSource = carriers;
+                                }
                                 break;
                             }
                         case "btnClients":
@@ -457,17 +462,21 @@ namespace CargoFlowForms
                                 // Prepare the SQL request
                                 string deleteQuery = "DELETE FROM clients WHERE id = @id";
 
-                                // Execute the SQL request
-                                dbConn.DeleteRecord(deleteQuery, objectId);
-                                dbConn.CloseConnection();
-
-                                // Message box to confirm
+                                // Name of the client to delete
                                 string clientName = (string)selectedRow.Cells["LastName"].Value;
-                                MessageBox.Show("Le/la client·e " + clientName + " a été supprimé·e.");
 
-                                // Refresh the list of clients
-                                this.clients = CargoFlowMgmt.Client.GetClients();
-                                dgvList.DataSource = clients;
+                                if (MessageBox.Show("Êtes-vous sûr·e de vouloir supprimer le client " + clientName + "?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                {
+                                    // Execute the SQL request
+                                    dbConn.DeleteRecord(deleteQuery, objectId);
+
+                                    // Message box to confirm
+                                    clientName = (string)selectedRow.Cells["LastName"].Value;
+
+                                    // Refresh the list of carriers
+                                    clients = CargoFlowMgmt.Client.GetClients();
+                                    dgvList.DataSource = clients;
+                                }
                                 break;
                             }
                         case "btnEmployees":
@@ -475,17 +484,21 @@ namespace CargoFlowForms
                                 // Prepare the SQL request
                                 string deleteQuery = "DELETE FROM employees WHERE id = @id";
 
-                                // Execute the SQL request
-                                dbConn.DeleteRecord(deleteQuery, objectId);
-                                dbConn.CloseConnection();
-
-                                // Message box to confirm
+                                // Name of the employee to delete
                                 string employeeName = (string)selectedRow.Cells["LastName"].Value;
-                                MessageBox.Show("L'employé·e " + employeeName + " a été supprimé·e.");
 
-                                // Refresh the list of employees
-                                this.employees = CargoFlowMgmt.Employee.GetEmployees();
-                                dgvList.DataSource = employees;
+                                if (MessageBox.Show("Êtes-vous sûr·e de vouloir supprimer l'employé " + employeeName + "?", "Suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                {
+                                    // Execute the SQL request
+                                    dbConn.DeleteRecord(deleteQuery, objectId);
+
+                                    // Message box to confirm
+                                    employeeName = (string)selectedRow.Cells["LastName"].Value;
+
+                                    // Refresh the list of carriers
+                                    employees = Employee.GetEmployees();
+                                    dgvList.DataSource = employees;
+                                }
                                 break;
                             }
                     }
@@ -493,6 +506,7 @@ namespace CargoFlowForms
                 }
                 catch (Exception ex)
                 {
+                    dbConn.CloseConnection();
                     // Get the selected row
                     DataGridViewRow selectedRow = dgvList.SelectedRows[0];
 

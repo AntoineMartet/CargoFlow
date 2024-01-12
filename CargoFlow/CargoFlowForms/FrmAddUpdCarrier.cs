@@ -53,7 +53,7 @@ namespace CargoFlowForms
                 // Fill the fields with the carrier's data
                 txtName.Text = record[0];
                 txtCapacity.Text = record[1];
-                txtMail.Text = record[2];
+                txtEmail.Text = record[2];
                 txtTel.Text = record[3];
             }
         }
@@ -74,7 +74,7 @@ namespace CargoFlowForms
         /// </summary>
         private void btnAddUpd_Click(object sender, EventArgs e)
         {
-            if (txtName.Text == "" || txtTel.Text == "" || txtMail.Text == "")
+            if (txtName.Text == "" || txtTel.Text == "" || txtEmail.Text == "")
             {
                 MessageBox.Show("Veuillez remplir tous les champs obligatoires.\nLes champs obligatoires sont marqués par des astérisques (*).");
             }
@@ -111,7 +111,11 @@ namespace CargoFlowForms
                     Dictionary<string, string?> queryData = new Dictionary<string, string?>();
                     queryData.Add("@companyName", txtName.Text);
                     queryData.Add("@loadCapacity", capacity.HasValue ? capacity.ToString() : null);
-                    queryData.Add("@email", txtMail.Text);
+                    // Throw exception if the email address is not valid
+                    if (Utilities.CheckEmailaddressFormat(txtEmail.Text))
+                    {
+                        queryData.Add("@email", txtEmail.Text);
+                    }
                     queryData.Add("@phoneNumber", txtTel.Text);
                     if (id != null)
                     {
@@ -143,10 +147,17 @@ namespace CargoFlowForms
                 {
                     MessageBox.Show("Erreur lors de l'ajout du transporteur. Le transporteur " + txtName.Text + " n'a pas pu être ajouté.\n\n" +
                                     "La capacité maximum doit être un nombre entier. Vous pouvez aussi laisser le champ vide.\n\nDétail : \n" + fEx.Message);
+                    dbConn.CloseConnection();
+                }
+                catch (Utilities.EmailaddressException)
+                {
+                    MessageBox.Show("L'adresse mail n'est pas valide.");
+                    dbConn.CloseConnection();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erreur lors de l'ajout du transporteur. Le transporteur " + txtName.Text + " n'a pas pu être ajouté.\n\nDétail : \n" + ex.Message);
+                    dbConn.CloseConnection();
                 }
             }
         }

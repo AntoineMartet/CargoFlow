@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CargoFlowMgmt;
 using System.Security.Cryptography;
+using System.Net.Mail;
 
 namespace CargoFlowForms
 {
@@ -93,7 +94,11 @@ namespace CargoFlowForms
                     Dictionary<string, string?> queryData = new Dictionary<string, string?>();
                     queryData.Add("@lastName", txtLastName.Text);
                     queryData.Add("@firstName", txtFirstName.Text);
-                    queryData.Add("@email", txtEmail.Text);
+                    // Throw exception if the email address is not valid
+                    if (Utilities.CheckEmailaddressFormat(txtEmail.Text))
+                    {
+                        queryData.Add("@email", txtEmail.Text);
+                    }
                     // Create a byte array from input password
                     byte[] pwdBytes = ASCIIEncoding.ASCII.GetBytes(txtPassword.Text);
                     // Compute hash based on input password
@@ -132,10 +137,15 @@ namespace CargoFlowForms
                     frmLists.Show();
                     this.Close();
                 }
-                // When the capacity is not null && not an integer
+                catch (Utilities.EmailaddressException)
+                {
+                    MessageBox.Show("L'adresse mail n'est pas valide.");
+                    dbConn.CloseConnection();
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erreur lors de l'ajout de l'employé·e. L'employé·e " + txtLastName.Text + " n'a pas pu être ajouté·e.\n\nDétail : \n" + ex.Message);
+                    dbConn.CloseConnection();
                 }
             }
         }

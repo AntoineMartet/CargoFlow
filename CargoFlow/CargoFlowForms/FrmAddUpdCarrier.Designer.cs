@@ -35,7 +35,7 @@
             lblCapacity = new Label();
             txtName = new TextBox();
             txtTel = new TextBox();
-            txtMail = new TextBox();
+            txtEmail = new TextBox();
             txtCapacity = new TextBox();
             btnAddUpd = new Button();
             btnCancel = new Button();
@@ -108,10 +108,10 @@
             // 
             // txtMail
             // 
-            txtMail.Location = new Point(433, 195);
-            txtMail.Name = "txtMail";
-            txtMail.Size = new Size(334, 23);
-            txtMail.TabIndex = 3;
+            txtEmail.Location = new Point(433, 195);
+            txtEmail.Name = "txtMail";
+            txtEmail.Size = new Size(334, 23);
+            txtEmail.TabIndex = 3;
             // 
             // txtCapacity
             // 
@@ -155,7 +155,7 @@
             Controls.Add(btnCancel);
             Controls.Add(btnAddUpd);
             Controls.Add(txtCapacity);
-            Controls.Add(txtMail);
+            Controls.Add(txtEmail);
             Controls.Add(txtTel);
             Controls.Add(txtName);
             Controls.Add(lblCapacity);
@@ -183,7 +183,7 @@
         private Label lblCapacity;
         private TextBox txtName;
         private TextBox txtTel;
-        private TextBox txtMail;
+        private TextBox txtEmail;
         private TextBox txtCapacity;
         private Button btnAddUpd;
         private Button btnCancel;

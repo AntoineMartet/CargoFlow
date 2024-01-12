@@ -89,7 +89,10 @@ namespace CargoFlowForms
                     Dictionary<string, string?> queryData = new Dictionary<string, string?>();
                     queryData.Add("@lastName", txtLastName.Text);
                     queryData.Add("@firstName", txtFirstName.Text);
-                    queryData.Add("@email", txtEmail.Text);
+                    if (Utilities.CheckEmailaddressFormat(txtEmail.Text))
+                    {
+                        queryData.Add("@email", txtEmail.Text);
+                    }
                     queryData.Add("@street", txtStreet.Text);
                     queryData.Add("@streetNumber", txtStreetNumber.Text.ToString());
                     queryData.Add("@city", txtCity.Text);
@@ -120,10 +123,15 @@ namespace CargoFlowForms
                     frmLists.Show();
                     this.Close();
                 }
-                // When the capacity is not null && not an integer
+                catch (Utilities.EmailaddressException)
+                {
+                    MessageBox.Show("L'adresse mail n'est pas valide.");
+                    dbConn.CloseConnection();
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erreur lors de l'ajout du client. Le client " + txtLastName.Text + " n'a pas pu être ajouté.\n\nDétail : \n" + ex.Message);
+                    dbConn.CloseConnection();
                 }
             }
         }

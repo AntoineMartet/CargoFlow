@@ -48,7 +48,7 @@ The actual version isn't finished :
 	- Mot de passe : flastname
 - All the users have the same convention for their password : first letter of first name and full last name 
 
-# Screenshot
-![CargoFlow Logo](./assets/img/screenshot_employees_tab.png)
-
+# Screenshots
 ![CargoFlow Logo](./assets/img/screenshot_home_tab.png)
+
+![CargoFlow Logo](./assets/img/screenshot_employees_tab.png)

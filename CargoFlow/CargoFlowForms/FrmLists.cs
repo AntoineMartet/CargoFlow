@@ -298,7 +298,7 @@ namespace CargoFlowForms
                             // Get the selected carrier with his id
                             Carrier? selectedCarrier = carriers.FirstOrDefault(c => c.Id == objectId);
                             // Create and open frmDetails
-                            FrmDetails frmDetails = new FrmDetails(selectedCarrier.ToString(), "Détail du transporteur " + selectedCarrier.Name);
+                            FrmDetails frmDetails = new FrmDetails(selectedCarrier.ToString(), "Détails du transporteur " + selectedCarrier.Name);
                             frmDetails.Show();
                             break;
                         }
@@ -307,7 +307,7 @@ namespace CargoFlowForms
                             // Get the selected client with his id
                             CargoFlowMgmt.Client? selectedClient = clients.FirstOrDefault(c => c.Id == objectId);
                             // Create and open frmDetails
-                            FrmDetails frmDetails = new FrmDetails(selectedClient.ToString(), "Détail du client·e " + selectedClient.LastName);
+                            FrmDetails frmDetails = new FrmDetails(selectedClient.ToString(), "Détails du client·e " + selectedClient.LastName);
                             frmDetails.Show();
                             break;
                         }
@@ -316,7 +316,7 @@ namespace CargoFlowForms
                             // Get the selected employee with his id
                             Employee? selectedEmployee = employees.FirstOrDefault(c => c.Id == objectId);
                             // Create and open frmDetails
-                            FrmDetails frmDetails = new FrmDetails(selectedEmployee.ToString(), "Détail de l'employé·e " + selectedEmployee.LastName);
+                            FrmDetails frmDetails = new FrmDetails(selectedEmployee.ToString(), "Détails de l'employé·e " + selectedEmployee.LastName);
                             frmDetails.Show();
                         }
                         break;

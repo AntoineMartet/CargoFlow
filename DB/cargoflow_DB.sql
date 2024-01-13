@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `carriers` (
 -- Listage des données de la table cargoflow.carriers : ~0 rows (environ)
 INSERT INTO `carriers` (`id`, `companyName`, `loadCapacity`, `email`, `phoneNumber`) VALUES
 	(1, 'FedEx', 500, 'contact@fedex.com', '0041581234567'),
-	(2, 'UPS', 80, 'contact@ups.com', '0041241234567'),
+	(2, 'UPS', NULL, 'contact@ups.com', '0041241234567'),
 	(3, 'DHL', 1600, 'contact@dhl.com', '0041211234567'),
 	(4, 'DPD', 750, 'contact@dpd.com', '0041221234567'),
 	(5, 'Planzer', 900, 'contact@planzer.com', '0041911234567');
@@ -196,7 +196,8 @@ INSERT INTO `employees` (`id`, `lastName`, `firstName`, `email`, `password`, `ph
 	(2, 'Favre', 'Marie', 'marie.favre@email.com', 'd7707bb8440f2e0259acc9d268d25d55', '0041249876543', 'Logistique', 'E1002'),
 	(3, 'Lefevre', 'Olivia', 'olivia.lefevre@email.com', '958ac779033bf364bdf8325d2fe68197', '0041219876543', 'ServiceClient', 'E1003'),
 	(4, 'Leroux', 'Isabelle', 'isabelle.leroux@email.com', '9f210a56e9b96f3bbc4a9b951e3d312a', '0041229876543', 'RH', 'E1004'),
-	(5, 'Moreau', 'Nicolas', 'nicolas.moreau@email.com', '278cc492e0f4a216b219184555fbe107', '0041919876543', 'Marketing', 'E1005');
+	(5, 'Moreau', 'Nicolas', 'nicolas.moreau@email.com', '278cc492e0f4a216b219184555fbe107', '0041919876543', 'Marketing', 'E1005'),
+	(6, 'Ithurbide', 'Julien', 'julien.ithurbide@email.com', 'd653802fcf81704d932fd29462188b3a', '0041915576521', 'Gestionnaire', 'E1006');
 
 -- Listage de la structure de la table cargoflow. warehouses
 CREATE TABLE IF NOT EXISTS `warehouses` (

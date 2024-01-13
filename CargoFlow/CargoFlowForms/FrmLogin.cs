@@ -76,7 +76,7 @@ namespace CargoFlowForms
                 // Get employee role from database
                 string role = dbConn.GetEmployeeRole(email);
 
-                dbConn.CloseConnection();
+                dbConn.CloseConnection(); 
 
                 // Initialize session variables
                 Session.UserMail = email;

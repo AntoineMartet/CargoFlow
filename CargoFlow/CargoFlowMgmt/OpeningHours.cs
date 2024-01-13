@@ -7,7 +7,7 @@ namespace CargoFlowMgmt
 {
     public class OpeningHours
     {
-        string[,] openingHours = new string[7, 3];
+        string[,] openingHours = new string[7, 2];
 
         public OpeningHours(string[,] openingHours)
         {

@@ -45,8 +45,8 @@
   <Class Name="CargoFlowMgmt.Employee">
     <Position X="9.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAACAGAAQCBAgEAkEAAAQBAAAEAAAAAAAAAACAAAAgg=</HashCode>
-      <FileName>Employees.cs</FileName>
+      <HashCode>QAACEGAAQCBAgEAkEAAAQBAAAEAAAAAAAAAACAAAAgg=</HashCode>
+      <FileName>Employee.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CargoFlowMgmt.Client">
@@ -59,16 +59,55 @@
   <Class Name="CargoFlowMgmt.Carrier">
     <Position X="0.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAACACAAASIAAAAkAQAAQAUBAEAEAAAAAAAAAAAAAgA=</HashCode>
+      <HashCode>QAACACAAASAAAAAkAQAAQAUBAEAEAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Carrier.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="CargoFlowMgmt.RoleType">
+  <Class Name="CargoFlowMgmt.DBConnection">
     <Position X="14.5" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="CargoFlowMgmt.DBConnection.WrongLoginException" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>DBConnection.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="CargoFlowMgmt.DBConnection.EmailNotFoundException" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>DBConnection.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAQAAIAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>RoleType.cs</FileName>
+      <HashCode>QAAAAMBAAIAAAAAAAAEBABAAAQAAAAABAAAAAIAAAAA=</HashCode>
+      <FileName>DBConnection.cs</FileName>
     </TypeIdentifier>
-  </Enum>
+  </Class>
+  <Class Name="CargoFlowForms.Session">
+    <Position X="12.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAAQAAAAEA=</HashCode>
+      <FileName>Session.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CargoFlowMgmt.Utilities">
+    <Position X="11" Y="6" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="CargoFlowMgmt.Utilities.EmailaddressException" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Utilities.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Utilities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

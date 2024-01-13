@@ -88,25 +88,6 @@ namespace CargoFlowMgmt
             return infoTable;
         }
 
-        public static List<Carrier> SortCarriersByName(bool asc)
-        {
-            //TODO : Implement this method
-            List<Carrier> temp = new List<Carrier>();
-            dbConn = new DBConnection();
-            dbConn.OpenConnection();
-            string getAllCarriersQuery;
-            if (asc)
-            {
-                getAllCarriersQuery = "SELECT id, companyName, loadCapacity, email, phoneNumber FROM carriers ORDER BY companyName ASC";
-            }
-            else
-            {
-                getAllCarriersQuery = "SELECT id, companyName, loadCapacity, email, phoneNumber FROM carriers ORDER BY companyName DESC";
-            }
-            List<string[]> records = dbConn.GetRecords(getAllCarriersQuery);
-            return temp;
-        }
-
         /// <summary>
         /// Get all the carriers from the database
         /// </summary>
@@ -128,7 +109,7 @@ namespace CargoFlowMgmt
             }
             else
             {
-                getAllCarriersQuery = "SELECT id, companyName, loadCapacity, email, phoneNumber FROM carriers ORDER BY companyName";
+                getAllCarriersQuery = "SELECT id, companyName, loadCapacity, email, phoneNumber FROM carriers";
             }
             List<string[]> records = dbConn.GetRecords(getAllCarriersQuery);
 

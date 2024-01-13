@@ -178,7 +178,6 @@ namespace CargoFlowForms
                         break;
                     }
             }
-            int selectedColumnIndex = e.ColumnIndex;
         }
 
         #region Updates when clicking tabs

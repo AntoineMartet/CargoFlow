@@ -194,7 +194,7 @@ CREATE TABLE IF NOT EXISTS `employees` (
 INSERT INTO `employees` (`id`, `lastName`, `firstName`, `email`, `password`, `phoneNumber`, `role`, `employeeNumber`) VALUES
 	(1, 'Martin', 'Pierre', 'pierre.martin@email.com', '7c4937e9600c11ec07799e3463915c6d', '0041589876543', 'Gestionnaire', 'E1001'),
 	(2, 'Favre', 'Marie', 'marie.favre@email.com', 'd7707bb8440f2e0259acc9d268d25d55', '0041249876543', 'Logistique', 'E1002'),
-	(3, 'Lefevre', 'Olivia', 'olivia.lefevre@email.com', '958ac779033bf364bdf8325d2fe68197', '0041219876543', 'ServiceClient', 'E1003'),
+	(3, 'Lefevre', 'Olivia', 'olivia.lefevre@email.com', '958ac779033bf364bdf8325d2fe68197', '0041219876543', 'Service Client', 'E1003'),
 	(4, 'Leroux', 'Isabelle', 'isabelle.leroux@email.com', '9f210a56e9b96f3bbc4a9b951e3d312a', '0041229876543', 'RH', 'E1004'),
 	(5, 'Moreau', 'Nicolas', 'nicolas.moreau@email.com', '278cc492e0f4a216b219184555fbe107', '0041919876543', 'Marketing', 'E1005'),
 	(6, 'Lastname', 'Firstname', 'firstname.lastname@email.com', '8e6fffd4d1ec982d2d9f8576074a9b2d', '0041915576521', 'Gestionnaire', 'E1006');

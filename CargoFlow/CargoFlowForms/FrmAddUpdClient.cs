@@ -29,7 +29,7 @@ namespace CargoFlowForms
             if (id != null)
             {
                 lblTitle.Text = "Modification d'un client";
-                btnAddUpd.Text = "Modifier le client";
+                btnAddUpd.Text = "Modifier";
 
                 // Open connection to the database
                 dbConn = new DBConnection();

@@ -34,7 +34,7 @@ namespace CargoFlowForms
             if (id != null)
             {
                 lblTitle.Text = "Modification d'un transporteur";
-                btnAddUpd.Text = "Modifier le transporteur";
+                btnAddUpd.Text = "Modifier";
 
                 // Open connection to the database
                 dbConn = new DBConnection();

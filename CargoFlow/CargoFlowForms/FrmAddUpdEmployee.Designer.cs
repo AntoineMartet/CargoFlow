@@ -137,7 +137,7 @@
             btnAddUpd.Name = "btnAddUpd";
             btnAddUpd.Size = new Size(154, 60);
             btnAddUpd.TabIndex = 8;
-            btnAddUpd.Text = "Ajouter l'employé·e";
+            btnAddUpd.Text = "Ajouter";
             btnAddUpd.UseVisualStyleBackColor = false;
             btnAddUpd.Click += btnAddUpd_Click;
             // 

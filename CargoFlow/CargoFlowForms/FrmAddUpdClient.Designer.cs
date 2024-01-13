@@ -136,7 +136,7 @@
             btnAddUpd.Name = "btnAddUpd";
             btnAddUpd.Size = new Size(150, 60);
             btnAddUpd.TabIndex = 8;
-            btnAddUpd.Text = "Ajouter le client";
+            btnAddUpd.Text = "Ajouter";
             btnAddUpd.UseVisualStyleBackColor = false;
             btnAddUpd.Click += btnAddUpd_Click;
             // 

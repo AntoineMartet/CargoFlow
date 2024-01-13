@@ -106,10 +106,10 @@
             txtTel.Size = new Size(334, 23);
             txtTel.TabIndex = 2;
             // 
-            // txtMail
+            // txtEmail
             // 
             txtEmail.Location = new Point(433, 195);
-            txtEmail.Name = "txtMail";
+            txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(334, 23);
             txtEmail.TabIndex = 3;
             // 
@@ -130,7 +130,7 @@
             btnAddUpd.Name = "btnAddUpd";
             btnAddUpd.Size = new Size(150, 60);
             btnAddUpd.TabIndex = 5;
-            btnAddUpd.Text = "Ajouter le transporteur";
+            btnAddUpd.Text = "Ajouter";
             btnAddUpd.UseVisualStyleBackColor = false;
             btnAddUpd.Click += btnAddUpd_Click;
             // 

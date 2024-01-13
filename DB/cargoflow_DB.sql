@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `deliveries` (
   `warehouse_origin_id` int DEFAULT NULL,
   `warehouse_destination_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `Firstname_UNIQUE` (`barcode`),
+  UNIQUE KEY `barcode_UNIQUE` (`barcode`),
   KEY `fk_deliveries_carriers_idx` (`carrier_id`),
   KEY `fk_deliveries_clients_idx` (`client_id`),
   KEY `fk_deliveries_warehouses_origin_idx` (`warehouse_origin_id`),

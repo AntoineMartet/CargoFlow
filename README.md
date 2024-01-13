@@ -1,4 +1,4 @@
-![CargoFlow Logo](cargoflow_01_white_small.png)
+![CargoFlow Logo](./assets/img/cargoflow_01_white_small.png)
 
 CargoFlow is a Windows Form application designed to manage logistics of a middle-sized company. It includes connection to a local database on a MySQL Server.
 
@@ -12,13 +12,14 @@ The actual version isn't finished :
 
 # Setup
 ## Requirements
-- .NET 7.0
 - Visual Studio
 	- Go to https://www.visualstudio.com/downloads
 	- Download the Community version
 	- Execute VisualStudioSetup.exe
+	- Check .NET desktop development and click install
 	- Skip Sign in
 	- Development settings : Visual C#
+- If needed, install .NET 7.0
 - MySQL Server (only tested on 8.0.33)
 	- Go to https://dev.mysql.com/downloads/mysql/
 	- Choose the "MySQL Community Server" for your OS
@@ -41,8 +42,13 @@ The actual version isn't finished :
 - If needed, click on Install when the following component appears : ".NET Desktop Runtime 7.0.x"
 - When confirmation is asked to install CargoFlowForms, click on Install
 
-## How to use
+# How to use
 - Connect as one of the fake users of the database, example :
-	- Email : marie.favre@email.com ;
-	- Mot de passe : mfavre
+	- Email : firstname.lastname@email.com ;
+	- Mot de passe : flastname
 - All the users have the same convention for their password : first letter of first name and full last name 
+
+# Screenshot
+![CargoFlow Logo](./assets/img/screenshot_employees_tab.png)
+
+![CargoFlow Logo](./assets/img/screenshot_home_tab.png)

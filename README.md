@@ -1,15 +1,14 @@
-# CargoFlow
-A Windows Form application to manage logistics of a middle-sized company. Includes connection to a local database on a MySQL Server.
+![CargoFlow Logo](cargoflow_01_white_small.png)
 
-It has been made as a student project at CPNV. The intended public of CargoFlow are the employees of a company that needs to manage its inventory and deliveries on a small to medium scale.
+CargoFlow is a Windows Form application designed to manage logistics of a middle-sized company. It includes connection to a local database on a MySQL Server.
+
+It has been made as a student project at CPNV. The intended public of CargoFlow are the employees of a company who need to manage their inventory and deliveries on a small to medium scale.
 
 The data to manage is stored in a local database. CargoFlow offers its users the possibility to make CRUD operations on most of the database tables.
 
 The actual version isn't finished :
-- CRUD hasn't been implemented for several entities
+- CRUD hasn't been implemented for some entities
 - Sorting columns is working as proof-of-concept only for the column Name of the Carriers
-
-![CargoFlow Logo](cargoflow_01_white_small.png)
 
 # Setup
 ## Requirements

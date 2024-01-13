@@ -183,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `employees` (
   `password` varchar(255) NOT NULL,
   `phoneNumber` varchar(45) NOT NULL,
   `role` varchar(45) NOT NULL,
-  `employeeNumber` varchar(45) DEFAULT NULL,
+  `employeeNumber` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `mail_UNIQUE` (`email`),
   UNIQUE KEY `phoneNumber_UNIQUE` (`phoneNumber`),

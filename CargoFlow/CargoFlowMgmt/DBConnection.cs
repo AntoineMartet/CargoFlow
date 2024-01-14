@@ -15,6 +15,9 @@ namespace CargoFlowMgmt
     {
         private MySqlConnection connection;
 
+        /// <summary>
+        /// Constructor of the DBConnection class
+        /// </summary>
         public DBConnection()
         {
             InitConnection();

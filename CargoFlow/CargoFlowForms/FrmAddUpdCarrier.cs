@@ -19,6 +19,10 @@ namespace CargoFlowForms
         private int? id;
         private DBConnection? dbConn;
 
+        /// <summary>
+        /// Constructor for the FrmAddUpdCarrier class
+        /// </summary>
+        /// <param name="id">The id of the carrier to add or update</param>
         public FrmAddUpdCarrier(int? id)
         {
             this.id = id;

@@ -24,7 +24,7 @@ namespace CargoFlowForms
         private DBConnection? dbConn;
 
         /// <summary>
-        /// Constructor of FrmLists
+        /// Constructor of the FrmLists class
         /// </summary>
         /// <param name="tab">Name of the selected tab button</param>
         public FrmLists(string tab)
@@ -150,6 +150,9 @@ namespace CargoFlowForms
             }
         }
 
+        /// <summary>
+        /// Sort the carriers by name when clicking on the Name header
+        /// </summary>
         private void dgvList_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             switch (currentTab)
@@ -184,8 +187,6 @@ namespace CargoFlowForms
         /// <summary>
         /// Create and open frmHome and close frmLists
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnHome_Click(object sender, EventArgs e)
         {
             FrmHome frmHome = new FrmHome();
@@ -196,8 +197,6 @@ namespace CargoFlowForms
         /// <summary>
         /// Update the DataGridView and the tab colors when clicking on the Stock tab
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnStock_Click(object sender, EventArgs e)
         {
             updateDGV(btnStock.Name);
@@ -207,8 +206,6 @@ namespace CargoFlowForms
         /// <summary>
         /// Update the DataGridView and the tab colors when clicking on the Deliveries tab
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnDeliveries_Click(object sender, EventArgs e)
         {
             updateDGV(btnDeliveries.Name);
@@ -218,8 +215,6 @@ namespace CargoFlowForms
         /// <summary>
         /// Update the DataGridView and the tab colors when clicking on the Carriers tab
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnCarriers_Click(object sender, EventArgs e)
         {
             currentTab = btnCarriers.Name;
@@ -230,8 +225,6 @@ namespace CargoFlowForms
         /// <summary>
         /// Update the DataGridView and the tab colors when clicking on the Clients tab
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnClients_Click(object sender, EventArgs e)
         {
             currentTab = btnClients.Name;
@@ -242,8 +235,6 @@ namespace CargoFlowForms
         /// <summary>
         /// Update the DataGridView and the tab colors when clicking on the Employees tab
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnEmployees_Click(object sender, EventArgs e)
         {
             currentTab = btnEmployees.Name;
@@ -254,8 +245,6 @@ namespace CargoFlowForms
         /// <summary>
         /// Update the DataGridView and the tab colors when clicking on the Warehouses tab
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnWarehouses_Click(object sender, EventArgs e)
         {
             updateDGV(btnWarehouses.Name);
@@ -265,8 +254,6 @@ namespace CargoFlowForms
         /// <summary>
         /// Update the DataGridView and the tab colors when clicking on the Articles tab
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnArticles_Click(object sender, EventArgs e)
         {
             updateDGV(btnArticles.Name);
@@ -278,8 +265,6 @@ namespace CargoFlowForms
         /// <summary>
         /// Open frmDetails corresponding to the selected row
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnDetails_Click(object sender, EventArgs e)
         {
             try
@@ -332,8 +317,6 @@ namespace CargoFlowForms
         /// <summary>
         /// Open frmAddUpd corresponding to the selected tab and close frmLists
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
@@ -369,8 +352,6 @@ namespace CargoFlowForms
         /// <summary>
         /// Open frmAddUpd corresponding to the selected row and close frmLists
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -426,8 +407,6 @@ namespace CargoFlowForms
         /// <summary>
         /// Delete the selected row in the DataGridView and refresh the list of carriers or clients or employees
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgvList.SelectedRows.Count == 1)

@@ -29,51 +29,74 @@ namespace CargoFlowMgmt
             this.warehouse = warehouse;
         }
         
-        // Properties
+        /// <summary>
+        /// Getter for the employee's ID
+        /// </summary>
         public int Id
         {
             get { return id; }
         }
 
+        /// <summary>
+        /// Getter for the employee's last name
+        /// </summary>
         public string LastName
         {
             get { return lastName; }
         }
 
+        /// <summary>
+        /// Getter for the employee's first name
+        /// </summary>
         public string FirstName
         {
             get { return firstName; }
         }
 
+        /// <summary>
+        /// Getter for the employee's email
+        /// </summary>
         public string Email
         {
             get { return email; }
         }
 
+        /// <summary>
+        /// Getter for the employee's phone number
+        /// </summary>
         public string PhoneNumber
         {
             get { return phoneNumber; }
         }
 
+        /// <summary>
+        /// Getter for the employee's role
+        /// </summary>
         public string Role
         {
             get { return role; }
         }
 
+        /// <summary>
+        /// Getter for the employee's number
+        /// </summary>
         public string EmployeeNumber
         {
             get { return employeeNumber; }
         }
 
+        /// <summary>
+        /// Getter for the warehouse where the employee works
+        /// </summary>
         public Warehouse? Warehouse
         {
             get { return warehouse; }
         }
 
         /// <summary>
-        /// Returns a string containing the employee's details
+        /// Produce a string containing the employee's details
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Return a string containing the employee's details</returns>
         public override string ToString()
         {
             string result = "";
@@ -89,7 +112,7 @@ namespace CargoFlowMgmt
         /// <summary>
         /// Returns a dictionary containing the employee's details
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns a dictionary containing the employee's details</returns>
         public Dictionary<string, string?> DetailsTable()
         {
             Dictionary<string, string?> infoTable = new Dictionary<string, string?>();
@@ -106,6 +129,7 @@ namespace CargoFlowMgmt
         /// <summary>
         /// Get all the employees from the database and return them as a list of Employee objects
         /// </summary>
+        /// <returns>Returns a list of Employee objects</returns>
         public static List<Employee> GetEmployees()
         {
             List<Employee> list = new List<Employee>();
@@ -134,6 +158,10 @@ namespace CargoFlowMgmt
             return list;
         }
 
+        /// <summary>
+        /// Get all the employees from the database
+        /// </summary>
+        /// <returns>Return a list of Employee objects</returns>
         public static List<string[]> GetAllRoles()
         {
             // Open connection to the database

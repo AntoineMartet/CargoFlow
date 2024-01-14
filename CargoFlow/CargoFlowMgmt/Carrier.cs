@@ -143,7 +143,7 @@ namespace CargoFlowMgmt
         /// <summary>
         /// Get all the deliveries associated with the carrier in the database
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A string in the form of one paragraph per delivery</returns>
         public string GetDeliveries()
         {
             dbConn = new DBConnection();

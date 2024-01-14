@@ -12,14 +12,16 @@ namespace CargoFlowMgmt
         private Address address;
         private OpeningHours openingHours;
         private List<Article> articles;
+        private List<Employee> employees;
 
-        public Warehouse(int id, string name, Address address, OpeningHours openingHours, List<Article> articles)
+        public Warehouse(int id, string name, Address address, OpeningHours openingHours, List<Article> articles, List<Employee> employees)
         {
             this.id = id;
             this.name = name;
             this.address = address;
             this.openingHours = openingHours;
             this.articles = new List<Article>();
+            this.employees = new List<Employee>();
         }
 
         public int Id
@@ -46,5 +48,11 @@ namespace CargoFlowMgmt
         {
             get { return articles; }
         }
+
+        public List<Employee> Employees
+        {
+            get { return employees; }
+        }
+
     }
 }

@@ -14,9 +14,10 @@ namespace CargoFlowMgmt
         private string phoneNumber;
         private string role;
         private string employeeNumber;
+        private Warehouse? warehouse;
         private static DBConnection? dbConn;
 
-        public Employee(int id, string lastName, string firstName, string email, string phoneNumber, string role, string employeeNumber)
+        public Employee(int id, string lastName, string firstName, string email, string phoneNumber, string role, string employeeNumber, Warehouse? warehouse = null)
         {
             this.id = id;
             this.lastName = lastName;
@@ -25,6 +26,7 @@ namespace CargoFlowMgmt
             this.phoneNumber = phoneNumber;
             this.role = role;
             this.employeeNumber = employeeNumber;
+            this.warehouse = warehouse;
         }
         
         // Properties
@@ -61,6 +63,11 @@ namespace CargoFlowMgmt
         public string EmployeeNumber
         {
             get { return employeeNumber; }
+        }
+
+        public Warehouse? Warehouse
+        {
+            get { return warehouse; }
         }
 
         /// <summary>

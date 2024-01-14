@@ -17,7 +17,7 @@
   <Class Name="CargoFlowMgmt.Warehouse">
     <Position X="5.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgCAAAIAAAAAAAAAAAQAAQAEAIEAAACAAAAAAAAAgA=</HashCode>
+      <HashCode>AAgCAAAIAAAAAAAAAAAYAAQAGAIEAAACAAAAAAAAAgA=</HashCode>
       <FileName>Warehouse.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -45,7 +45,7 @@
   <Class Name="CargoFlowMgmt.Employee">
     <Position X="9.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAACEGAAQCBAgEAkEAAAQBAAAEAAAAAAAAAACAAAAgg=</HashCode>
+      <HashCode>QAACEGAAQCBAgEAkEAAAQBAAAEAAAAAACAAACAgAAgg=</HashCode>
       <FileName>Employee.cs</FileName>
     </TypeIdentifier>
   </Class>

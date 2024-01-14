@@ -86,14 +86,6 @@ namespace CargoFlowMgmt
         }
 
         /// <summary>
-        /// Getter for the warehouse where the employee works
-        /// </summary>
-        public Warehouse? Warehouse
-        {
-            get { return warehouse; }
-        }
-
-        /// <summary>
         /// Produce a string containing the employee's details
         /// </summary>
         /// <returns>Return a string containing the employee's details</returns>

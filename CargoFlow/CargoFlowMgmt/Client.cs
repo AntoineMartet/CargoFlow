@@ -16,7 +16,14 @@ namespace CargoFlowMgmt
         private Address address;
         private static DBConnection? dbConn;
 
-        // Constructor
+        /// <summary>
+        /// Constructor for Client objects
+        /// </summary>
+        /// <param name="id">Id of the client</param>
+        /// <param name="lastName">Last name of the client</param>
+        /// <param name="firstName">First name of the client</param>
+        /// <param name="email">Email address of the client</param>
+        /// <param name="address">Address of the client</param>
         public Client(int id, string lastName, string firstName, string email, Address address)
         {
             this.id = id;
@@ -26,27 +33,41 @@ namespace CargoFlowMgmt
             this.address = address;
         }
 
-        // Properties
+        /// <summary>
+        /// Propertie of id
+        /// </summary>
         public int Id
         {
             get { return id; }
         }
 
+        /// <summary>
+        /// Property of lastName
+        /// </summary>
         public string LastName
         {
             get { return lastName; }
         }
 
+        /// <summary>
+        /// Property of firstName
+        /// </summary>
         public string FirstName
         {
             get { return firstName; }
         }
 
+        /// <summary>
+        /// Property of email
+        /// </summary>
         public string Email
         {
             get { return email; }
         }
 
+        /// <summary>
+        /// Property of address
+        /// </summary>
         public Address Address
         {
             get { return address; }

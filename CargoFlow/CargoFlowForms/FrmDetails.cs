@@ -15,6 +15,11 @@ namespace CargoFlowForms
         private string details;
         private string title;
 
+        /// <summary>
+        /// Constructor for the FrmDetails class
+        /// </summary>
+        /// <param name="details">The text to display</param>
+        /// <param name="title">The title of the form</param>
         public FrmDetails(string details, string title)
         {
             this.details = details;
@@ -22,16 +27,25 @@ namespace CargoFlowForms
             InitializeComponent();
         }
 
-        // Properties
+        /// <summary>
+        /// Details property
+        /// </summary>
         public string Details
         {
             get { return details; }
         }
+
+        /// <summary>
+        /// Title property
+        /// </summary>
         public string Title
         {
             get { return title; }
         }
 
+        /// <summary>
+        /// Fill the title and the details textbox
+        /// </summary>
         private void FrmDetails_Load(object sender, EventArgs e)
         {
             lblTitle.Text = Title;

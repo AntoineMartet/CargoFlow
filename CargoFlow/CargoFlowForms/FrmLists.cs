@@ -76,8 +76,6 @@ namespace CargoFlowForms
                         dgvList.Columns["Email"].Width = 150;
                         dgvList.Columns["PhoneNumber"].HeaderText = "Téléphone";
 
-                        // For each column, add an event when clicked to sort the DGV
-
                     }
                     catch (Exception ex)
                     {

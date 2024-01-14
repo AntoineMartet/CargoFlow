@@ -20,12 +20,19 @@ namespace CargoFlowForms
         private int? id;
         private DBConnection? dbConn;
 
+        /// <summary>
+        /// Constructor for the FrmAddUpdEmployee class
+        /// </summary>
+        /// <param name="id">Id of the employee to add or update</param>
         public FrmAddUpdEmployee(int? id)
         {
             this.id = id;
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Changes labels and fill the fields with the employee's data if we are updating an employee
+        /// </summary>
         private void FrmAddUpdEmployee_Load(object sender, EventArgs e)
         {
             List<string[]> roles = Employee.GetAllRoles();
@@ -68,6 +75,9 @@ namespace CargoFlowForms
             }
         }
 
+        /// <summary>
+        /// Add a new employee or update an existing employee in the database
+        /// </summary>
         private void btnAddUpd_Click(object sender, EventArgs e)
         {
             if (txtLastName.Text == "" || txtFirstName.Text == "" || txtEmail.Text == "" || txtPassword.Text == ""

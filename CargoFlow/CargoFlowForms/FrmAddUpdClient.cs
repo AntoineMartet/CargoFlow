@@ -17,12 +17,21 @@ namespace CargoFlowForms
         private int? id;
         private DBConnection? dbConn;
 
+        /// <summary>
+        /// Constructor for the FrmAddUpdClient class
+        /// </summary>
+        /// <param name="id">Id of the client to add or update</param>
         public FrmAddUpdClient(int? id)
         {
             this.id = id;
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Fill text label and the fields with the client's data if we are updating a client
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmAddUpdClient_Load(object sender, EventArgs e)
         {
             // If we are updating a client, we need to change form's text and fill the fields with the client's data

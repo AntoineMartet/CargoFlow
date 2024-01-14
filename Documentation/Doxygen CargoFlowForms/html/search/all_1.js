@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['details_0',['Details',['../class_cargo_flow_forms_1_1_frm_details.html#a43c407d38bd34870440508e293a70f35',1,'CargoFlowForms::FrmDetails']]],
+  ['dispose_1',['Dispose',['../class_cargo_flow_forms_1_1_frm_add_upd_carrier.html#a1d01f4f061b76fb995c0bf66f2a1cf70',1,'CargoFlowForms.FrmAddUpdCarrier.Dispose()'],['../class_cargo_flow_forms_1_1_frm_add_upd_client.html#ac35a6b5ec11c10df84fb893b735adfc0',1,'CargoFlowForms.FrmAddUpdClient.Dispose()'],['../class_cargo_flow_forms_1_1_frm_add_upd_employee.html#acc2a874c42f4a76fe5eceb487926598f',1,'CargoFlowForms.FrmAddUpdEmployee.Dispose()'],['../class_cargo_flow_forms_1_1_frm_details.html#ae1936b12f234d806bfa848416b3a4744',1,'CargoFlowForms.FrmDetails.Dispose()'],['../class_cargo_flow_forms_1_1_frm_home.html#ac7170f8fbf39123f313a93b355e091b8',1,'CargoFlowForms.FrmHome.Dispose()'],['../class_cargo_flow_forms_1_1_frm_lists.html#a0c5b8b9e52bb82c98e0805b601cf38bc',1,'CargoFlowForms.FrmLists.Dispose()'],['../class_cargo_flow_forms_1_1_frm_login.html#adbc609142e9ec27101c310e1aa533d43',1,'CargoFlowForms.FrmLogin.Dispose()']]]
+];

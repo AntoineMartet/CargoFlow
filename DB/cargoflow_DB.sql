@@ -40,11 +40,11 @@ CREATE TABLE IF NOT EXISTS `articles` (
 
 -- Listage des données de la table cargoflow.articles : ~0 rows (environ)
 INSERT INTO `articles` (`id`, `barcode`, `model`, `brand`, `weight`, `height`, `lenght`, `width`, `price`, `category_id`) VALUES
-	(1, 123456789012, 'Galaxy S21', 'Samsung', 0.2, 15, 7.5, 0.8, 1099.90, 1),
-	(2, 987654321098, 'Slim Fit Jeans', 'Levi\'s', 0.7, 110, 50, 0.5, 79.90, 2),
-	(3, 567890123456, 'Ektorp Sofa', 'IKEA', 25, 80, 200, 100, 999.90, 3),
-	(4, 345678901234, 'Air Zoom Pegasus', 'Nike', 0.5, 12, 30, 10, 129.90, 4),
-	(5, 789012345678, 'Kindle Oasis', 'Amazon', 0.3, 20, 15, 1, 199.90, 5);
+	(1, 1234567890123, 'Galaxy S21', 'Samsung', 0.2, 15, 7.5, 0.8, 1099.90, 1),
+	(2, 9876543210987, 'Slim Fit Jeans', 'Levi\'s', 0.7, 110, 50, 0.5, 79.90, 2),
+	(3, 5678901234567, 'Ektorp Sofa', 'IKEA', 25, 80, 200, 100, 999.90, 3),
+	(4, 3456789012345, 'Air Zoom Pegasus', 'Nike', 0.5, 12, 30, 10, 129.90, 4),
+	(5, 7890123456789, 'Kindle Oasis', 'Amazon', 0.3, 20, 15, 1, 199.90, 5);
 
 -- Listage de la structure de la table cargoflow. carriers
 CREATE TABLE IF NOT EXISTS `carriers` (
@@ -145,13 +145,13 @@ CREATE TABLE IF NOT EXISTS `deliveries` (
 
 -- Listage des données de la table cargoflow.deliveries : ~0 rows (environ)
 INSERT INTO `deliveries` (`id`, `barcode`, `startDate`, `endDate`, `status`, `carrier_id`, `client_id`, `warehouse_origin_id`, `warehouse_destination_id`) VALUES
-	(1, 123456789012, '2023-02-15 10:00:00', '2023-02-18 14:30:00', 'Livré', 1, 1, 1, NULL),
-	(2, 987654321098, '2023-02-16 08:45:00', '2023-02-17 11:15:00', 'En transit', 2, NULL, 2, 3),
-	(3, 567890123456, '2023-02-17 14:20:00', '2023-02-18 18:45:00', 'Planifié', 3, NULL, 3, 5),
-	(4, 345678901234, '2023-02-18 11:30:00', '2023-03-01 16:00:00', 'En transit', 4, 5, 4, NULL),
-	(5, 789012345678, '2023-02-19 09:15:00', '2023-02-26 12:45:00', 'Livré', 5, 2, 5, NULL),
-	(6, 445487789977, '2023-02-15 10:45:00', '2023-03-18 08:00:00', 'Planifié', 1, NULL, 2, 1),
-	(7, 216656787231, '2023-02-14 16:00:00', '2023-05-18 16:30:00', 'Livré', 1, 2, 3, NULL);
+	(1, 1234567890123, '2023-02-15 10:00:00', '2023-02-18 14:30:00', 'Livré', 1, 1, 1, NULL),
+	(2, 9876543210987, '2023-02-16 08:45:00', '2023-02-17 11:15:00', 'En transit', 2, NULL, 2, 3),
+	(3, 5678901234567, '2023-02-17 14:20:00', '2023-02-18 18:45:00', 'Planifié', 3, NULL, 3, 5),
+	(4, 3456789012345, '2023-02-18 11:30:00', '2023-03-01 16:00:00', 'En transit', 4, 5, 4, NULL),
+	(5, 7890123456789, '2023-02-19 09:15:00', '2023-02-26 12:45:00', 'Livré', 5, 2, 5, NULL),
+	(6, 4454877899770, '2023-02-15 10:45:00', '2023-03-18 08:00:00', 'Planifié', 1, NULL, 2, 1),
+	(7, 2166567872316, '2023-02-14 16:00:00', '2023-05-18 16:30:00', 'Livré', 1, 2, 3, NULL);
 
 -- Listage de la structure de la table cargoflow. deliveries_have_articles
 CREATE TABLE IF NOT EXISTS `deliveries_have_articles` (

@@ -38,7 +38,7 @@ The actual version isn't finished :
 	- Then create a user named "CargoFlow Admin" with "Pa$$w0rd" as the password and give him all the rights on the cargoflow database	
 
 ## How to launch
-Method 1 : Open CargoFlow.sln with Visual Studio and build the project
+Method 1 : Open CargoFlow.sln with Visual Studio and build the project <br>
 Method 2 : Go to the path "~\CargoFlow\CargoFlowForms\bin\Debug\net7.0-windows" and execute CargoFlowForms.exe
 
 # How to use

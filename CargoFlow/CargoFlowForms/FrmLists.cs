@@ -83,7 +83,7 @@ namespace CargoFlowForms
                     }
                     break;
                 case "btnClients":
-                    //TODO: put GetClients in a static methhod in Client class
+                  
                     this.clients = CargoFlowMgmt.Client.GetClients();
                     try
                     {

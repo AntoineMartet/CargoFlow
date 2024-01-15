@@ -38,9 +38,10 @@ The actual version isn't finished :
 	- Then create a user named "CargoFlow Admin" with "Pa$$w0rd" as the password and give him all the rights on the cargoflow database	
 
 ## How to launch
-- Execute CargoFlow.exe
-- If needed, click on Install when the following component appears : ".NET Desktop Runtime 7.0.x"
-- When confirmation is asked to install CargoFlowForms, click on Install
+Method 1
+- Open CargoFlow.sln with Visual Studio and build the project
+Method 2
+- Go to the path "~\CargoFlow\CargoFlowForms\bin\Debug\net7.0-windows" and execute CargoFlowForms.exe
 
 # How to use
 - Connect as one of the fake users of the database, example :
